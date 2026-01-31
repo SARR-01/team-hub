@@ -67,7 +67,6 @@
             color: white; font-size: 18px; font-weight: 600;
         }
         
-        /* FIX ISSUE #3: Toast position - always visible at top-right */
         .toast {
             position: fixed; 
             top: 20px; 
@@ -183,7 +182,6 @@
         .btn-primary:hover { transform: translateY(-2px); }
         .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         
-        /* FIX ISSUE #1: Dark theme header visibility */
         .header {
             background: var(--header-bg); 
             border-bottom: 1px solid var(--border-color);
@@ -390,7 +388,7 @@
             margin-bottom: 4px;
             word-break: break-word;
         }
-        .card-actions { display: flex; gap: 6px; }
+        .card-actions { display: flex; gap: 6px; flex-wrap: wrap; }
         
         .btn-icon {
             width: 30px; height: 30px; border: none;
@@ -410,6 +408,8 @@
         .btn-icon.delete:hover { background: #fee2e2; color: #dc2626; }
         .btn-icon.view { background: #dbeafe; color: #1e40af; }
         .btn-icon.view:hover { background: #bfdbfe; }
+        .btn-icon.edit { background: #fef3c7; color: #92400e; }
+        .btn-icon.edit:hover { background: #fde68a; }
         
         .card-description {
             color: var(--text-secondary); 
@@ -501,11 +501,15 @@
             border-radius: 18px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3); 
             width: 100%;
-            max-width: 500px; 
+            max-width: 600px; 
             max-height: 90vh; 
             overflow-y: auto;
             animation: slideUp 0.3s;
             margin: auto;
+        }
+        
+        .modal.large {
+            max-width: 800px;
         }
         
         @keyframes slideUp {
@@ -616,7 +620,6 @@
             color: #374151; font-weight: 600; 
         }
         
-        /* FIX ISSUE #2: File upload UI */
         .file-upload-area {
             border: 2px dashed var(--border-color);
             border-radius: 12px;
@@ -683,6 +686,69 @@
             cursor: pointer;
             font-size: 11px;
             font-weight: 600;
+        }
+        
+        .detail-row {
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .detail-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .detail-value {
+            font-size: 14px;
+            color: var(--text-primary);
+            font-weight: 500;
+            word-break: break-word;
+        }
+        
+        .url-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .url-item {
+            padding: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .url-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 13px;
+            word-break: break-all;
+            flex: 1;
+        }
+        
+        .url-link:hover {
+            text-decoration: underline;
+        }
+        
+        .url-remove {
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
         }
         
         /* Desktop styles */
@@ -901,7 +967,7 @@
 </div>
 
 <div id="modalOverlay" class="modal-overlay hidden">
-    <div class="modal">
+    <div class="modal" id="mainModal">
         <div class="modal-header">
             <h2 class="modal-title" id="modalTitle">Add Item</h2>
             <button class="modal-close" onclick="closeModal()">
@@ -916,18 +982,17 @@
     </div>
 </div>
 
-<div id="docViewModal" class="modal-overlay hidden">
-    <div class="modal">
+<div id="viewModal" class="modal-overlay hidden">
+    <div class="modal large">
         <div class="modal-header">
-            <h2 class="modal-title" id="docViewTitle">Document</h2>
-            <button class="modal-close" onclick="closeDocView()">
+            <h2 class="modal-title" id="viewModalTitle">View Details</h2>
+            <button class="modal-close" onclick="closeViewModal()">
                 <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <div class="modal-body">
-            <div id="docViewContent" style="max-height: 60vh; overflow-y: auto; padding: 16px; background: var(--bg-tertiary); border-radius: 10px; word-break: break-word; white-space: pre-wrap;"></div>
+        <div class="modal-body" id="viewModalContent">
         </div>
     </div>
 </div>
@@ -961,7 +1026,8 @@ let contacts = [];
 let urls = [];
 let users = [];
 let dataListeners = {};
-let selectedFiles = []; // FIX ISSUE #4: Multiple file support
+let selectedFiles = [];
+let tempUrls = []; // For multiple URL input
 
 // ========================================
 // UTILITY FUNCTIONS
@@ -980,7 +1046,7 @@ function showToast(message, type = 'success') {
     if (type === 'error') toast.classList.add('error');
     if (type === 'warning') toast.classList.add('warning');
     toast.classList.remove('hidden');
-    setTimeout(() => toast.classList.add('hidden'), 5000); // FIX ISSUE #3: 5 seconds
+    setTimeout(() => toast.classList.add('hidden'), 5000);
 }
 
 function getCurrentDateTime() {
@@ -1055,7 +1121,6 @@ async function initializeFirebase() {
     try {
         firebase.initializeApp(firebaseConfig);
         database = firebase.database();
-        console.log("✅ Firebase initialized");
         
         await initializeDefaultData();
         setupRealtimeListeners();
@@ -1076,7 +1141,6 @@ async function initializeFirebase() {
         showLoading(false);
         
     } catch (error) {
-        console.error("❌ Firebase error:", error);
         showLoading(false);
         showToast('❌ Error: ' + error.message, 'error');
         document.getElementById('loginPage').classList.remove('hidden');
@@ -1084,92 +1148,51 @@ async function initializeFirebase() {
 }
 
 async function initializeDefaultData() {
-    try {
-        const usersSnapshot = await database.ref('users').once('value');
-        
-        if (!usersSnapshot.exists()) {
-            const defaultUsers = {
-                'admin': {
-                    username: 'admin',
-                    password: 'admin123',
-                    email: 'admin@team.com',
-                    role: 'admin',
-                    createdAt: getCurrentDateTime()
-                },
-                'user1': {
-                    username: 'user1',
-                    password: 'user123',
-                    email: 'user@team.com',
-                    role: 'user',
-                    createdAt: getCurrentDateTime()
-                }
-            };
-            
-            await database.ref('users').set(defaultUsers);
-            console.log("✅ Default users created");
-        }
-    } catch (error) {
-        console.error("Error initializing:", error);
+    const usersSnapshot = await database.ref('users').once('value');
+    
+    if (!usersSnapshot.exists()) {
+        await database.ref('users').set({
+            'admin': { username: 'admin', password: 'admin123', email: 'admin@team.com', role: 'admin', createdAt: getCurrentDateTime() },
+            'user1': { username: 'user1', password: 'user123', email: 'user@team.com', role: 'user', createdAt: getCurrentDateTime() }
+        });
     }
 }
 
-// ========================================
-// REAL-TIME LISTENERS
-// ========================================
 function setupRealtimeListeners() {
     dataListeners.projects = database.ref('projects').on('value', (snapshot) => {
-        const data = snapshot.val();
-        projects = data ? Object.values(data) : [];
-        if (currentUser && currentTab === 'projects') {
-            renderProjects();
-        }
+        projects = snapshot.val() ? Object.values(snapshot.val()) : [];
+        if (currentUser && currentTab === 'projects') renderProjects();
     });
     
     dataListeners.documents = database.ref('documents').on('value', (snapshot) => {
-        const data = snapshot.val();
-        documents = data ? Object.values(data) : [];
-        if (currentUser && currentTab === 'documents') {
-            renderDocuments();
-        }
+        documents = snapshot.val() ? Object.values(snapshot.val()) : [];
+        if (currentUser && currentTab === 'documents') renderDocuments();
     });
     
     dataListeners.contacts = database.ref('contacts').on('value', (snapshot) => {
-        const data = snapshot.val();
-        contacts = data ? Object.values(data) : [];
-        if (currentUser && currentTab === 'contacts') {
-            renderContacts();
-        }
+        contacts = snapshot.val() ? Object.values(snapshot.val()) : [];
+        if (currentUser && currentTab === 'contacts') renderContacts();
     });
     
     dataListeners.urls = database.ref('urls').on('value', (snapshot) => {
-        const data = snapshot.val();
-        urls = data ? Object.values(data) : [];
-        if (currentUser && currentTab === 'urls') {
-            renderUrls();
-        }
+        urls = snapshot.val() ? Object.values(snapshot.val()) : [];
+        if (currentUser && currentTab === 'urls') renderUrls();
     });
     
     dataListeners.users = database.ref('users').on('value', (snapshot) => {
-        const data = snapshot.val();
-        users = data ? Object.values(data) : [];
-        if (currentUser && currentUser.role === 'admin' && currentTab === 'admin') {
-            renderAdmin();
-        }
+        users = snapshot.val() ? Object.values(snapshot.val()) : [];
+        if (currentUser && currentUser.role === 'admin' && currentTab === 'admin') renderAdmin();
     });
 }
 
 function removeRealtimeListeners() {
     Object.keys(dataListeners).forEach(key => {
-        if (dataListeners[key]) {
-            database.ref(key).off('value', dataListeners[key]);
-        }
+        if (dataListeners[key]) database.ref(key).off('value', dataListeners[key]);
     });
     dataListeners = {};
 }
 
-// ========================================
-// AUTHENTICATION
-// ========================================
+// AUTH
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const username = document.getElementById('username').value.trim();
@@ -1186,16 +1209,12 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     
     try {
         const snapshot = await database.ref('users').once('value');
-        const data = snapshot.val();
-        const allUsers = data ? Object.values(data) : [];
-        
+        const allUsers = snapshot.val() ? Object.values(snapshot.val()) : [];
         const user = allUsers.find(u => u.username === username && u.password === password);
         
         if (user) {
             currentUser = { name: user.username, role: user.role, email: user.email };
-            
             await database.ref(`users/${username}/lastLogin`).set(getCurrentDateTime());
-            
             saveSession();
             showDashboard();
             showToast(`✅ Welcome ${user.username}!`);
@@ -1203,7 +1222,6 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             showToast('❌ Invalid credentials', 'error');
         }
     } catch (error) {
-        console.error("Login error:", error);
         showToast('❌ Login failed', 'error');
     } finally {
         loginBtn.disabled = false;
@@ -1220,12 +1238,11 @@ function showDashboard() {
     if (currentUser.role === 'admin') {
         document.getElementById('adminTabBtn').classList.remove('hidden');
     }
-    
     renderContent();
 }
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
-    if (confirm('Are you sure you want to logout?')) {
+    if (confirm('Logout?')) {
         removeRealtimeListeners();
         clearSession();
         showToast('✅ Logged out');
@@ -1240,20 +1257,15 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     }
 });
 
-// ========================================
-// UI FUNCTIONS
-// ========================================
+// UI
 function switchTab(tab) {
     currentTab = tab;
     document.getElementById('searchInput').value = '';
-    
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
-    
     ['projectsContent', 'documentsContent', 'contactsContent', 'urlsContent', 'adminContent'].forEach(id => {
         document.getElementById(id).classList.add('hidden');
     });
-    
     document.getElementById(tab + 'Content').classList.remove('hidden');
     
     if (tab === 'admin') {
@@ -1263,17 +1275,13 @@ function switchTab(tab) {
         const labels = { projects: 'Project', documents: 'Document', contacts: 'Contact', urls: 'URL' };
         document.getElementById('addBtnText').textContent = 'Add ' + labels[tab];
     }
-    
     renderContent();
 }
 
-function performSearch() {
-    renderContent();
-}
+function performSearch() { renderContent(); }
 
 function renderContent() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    
     if (currentTab === 'projects') renderProjects(searchTerm);
     else if (currentTab === 'documents') renderDocuments(searchTerm);
     else if (currentTab === 'contacts') renderContacts(searchTerm);
@@ -1286,18 +1294,20 @@ function canDelete(item) {
     return item.createdBy === currentUser.name || item.uploadedBy === currentUser.name || item.addedBy === currentUser.name;
 }
 
+// RENDER: Projects with VIEW
 function renderProjects(searchTerm = '') {
-    const filtered = projects.filter(p => 
-        p.name.toLowerCase().includes(searchTerm) || 
-        p.description.toLowerCase().includes(searchTerm) ||
-        p.status.toLowerCase().includes(searchTerm)
-    );
-    
-    const html = filtered.length > 0 ? filtered.map(p => `
+    const filtered = projects.filter(p => p.name.toLowerCase().includes(searchTerm) || p.description.toLowerCase().includes(searchTerm));
+    document.getElementById('projectsList').innerHTML = filtered.length > 0 ? filtered.map(p => `
         <div class="card">
             <div class="card-header">
                 <div><div class="card-title">${p.name}</div></div>
                 <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewProject('${p.id}')" title="View">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
                     ${canDelete(p) ? `<button class="btn-icon delete" onclick="deleteItem('project', '${p.id}')">
                         <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -1305,25 +1315,33 @@ function renderProjects(searchTerm = '') {
                     </button>` : ''}
                 </div>
             </div>
-            <p class="card-description">${p.description}</p>
+            <p class="card-description">${p.description.substring(0, 100)}...</p>
             <div class="card-footer">
                 <span class="badge badge-${p.status === 'Active' ? 'green' : p.status === 'Completed' ? 'purple' : 'blue'}">${p.status}</span>
                 <span class="card-meta">${p.createdAt}</span>
             </div>
-            <div class="card-meta" style="margin-top: 10px;">By ${p.createdBy}</div>
         </div>
-    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No projects found</div>';
-    
-    document.getElementById('projectsList').innerHTML = html;
+    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No projects</div>';
 }
 
+function viewProject(id) {
+    const p = projects.find(x => x.id === id);
+    if (!p) return;
+    document.getElementById('viewModalTitle').textContent = 'Project Details';
+    document.getElementById('viewModalContent').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Project Name</div><div class="detail-value">${p.name}</div></div>
+        <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${p.description}</div></div>
+        <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${p.status === 'Active' ? 'green' : p.status === 'Completed' ? 'purple' : 'blue'}">${p.status}</span></div></div>
+        <div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${p.createdBy}</div></div>
+        <div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${p.createdAt}</div></div>
+    `;
+    document.getElementById('viewModal').classList.remove('hidden');
+}
+
+// RENDER: Documents with table view
 function renderDocuments(searchTerm = '') {
-    const filtered = documents.filter(d => 
-        d.name.toLowerCase().includes(searchTerm) || 
-        d.uploadedBy.toLowerCase().includes(searchTerm)
-    );
-    
-    const html = filtered.length > 0 ? filtered.map(d => `
+    const filtered = documents.filter(d => d.name.toLowerCase().includes(searchTerm) || d.uploadedBy.toLowerCase().includes(searchTerm));
+    document.getElementById('documentsList').innerHTML = filtered.length > 0 ? filtered.map(d => `
         <div class="card">
             <div class="card-header">
                 <div><div class="card-title">${d.name}</div></div>
@@ -1341,38 +1359,43 @@ function renderDocuments(searchTerm = '') {
                     </button>` : ''}
                 </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                <p style="font-size: 12px; color: var(--text-secondary);">📄 ${d.fileType || 'Text Document'}</p>
+            <div style="margin-top: 12px;">
+                <p style="font-size: 12px; color: var(--text-secondary);">📄 ${d.files?.length || 0} file(s)</p>
                 <p style="font-size: 12px; color: var(--text-secondary);">👤 ${d.uploadedBy}</p>
             </div>
             <div class="card-meta" style="margin-top: 10px;">${d.uploadedAt}</div>
         </div>
-    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No documents found</div>';
+    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No documents</div>';
+}
+
+function viewDocument(id) {
+    const d = documents.find(x => x.id === id);
+    if (!d) return;
+    document.getElementById('viewModalTitle').textContent = 'Document Details';
+    let filesTable = '<div class="table-container" style="margin-top: 16px;"><table><thead><tr><th>File Name</th><th>Type</th><th>Actions</th></tr></thead><tbody>';
+    (d.files || []).forEach(f => {
+        filesTable += `<tr><td class="bold">${f.name}</td><td>${f.type}</td><td><button class="btn-icon view" onclick="viewFile('${f.content}', '${f.name}')" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></button></td></tr>`;
+    });
+    filesTable += '</tbody></table></div>';
     
-    document.getElementById('documentsList').innerHTML = html;
+    document.getElementById('viewModalContent').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Document Name</div><div class="detail-value">${d.name}</div></div>
+        <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${d.description || 'No description'}</div></div>
+        <div class="detail-row"><div class="detail-label">Uploaded By</div><div class="detail-value">${d.uploadedBy}</div></div>
+        <div class="detail-row"><div class="detail-label">Uploaded At</div><div class="detail-value">${d.uploadedAt}</div></div>
+        ${filesTable}
+    `;
+    document.getElementById('viewModal').classList.remove('hidden');
 }
 
-function viewDocument(docId) {
-    const doc = documents.find(d => d.id === docId);
-    if (!doc) return;
-    
-    document.getElementById('docViewTitle').textContent = doc.name;
-    document.getElementById('docViewContent').textContent = doc.content || 'No content available';
-    document.getElementById('docViewModal').classList.remove('hidden');
+function viewFile(content, name) {
+    alert(`File: ${name}\n\nContent:\n${content.substring(0, 500)}${content.length > 500 ? '...' : ''}`);
 }
 
-function closeDocView() {
-    document.getElementById('docViewModal').classList.add('hidden');
-}
-
+// RENDER: Contacts (view only)
 function renderContacts(searchTerm = '') {
-    const filtered = contacts.filter(c => 
-        c.name.toLowerCase().includes(searchTerm) || 
-        c.email.toLowerCase().includes(searchTerm) ||
-        c.company.toLowerCase().includes(searchTerm)
-    );
-    
-    const html = filtered.length > 0 ? filtered.map(c => `
+    const filtered = contacts.filter(c => c.name.toLowerCase().includes(searchTerm) || c.email.toLowerCase().includes(searchTerm));
+    document.getElementById('contactsList').innerHTML = filtered.length > 0 ? filtered.map(c => `
         <div class="card">
             <div class="card-header">
                 <div>
@@ -1380,35 +1403,50 @@ function renderContacts(searchTerm = '') {
                     <div style="color: var(--text-secondary); font-size: 13px;">${c.company}</div>
                 </div>
                 <div class="card-actions">
-                    ${canDelete(c) ? `<button class="btn-icon delete" onclick="deleteItem('contact', '${c.id}')">
+                    <button class="btn-icon view" onclick="viewContact('${c.id}')" title="View">
                         <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                         </svg>
-                    </button>` : ''}
+                    </button>
                 </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 12px;">
                 <p style="font-size: 12px;">✉️ ${c.email}</p>
                 <p style="font-size: 12px;">📞 ${c.phone}</p>
             </div>
-            <div class="card-meta" style="margin-top: 10px;">${c.createdAt}</div>
         </div>
-    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No contacts found</div>';
-    
-    document.getElementById('contactsList').innerHTML = html;
+    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No contacts</div>';
 }
 
+function viewContact(id) {
+    const c = contacts.find(x => x.id === id);
+    if (!c) return;
+    document.getElementById('viewModalTitle').textContent = 'Contact Details';
+    document.getElementById('viewModalContent').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${c.name}</div></div>
+        <div class="detail-row"><div class="detail-label">Email</div><div class="detail-value">${c.email}</div></div>
+        <div class="detail-row"><div class="detail-label">Phone</div><div class="detail-value">${c.phone}</div></div>
+        <div class="detail-row"><div class="detail-label">Company</div><div class="detail-value">${c.company}</div></div>
+        <div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${c.createdAt}</div></div>
+    `;
+    document.getElementById('viewModal').classList.remove('hidden');
+}
+
+// RENDER: URLs with view & multiple add
 function renderUrls(searchTerm = '') {
-    const filtered = urls.filter(u => 
-        u.title.toLowerCase().includes(searchTerm) || 
-        u.url.toLowerCase().includes(searchTerm)
-    );
-    
-    const html = filtered.length > 0 ? filtered.map(u => `
+    const filtered = urls.filter(u => u.title.toLowerCase().includes(searchTerm) || (u.links && u.links.some(l => l.toLowerCase().includes(searchTerm))));
+    document.getElementById('urlsList').innerHTML = filtered.length > 0 ? filtered.map(u => `
         <div class="card">
             <div class="card-header">
                 <div class="card-title">${u.title}</div>
                 <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewUrl('${u.id}')" title="View">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
                     ${canDelete(u) ? `<button class="btn-icon delete" onclick="deleteItem('url', '${u.id}')">
                         <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -1416,23 +1454,35 @@ function renderUrls(searchTerm = '') {
                     </button>` : ''}
                 </div>
             </div>
-            <a href="${u.url}" target="_blank" style="color: #667eea; text-decoration: none; font-size: 12px; display: block; margin-top: 10px; word-break: break-all;">${u.url}</a>
+            <div style="margin-top: 10px;"><p style="font-size: 12px; color: var(--text-secondary);">🔗 ${u.links?.length || 0} link(s)</p></div>
             <div class="card-meta" style="margin-top: 10px;">${u.createdAt} • ${u.addedBy}</div>
         </div>
-    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No URLs found</div>';
-    
-    document.getElementById('urlsList').innerHTML = html;
+    `).join('') : '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No URLs</div>';
 }
 
+function viewUrl(id) {
+    const u = urls.find(x => x.id === id);
+    if (!u) return;
+    document.getElementById('viewModalTitle').textContent = 'URL Details';
+    let urlList = '<div class="url-list">';
+    (u.links || []).forEach((link, i) => {
+        urlList += `<div class="url-item"><a href="${link}" target="_blank" class="url-link">${link}</a></div>`;
+    });
+    urlList += '</div>';
+    
+    document.getElementById('viewModalContent').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${u.title}</div></div>
+        <div class="detail-row"><div class="detail-label">Added By</div><div class="detail-value">${u.addedBy}</div></div>
+        <div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${u.createdAt}</div></div>
+        <div class="detail-row"><div class="detail-label">URLs</div>${urlList}</div>
+    `;
+    document.getElementById('viewModal').classList.remove('hidden');
+}
+
+// RENDER: Admin with EDIT button
 function renderAdmin(searchTerm = '') {
     if (currentUser.role !== 'admin') return;
-    
-    const filtered = users.filter(u => 
-        u.username.toLowerCase().includes(searchTerm) || 
-        u.email.toLowerCase().includes(searchTerm) ||
-        u.role.toLowerCase().includes(searchTerm)
-    );
-    
+    const filtered = users.filter(u => u.username.toLowerCase().includes(searchTerm) || u.email.toLowerCase().includes(searchTerm));
     document.getElementById('usersList').innerHTML = filtered.map(u => `
         <tr>
             <td class="bold">${u.username}</td>
@@ -1440,11 +1490,18 @@ function renderAdmin(searchTerm = '') {
             <td><span class="badge badge-${u.role === 'admin' ? 'purple' : 'green'}">${u.role}</span></td>
             <td>${u.createdAt}</td>
             <td>
-                ${u.username !== 'admin' ? `<button class="btn-icon delete" onclick="deleteItem('user', '${u.username}')">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                    </svg>
-                </button>` : '<span style="color: var(--text-secondary); font-size: 11px;">Protected</span>'}
+                ${u.username !== 'admin' ? `
+                    <button class="btn-icon edit" onclick="editUser('${u.username}')" title="Edit">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </button>
+                    <button class="btn-icon delete" onclick="deleteItem('user', '${u.username}')">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                ` : '<span style="color: var(--text-secondary); font-size: 11px;">Protected</span>'}
             </td>
         </tr>
     `).join('');
@@ -1455,12 +1512,71 @@ function renderAdmin(searchTerm = '') {
     document.getElementById('statsUsers').textContent = users.length;
 }
 
-// ========================================
-// FIX ISSUE #2 & #4: FILE UPLOAD UI
-// ========================================
+function editUser(username) {
+    const user = users.find(u => u.username === username);
+    if (!user) return;
+    openModal('edit', user);
+}
+
+// MODAL
+function openModal(mode, item = null) {
+    editingItem = item;
+    selectedFiles = [];
+    tempUrls = mode === 'edit' && currentTab === 'urls' && item ? [...(item.links || [])] : [];
+    
+    const modal = document.getElementById('modalOverlay');
+    const title = document.getElementById('modalTitle');
+    const form = document.getElementById('modalForm');
+    const type = currentTab === 'admin' ? 'user' : currentTab.slice(0, -1);
+    title.textContent = (mode === 'edit' ? 'Edit ' : 'Add ') + type.charAt(0).toUpperCase() + type.slice(1);
+    
+    let fields = '';
+    
+    if (type === 'project') {
+        fields = `
+            <div class="form-group"><label>Project Name *</label><input type="text" name="name" value="${item?.name || ''}" required maxlength="100" /></div>
+            <div class="form-group"><label>Description *</label><textarea name="description" required maxlength="500">${item?.description || ''}</textarea></div>
+            <div class="form-group"><label>Status *</label><select name="status"><option ${item?.status === 'Active' ? 'selected' : ''}>Active</option><option ${item?.status === 'In Progress' ? 'selected' : ''}>In Progress</option><option ${item?.status === 'Completed' ? 'selected' : ''}>Completed</option></select></div>
+        `;
+    } else if (type === 'document') {
+        fields = `
+            <div class="form-group"><label>Document Name *</label><input type="text" name="name" required maxlength="100" /></div>
+            <div class="form-group"><label>Description</label><textarea name="description" maxlength="500"></textarea></div>
+            <div class="form-group"><label>Upload Files (Multiple) *</label><div class="file-upload-area" onclick="document.getElementById('fileInput').click()"><div class="file-upload-icon">📁</div><div class="file-upload-text">Click to select files</div><div class="file-upload-hint">All file types supported</div></div><input type="file" id="fileInput" multiple onchange="handleFileSelect(this)" /><div id="filePreviewList"></div></div>
+        `;
+    } else if (type === 'contact') {
+        fields = `
+            <div class="form-group"><label>Name *</label><input type="text" name="name" value="${item?.name || ''}" required /></div>
+            <div class="form-group"><label>Email *</label><input type="email" name="email" value="${item?.email || ''}" required /></div>
+            <div class="form-group"><label>Phone *</label><input type="tel" name="phone" value="${item?.phone || ''}" pattern="[0-9]{10}" required /></div>
+            <div class="form-group"><label>Company *</label><input type="text" name="company" value="${item?.company || ''}" required /></div>
+        `;
+    } else if (type === 'url') {
+        fields = `
+            <div class="form-group"><label>Title *</label><input type="text" name="title" value="${item?.title || ''}" required maxlength="100" /></div>
+            <div class="form-group"><label>URLs</label><div id="urlInputContainer">${renderUrlInputs()}</div><button type="button" class="btn-primary" style="margin-top: 10px;" onclick="addUrlField()">+ Add URL</button></div>
+        `;
+    } else if (type === 'user') {
+        fields = `
+            <div class="form-group"><label>Username *</label><input type="text" name="username" value="${item?.username || ''}" ${mode === 'edit' ? 'readonly' : ''} pattern="[a-zA-Z0-9_]{3,20}" required /></div>
+            <div class="form-group"><label>Email *</label><input type="email" name="email" value="${item?.email || ''}" required /></div>
+            <div class="form-group"><label>Password ${mode === 'edit' ? '' : '*'}</label><input type="password" name="password" minlength="6" ${!item ? 'required' : ''} placeholder="${item ? 'Leave blank to keep' : 'Min 6 chars'}" /></div>
+            <div class="form-group"><label>Role *</label><select name="role"><option value="user" ${item?.role === 'user' ? 'selected' : ''}>User</option><option value="admin" ${item?.role === 'admin' ? 'selected' : ''}>Admin</option></select></div>
+        `;
+    }
+    
+    if (type === 'document') {
+        form.innerHTML = fields + `<div class="modal-buttons"><button type="button" class="btn-submit" onclick="uploadDocument()">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>`;
+    } else {
+        form.innerHTML = fields + `<div class="modal-buttons"><button type="submit" class="btn-submit">${mode === 'edit' ? 'Update' : 'Create'}</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>`;
+        form.onsubmit = (e) => saveItem(e, type, mode);
+    }
+    
+    modal.classList.remove('hidden');
+}
+
 function handleFileSelect(input) {
-    const files = Array.from(input.files);
-    selectedFiles = [...selectedFiles, ...files]; // FIX ISSUE #4: Append to existing
+    selectedFiles = [...selectedFiles, ...Array.from(input.files)];
     renderFilePreview();
 }
 
@@ -1472,233 +1588,69 @@ function removeFile(index) {
 function renderFilePreview() {
     const container = document.getElementById('filePreviewList');
     if (!container) return;
-    
-    if (selectedFiles.length === 0) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    container.innerHTML = `
-        <div class="file-preview-list">
-            ${selectedFiles.map((file, index) => `
-                <div class="file-preview-item">
-                    <span class="file-preview-name">📄 ${file.name}</span>
-                    <button type="button" class="file-preview-remove" onclick="removeFile(${index})">Remove</button>
-                </div>
-            `).join('')}
-        </div>
-    `;
+    container.innerHTML = selectedFiles.length ? `<div class="file-preview-list">${selectedFiles.map((file, i) => `<div class="file-preview-item"><span class="file-preview-name">📄 ${file.name}</span><button type="button" class="file-preview-remove" onclick="removeFile(${i})">Remove</button></div>`).join('')}</div>` : '';
 }
 
-async function uploadMultipleDocuments() {
-    if (selectedFiles.length === 0) {
-        showToast('❌ Please select at least one file', 'error');
+function renderUrlInputs() {
+    return tempUrls.map((url, i) => `<div class="url-item" style="margin-bottom: 8px;"><input type="url" value="${url}" onchange="tempUrls[${i}] = this.value" style="flex: 1; margin-right: 8px;" pattern="https?://.+" required /><button type="button" class="url-remove" onclick="removeUrl(${i})">Remove</button></div>`).join('') + '<div class="url-item"><input type="url" id="newUrl" placeholder="https://example.com" pattern="https?://.+" /></div>';
+}
+
+function addUrlField() {
+    const newUrl = document.getElementById('newUrl')?.value;
+    if (newUrl && validateInput('url', newUrl)) {
+        tempUrls.push(newUrl);
+        document.getElementById('urlInputContainer').innerHTML = renderUrlInputs();
+    } else {
+        showToast('❌ Enter valid URL starting with http://', 'error');
+    }
+}
+
+function removeUrl(index) {
+    tempUrls.splice(index, 1);
+    document.getElementById('urlInputContainer').innerHTML = renderUrlInputs();
+}
+
+async function uploadDocument() {
+    const name = document.querySelector('[name="name"]')?.value;
+    const description = document.querySelector('[name="description"]')?.value || '';
+    
+    if (!name || selectedFiles.length === 0) {
+        showToast('❌ Name and files required', 'error');
         return;
     }
     
-    showLoading(true, `Uploading ${selectedFiles.length} document(s)...`);
+    showLoading(true, 'Uploading...');
     
     try {
-        for (const file of selectedFiles) {
+        const files = await Promise.all(selectedFiles.map(f => new Promise((resolve) => {
             const reader = new FileReader();
-            
-            await new Promise((resolve, reject) => {
-                reader.onload = async (e) => {
-                    const content = e.target.result;
-                    const docId = 'doc_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                    
-                    const docData = {
-                        id: docId,
-                        name: file.name,
-                        content: content,
-                        fileType: file.type || 'text/plain',
-                        uploadedBy: currentUser.name,
-                        uploadedAt: getCurrentDateTime()
-                    };
-                    
-                    await database.ref(`documents/${docId}`).set(docData);
-                    resolve();
-                };
-                
-                reader.onerror = reject;
-                reader.readAsText(file);
-            });
-        }
+            reader.onload = (e) => resolve({ name: f.name, type: f.type, content: e.target.result });
+            reader.readAsText(f);
+        })));
         
-        showToast(`✅ Uploaded ${selectedFiles.length} document(s) successfully`);
-        selectedFiles = [];
+        const docId = 'doc_' + Date.now();
+        await database.ref(`documents/${docId}`).set({
+            id: docId,
+            name: name,
+            description: description,
+            files: files,
+            uploadedBy: currentUser.name,
+            uploadedAt: getCurrentDateTime()
+        });
+        
+        showToast(`✅ Uploaded ${files.length} file(s)`);
         closeModal();
-        
     } catch (error) {
-        console.error("Upload error:", error);
-        showToast('❌ Upload failed: ' + error.message, 'error');
+        showToast('❌ Upload failed', 'error');
     } finally {
         showLoading(false);
     }
-}
-
-// ========================================
-// MODAL FUNCTIONS
-// ========================================
-function openModal(mode, item = null) {
-    if (currentTab === 'admin' && currentUser.role !== 'admin') {
-        showToast('❌ Admin access required', 'error');
-        return;
-    }
-    
-    editingItem = item;
-    selectedFiles = []; // Reset files
-    const modal = document.getElementById('modalOverlay');
-    const title = document.getElementById('modalTitle');
-    const form = document.getElementById('modalForm');
-    
-    const type = currentTab === 'admin' ? 'user' : currentTab.slice(0, -1);
-    title.textContent = (mode === 'edit' ? 'Edit ' : 'Add ') + type.charAt(0).toUpperCase() + type.slice(1);
-    
-    let fields = '';
-    
-    if (type === 'project') {
-        fields = `
-            <div class="form-group">
-                <label>Project Name *</label>
-                <input type="text" name="name" value="${item?.name || ''}" required maxlength="100" />
-            </div>
-            <div class="form-group">
-                <label>Description *</label>
-                <textarea name="description" required maxlength="500">${item?.description || ''}</textarea>
-            </div>
-            <div class="form-group">
-                <label>Status *</label>
-                <select name="status">
-                    <option ${item?.status === 'Active' ? 'selected' : ''}>Active</option>
-                    <option ${item?.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
-                    <option ${item?.status === 'Completed' ? 'selected' : ''}>Completed</option>
-                </select>
-            </div>
-        `;
-    } else if (type === 'document') {
-        // FIX ISSUE #2 & #4: File upload UI
-        if (mode === 'edit') {
-            showToast('⚠️ Document editing not supported', 'warning');
-            return;
-        }
-        fields = `
-            <div class="form-group">
-                <label>Upload Documents (Multiple files supported) *</label>
-                <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
-                    <div class="file-upload-icon">📁</div>
-                    <div class="file-upload-text">Click to select files</div>
-                    <div class="file-upload-hint">Select one or multiple text files</div>
-                </div>
-                <input type="file" id="fileInput" multiple accept=".txt,.md,.json,.csv" onchange="handleFileSelect(this)" />
-                <div id="filePreviewList"></div>
-            </div>
-        `;
-    } else if (type === 'contact') {
-        fields = `
-            <div class="form-group">
-                <label>Name * (letters and spaces only)</label>
-                <input type="text" name="name" value="${item?.name || ''}" pattern="[A-Za-z ]{2,50}" required />
-            </div>
-            <div class="form-group">
-                <label>Email *</label>
-                <input type="email" name="email" value="${item?.email || ''}" required />
-            </div>
-            <div class="form-group">
-                <label>Phone * (10 digits)</label>
-                <input type="tel" name="phone" value="${item?.phone || ''}" pattern="[0-9]{10}" maxlength="10" required />
-            </div>
-            <div class="form-group">
-                <label>Company *</label>
-                <input type="text" name="company" value="${item?.company || ''}" required maxlength="100" />
-            </div>
-        `;
-    } else if (type === 'url') {
-        fields = `
-            <div class="form-group">
-                <label>Title *</label>
-                <input type="text" name="title" value="${item?.title || ''}" required maxlength="100" />
-            </div>
-            <div class="form-group">
-                <label>URL * (must start with http:// or https://)</label>
-                <input type="url" name="url" value="${item?.url || ''}" pattern="https?://.+" required />
-            </div>
-        `;
-    } else if (type === 'user') {
-        fields = `
-            <div class="form-group">
-                <label>Username * (3-20 characters)</label>
-                <input type="text" name="username" value="${item?.username || ''}" pattern="[a-zA-Z0-9_]{3,20}" required />
-            </div>
-            <div class="form-group">
-                <label>Email *</label>
-                <input type="email" name="email" value="${item?.email || ''}" required />
-            </div>
-            <div class="form-group">
-                <label>Password *</label>
-                <input type="password" name="password" minlength="6" ${!item ? 'required' : ''} placeholder="${item ? 'Leave blank to keep current' : 'Min 6 characters'}" />
-            </div>
-            <div class="form-group">
-                <label>Role *</label>
-                <select name="role">
-                    <option value="user" ${item?.role === 'user' ? 'selected' : ''}>User</option>
-                    <option value="admin" ${item?.role === 'admin' ? 'selected' : ''}>Admin</option>
-                </select>
-            </div>
-        `;
-    }
-    
-    if (type === 'document') {
-        form.innerHTML = fields + `
-            <div class="modal-buttons">
-                <button type="button" class="btn-submit" onclick="uploadMultipleDocuments()">Upload</button>
-                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-            </div>
-        `;
-    } else {
-        form.innerHTML = fields + `
-            <div class="modal-buttons">
-                <button type="submit" class="btn-submit">${mode === 'edit' ? 'Update' : 'Create'}</button>
-                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-            </div>
-        `;
-        form.onsubmit = (e) => saveItem(e, type, mode);
-    }
-    
-    modal.classList.remove('hidden');
-}
-
-function closeModal() {
-    document.getElementById('modalOverlay').classList.add('hidden');
-    editingItem = null;
-    selectedFiles = [];
 }
 
 async function saveItem(e, type, mode) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    
-    if (type === 'user' && !validateInput('username', data.username)) {
-        showToast('❌ Invalid username', 'error');
-        return;
-    }
-    if (data.email && !validateInput('email', data.email)) {
-        showToast('❌ Invalid email', 'error');
-        return;
-    }
-    if (data.phone && !validateInput('phone', data.phone)) {
-        showToast('❌ Phone must be 10 digits', 'error');
-        return;
-    }
-    if (data.url && !validateInput('url', data.url)) {
-        showToast('❌ URL must start with http://', 'error');
-        return;
-    }
-    if (data.name && type === 'contact' && !validateInput('name', data.name)) {
-        showToast('❌ Name: letters only', 'error');
-        return;
-    }
     
     showLoading(true, 'Saving...');
     
@@ -1707,60 +1659,35 @@ async function saveItem(e, type, mode) {
         let itemData;
         
         if (type === 'project') {
-            itemData = {
-                ...data,
-                id: itemId,
-                createdBy: mode === 'edit' ? editingItem.createdBy : currentUser.name,
-                createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime()
-            };
+            itemData = { ...data, id: itemId, createdBy: mode === 'edit' ? editingItem.createdBy : currentUser.name, createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime() };
             await database.ref(`projects/${itemId}`).set(itemData);
-            
         } else if (type === 'contact') {
-            itemData = {
-                ...data,
-                id: itemId,
-                createdBy: currentUser.name,
-                createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime()
-            };
+            itemData = { ...data, id: itemId, createdBy: currentUser.name, createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime() };
             await database.ref(`contacts/${itemId}`).set(itemData);
-            
         } else if (type === 'url') {
-            itemData = {
-                ...data,
-                id: itemId,
-                addedBy: currentUser.name,
-                createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime()
-            };
+            if (tempUrls.length === 0) {
+                showToast('❌ Add at least one URL', 'error');
+                showLoading(false);
+                return;
+            }
+            itemData = { id: itemId, title: data.title, links: tempUrls, addedBy: currentUser.name, createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime() };
             await database.ref(`urls/${itemId}`).set(itemData);
-            
         } else if (type === 'user') {
-            const username = data.username;
-            
             if (mode !== 'edit') {
-                const existing = users.find(u => u.username === username);
+                const existing = users.find(u => u.username === data.username);
                 if (existing) {
                     showToast('❌ Username exists', 'error');
                     showLoading(false);
                     return;
                 }
             }
-            
-            itemData = {
-                username: data.username,
-                email: data.email,
-                password: data.password || editingItem?.password,
-                role: data.role,
-                createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime()
-            };
-            
-            await database.ref(`users/${username}`).set(itemData);
+            itemData = { username: data.username, email: data.email, password: data.password || editingItem?.password, role: data.role, createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime() };
+            await database.ref(`users/${data.username}`).set(itemData);
         }
         
         showToast(`✅ ${type.charAt(0).toUpperCase() + type.slice(1)} ${mode === 'edit' ? 'updated' : 'created'}`);
         closeModal();
-        
     } catch (error) {
-        console.error("Save error:", error);
         showToast('❌ Error: ' + error.message, 'error');
     } finally {
         showLoading(false);
@@ -1771,34 +1698,34 @@ async function deleteItem(type, id) {
     if (!confirm(`Delete this ${type}?`)) return;
     
     const item = (type === 'project' ? projects : type === 'document' ? documents : type === 'contact' ? contacts : type === 'url' ? urls : []).find(i => i.id === id);
-    
     if (!item || !canDelete(item)) {
-        showToast('❌ You can only delete your own items', 'error');
+        showToast('❌ Cannot delete', 'error');
         return;
     }
     
     showLoading(true, 'Deleting...');
-    
     try {
-        const path = type === 'user' ? `users/${id}` : `${type}s/${id}`;
-        await database.ref(path).remove();
-        showToast(`✅ Deleted ${type}`);
+        await database.ref(`${type}s/${id}`).remove();
+        showToast(`✅ Deleted`);
     } catch (error) {
-        console.error("Delete error:", error);
-        showToast('❌ Error: ' + error.message, 'error');
+        showToast('❌ Error', 'error');
     } finally {
         showLoading(false);
     }
 }
 
-// ========================================
-// INITIALIZATION
-// ========================================
-window.addEventListener('load', () => {
-    console.log("🔥 Starting Team Hub...");
-    initializeFirebase();
-});
+function closeModal() {
+    document.getElementById('modalOverlay').classList.add('hidden');
+    editingItem = null;
+    selectedFiles = [];
+    tempUrls = [];
+}
 
+function closeViewModal() {
+    document.getElementById('viewModal').classList.add('hidden');
+}
+
+window.addEventListener('load', initializeFirebase);
 window.addEventListener('beforeunload', (e) => {
     if (currentUser) {
         e.preventDefault();
