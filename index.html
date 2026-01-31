@@ -17,6 +17,8 @@
             --border-color: #e5e7eb;
             --card-bg: #ffffff;
             --input-bg: #ffffff;
+            --header-bg: #ffffff;
+            --header-text: #1f2937;
         }
         
         [data-theme="dark"] {
@@ -28,6 +30,8 @@
             --border-color: #374151;
             --card-bg: #374151;
             --input-bg: #4b5563;
+            --header-bg: #1f2937;
+            --header-text: #f9fafb;
         }
         
         body {
@@ -63,12 +67,20 @@
             color: white; font-size: 18px; font-weight: 600;
         }
         
+        /* FIX ISSUE #3: Toast position - always visible at top-right */
         .toast {
-            position: fixed; top: 20px; right: 20px;
+            position: fixed; 
+            top: 20px; 
+            right: 20px;
             background: linear-gradient(135deg, #10b981, #059669);
-            color: white; padding: 16px 24px; border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 10000;
-            animation: slideIn 0.3s; font-weight: 600; max-width: 90vw;
+            color: white; 
+            padding: 16px 24px; 
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+            z-index: 10001;
+            animation: slideIn 0.3s; 
+            font-weight: 600; 
+            max-width: 90vw;
             word-wrap: break-word;
         }
         
@@ -171,8 +183,9 @@
         .btn-primary:hover { transform: translateY(-2px); }
         .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         
+        /* FIX ISSUE #1: Dark theme header visibility */
         .header {
-            background: var(--bg-primary); 
+            background: var(--header-bg); 
             border-bottom: 1px solid var(--border-color);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
             position: sticky; top: 0; z-index: 40;
@@ -195,7 +208,8 @@
         
         .header-title h1 { 
             font-size: clamp(16px, 4vw, 22px); 
-            margin: 0; text-align: left; 
+            margin: 0; text-align: left;
+            color: var(--header-text);
         }
         .header-title p { 
             font-size: clamp(10px, 2.5vw, 12px); 
@@ -226,7 +240,8 @@
         }
         .user-name { 
             font-weight: 600; 
-            font-size: clamp(12px, 3vw, 14px); 
+            font-size: clamp(12px, 3vw, 14px);
+            color: var(--header-text);
         }
         .user-role { 
             font-size: clamp(9px, 2vw, 11px); 
@@ -601,30 +616,73 @@
             color: #374151; font-weight: 600; 
         }
         
-        .file-upload {
+        /* FIX ISSUE #2: File upload UI */
+        .file-upload-area {
             border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 30px 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
-        }
-        
-        .file-upload:hover {
-            border-color: #667eea;
             background: var(--bg-tertiary);
         }
         
-        .file-upload input {
+        .file-upload-area:hover {
+            border-color: #667eea;
+            background: var(--bg-secondary);
+        }
+        
+        .file-upload-area input {
             display: none;
         }
         
-        .file-preview {
-            margin-top: 10px;
-            padding: 10px;
+        .file-upload-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+        
+        .file-upload-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .file-upload-hint {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .file-preview-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .file-preview-item {
+            padding: 12px;
             background: var(--bg-tertiary);
             border-radius: 8px;
-            font-size: clamp(11px, 3vw, 12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .file-preview-name {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .file-preview-remove {
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
         }
         
         /* Desktop styles */
@@ -869,7 +927,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <div id="docViewContent" style="max-height: 60vh; overflow-y: auto; padding: 16px; background: var(--bg-tertiary); border-radius: 10px; word-break: break-word;"></div>
+            <div id="docViewContent" style="max-height: 60vh; overflow-y: auto; padding: 16px; background: var(--bg-tertiary); border-radius: 10px; word-break: break-word; white-space: pre-wrap;"></div>
         </div>
     </div>
 </div>
@@ -903,7 +961,7 @@ let contacts = [];
 let urls = [];
 let users = [];
 let dataListeners = {};
-let currentDocFile = null;
+let selectedFiles = []; // FIX ISSUE #4: Multiple file support
 
 // ========================================
 // UTILITY FUNCTIONS
@@ -922,7 +980,7 @@ function showToast(message, type = 'success') {
     if (type === 'error') toast.classList.add('error');
     if (type === 'warning') toast.classList.add('warning');
     toast.classList.remove('hidden');
-    setTimeout(() => toast.classList.add('hidden'), 4000);
+    setTimeout(() => toast.classList.add('hidden'), 5000); // FIX ISSUE #3: 5 seconds
 }
 
 function getCurrentDateTime() {
@@ -961,7 +1019,7 @@ function validateInput(type, value) {
 }
 
 // ========================================
-// SESSION PERSISTENCE (FIX ISSUE #2)
+// SESSION PERSISTENCE
 // ========================================
 function saveSession() {
     if (currentUser) {
@@ -1008,7 +1066,6 @@ async function initializeFirebase() {
             document.getElementById('themeIcon').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
         }
         
-        // Check for existing session
         if (loadSession()) {
             showDashboard();
             showToast('✅ Session restored');
@@ -1224,7 +1281,6 @@ function renderContent() {
     else if (currentTab === 'admin') renderAdmin(searchTerm);
 }
 
-// FIX ISSUE #4: User-specific delete permissions
 function canDelete(item) {
     if (currentUser.role === 'admin') return true;
     return item.createdBy === currentUser.name || item.uploadedBy === currentUser.name || item.addedBy === currentUser.name;
@@ -1261,7 +1317,6 @@ function renderProjects(searchTerm = '') {
     document.getElementById('projectsList').innerHTML = html;
 }
 
-// FIX ISSUE #3: Document preview
 function renderDocuments(searchTerm = '') {
     const filtered = documents.filter(d => 
         d.name.toLowerCase().includes(searchTerm) || 
@@ -1287,7 +1342,7 @@ function renderDocuments(searchTerm = '') {
                 </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                <p style="font-size: 12px; color: var(--text-secondary);">📄 ${d.fileType || 'Document'}</p>
+                <p style="font-size: 12px; color: var(--text-secondary);">📄 ${d.fileType || 'Text Document'}</p>
                 <p style="font-size: 12px; color: var(--text-secondary);">👤 ${d.uploadedBy}</p>
             </div>
             <div class="card-meta" style="margin-top: 10px;">${d.uploadedAt}</div>
@@ -1302,7 +1357,7 @@ function viewDocument(docId) {
     if (!doc) return;
     
     document.getElementById('docViewTitle').textContent = doc.name;
-    document.getElementById('docViewContent').textContent = doc.content || 'No preview available';
+    document.getElementById('docViewContent').textContent = doc.content || 'No content available';
     document.getElementById('docViewModal').classList.remove('hidden');
 }
 
@@ -1401,6 +1456,88 @@ function renderAdmin(searchTerm = '') {
 }
 
 // ========================================
+// FIX ISSUE #2 & #4: FILE UPLOAD UI
+// ========================================
+function handleFileSelect(input) {
+    const files = Array.from(input.files);
+    selectedFiles = [...selectedFiles, ...files]; // FIX ISSUE #4: Append to existing
+    renderFilePreview();
+}
+
+function removeFile(index) {
+    selectedFiles.splice(index, 1);
+    renderFilePreview();
+}
+
+function renderFilePreview() {
+    const container = document.getElementById('filePreviewList');
+    if (!container) return;
+    
+    if (selectedFiles.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+    
+    container.innerHTML = `
+        <div class="file-preview-list">
+            ${selectedFiles.map((file, index) => `
+                <div class="file-preview-item">
+                    <span class="file-preview-name">📄 ${file.name}</span>
+                    <button type="button" class="file-preview-remove" onclick="removeFile(${index})">Remove</button>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+async function uploadMultipleDocuments() {
+    if (selectedFiles.length === 0) {
+        showToast('❌ Please select at least one file', 'error');
+        return;
+    }
+    
+    showLoading(true, `Uploading ${selectedFiles.length} document(s)...`);
+    
+    try {
+        for (const file of selectedFiles) {
+            const reader = new FileReader();
+            
+            await new Promise((resolve, reject) => {
+                reader.onload = async (e) => {
+                    const content = e.target.result;
+                    const docId = 'doc_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    
+                    const docData = {
+                        id: docId,
+                        name: file.name,
+                        content: content,
+                        fileType: file.type || 'text/plain',
+                        uploadedBy: currentUser.name,
+                        uploadedAt: getCurrentDateTime()
+                    };
+                    
+                    await database.ref(`documents/${docId}`).set(docData);
+                    resolve();
+                };
+                
+                reader.onerror = reject;
+                reader.readAsText(file);
+            });
+        }
+        
+        showToast(`✅ Uploaded ${selectedFiles.length} document(s) successfully`);
+        selectedFiles = [];
+        closeModal();
+        
+    } catch (error) {
+        console.error("Upload error:", error);
+        showToast('❌ Upload failed: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+// ========================================
 // MODAL FUNCTIONS
 // ========================================
 function openModal(mode, item = null) {
@@ -1410,6 +1547,7 @@ function openModal(mode, item = null) {
     }
     
     editingItem = item;
+    selectedFiles = []; // Reset files
     const modal = document.getElementById('modalOverlay');
     const title = document.getElementById('modalTitle');
     const form = document.getElementById('modalForm');
@@ -1439,28 +1577,21 @@ function openModal(mode, item = null) {
             </div>
         `;
     } else if (type === 'document') {
+        // FIX ISSUE #2 & #4: File upload UI
         if (mode === 'edit') {
             showToast('⚠️ Document editing not supported', 'warning');
             return;
         }
         fields = `
             <div class="form-group">
-                <label>Document Name *</label>
-                <input type="text" name="name" required maxlength="100" placeholder="e.g., Project Brief" />
-            </div>
-            <div class="form-group">
-                <label>Document Content *</label>
-                <textarea name="content" required maxlength="5000" placeholder="Enter document content..."></textarea>
-            </div>
-            <div class="form-group">
-                <label>File Type</label>
-                <select name="fileType">
-                    <option>Text Document</option>
-                    <option>Report</option>
-                    <option>Specification</option>
-                    <option>Meeting Notes</option>
-                    <option>Other</option>
-                </select>
+                <label>Upload Documents (Multiple files supported) *</label>
+                <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                    <div class="file-upload-icon">📁</div>
+                    <div class="file-upload-text">Click to select files</div>
+                    <div class="file-upload-hint">Select one or multiple text files</div>
+                </div>
+                <input type="file" id="fileInput" multiple accept=".txt,.md,.json,.csv" onchange="handleFileSelect(this)" />
+                <div id="filePreviewList"></div>
             </div>
         `;
     } else if (type === 'contact') {
@@ -1517,21 +1648,30 @@ function openModal(mode, item = null) {
         `;
     }
     
-    form.innerHTML = fields + `
-        <div class="modal-buttons">
-            <button type="submit" class="btn-submit">${mode === 'edit' ? 'Update' : 'Create'}</button>
-            <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-        </div>
-    `;
+    if (type === 'document') {
+        form.innerHTML = fields + `
+            <div class="modal-buttons">
+                <button type="button" class="btn-submit" onclick="uploadMultipleDocuments()">Upload</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        `;
+    } else {
+        form.innerHTML = fields + `
+            <div class="modal-buttons">
+                <button type="submit" class="btn-submit">${mode === 'edit' ? 'Update' : 'Create'}</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        `;
+        form.onsubmit = (e) => saveItem(e, type, mode);
+    }
     
-    form.onsubmit = (e) => saveItem(e, type, mode);
     modal.classList.remove('hidden');
 }
 
 function closeModal() {
     document.getElementById('modalOverlay').classList.add('hidden');
     editingItem = null;
-    currentDocFile = null;
+    selectedFiles = [];
 }
 
 async function saveItem(e, type, mode) {
@@ -1574,17 +1714,6 @@ async function saveItem(e, type, mode) {
                 createdAt: mode === 'edit' ? editingItem.createdAt : getCurrentDateTime()
             };
             await database.ref(`projects/${itemId}`).set(itemData);
-            
-        } else if (type === 'document') {
-            itemData = {
-                id: itemId,
-                name: data.name,
-                content: data.content,
-                fileType: data.fileType,
-                uploadedBy: currentUser.name,
-                uploadedAt: getCurrentDateTime()
-            };
-            await database.ref(`documents/${itemId}`).set(itemData);
             
         } else if (type === 'contact') {
             itemData = {
@@ -1670,7 +1799,6 @@ window.addEventListener('load', () => {
     initializeFirebase();
 });
 
-// Prevent accidental close
 window.addEventListener('beforeunload', (e) => {
     if (currentUser) {
         e.preventDefault();
