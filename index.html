@@ -43,6 +43,165 @@
     margin-top: 8px;
 }
 
+/* Home page clickable cards */
+.home-card {
+    cursor: pointer;
+    transition: all .3s;
+}
+.home-card:hover {
+    box-shadow: 0 8px 25px rgba(102,126,234,.25);
+    transform: translateY(-3px);
+    border-color: var(--primary);
+}
+
+/* Pro Notes Styles */
+.note-card {
+    position: relative;
+    transition: all .3s;
+}
+.note-card.pinned {
+    border-left: 4px solid var(--warning);
+}
+.note-card.private {
+    border-left: 4px solid var(--danger);
+}
+.note-card.favorite {
+    box-shadow: 0 0 0 2px #fbbf24;
+}
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.note-badges {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+.note-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.note-badge.pinned { background: #fef3c7; color: #92400e; }
+.note-badge.private { background: #fee2e2; color: #991b1b; }
+.note-badge.favorite { background: #fef9c3; color: #854d0e; }
+[data-theme="dark"] .note-badge.pinned { background: #451a03; color: #fcd34d; }
+[data-theme="dark"] .note-badge.private { background: #450a0a; color: #fca5a5; }
+[data-theme="dark"] .note-badge.favorite { background: #422006; color: #fde047; }
+
+.note-actions-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+.note-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: all .2s;
+}
+.note-action-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+.note-action-btn.active {
+    color: var(--primary);
+    background: rgba(102,126,234,.1);
+}
+
+/* Formatting Toolbar */
+.formatting-toolbar {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.format-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all .2s;
+}
+.format-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+.format-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Note Content Styling */
+.note-content-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+.note-content-preview h1, .note-content-preview h2, .note-content-preview h3 {
+    font-size: 14px;
+    margin: 4px 0;
+}
+.note-content-preview ul, .note-content-preview ol {
+    margin: 4px 0;
+    padding-left: 16px;
+}
+.note-content-preview code {
+    background: var(--bg-tertiary);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 12px;
+}
+.note-content-preview blockquote {
+    border-left: 3px solid var(--primary);
+    padding-left: 8px;
+    margin: 4px 0;
+    color: var(--text-secondary);
+}
+
+/* Note View Modal */
+.note-view-content {
+    background: var(--bg-tertiary);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+.note-view-content h1 { font-size: 20px; margin: 12px 0 8px; }
+.note-view-content h2 { font-size: 18px; margin: 10px 0 6px; }
+.note-view-content h3 { font-size: 16px; margin: 8px 0 4px; }
+.note-view-content ul, .note-view-content ol { margin: 8px 0; padding-left: 24px; }
+.note-view-content code { background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; }
+.note-view-content pre { background: var(--bg-secondary); padding: 12px; border-radius: 8px; overflow-x: auto; }
+.note-view-content blockquote { border-left: 4px solid var(--primary); padding-left: 12px; margin: 8px 0; color: var(--text-secondary); }
+.note-view-content strong { font-weight: 600; }
+.note-view-content em { font-style: italic; }
+.note-view-content u { text-decoration: underline; }
+
 /* File preview modal */
 .file-preview {
     max-width: 100%;
@@ -192,6 +351,270 @@ const downloadFile = (filename, content) => {
     showToast('✅ Download started');
 };
 
+// Format note content preview (convert markdown-like syntax to HTML)
+const formatNoteContentPreview = (content) => {
+    if (!content) return '';
+    let html = escapeHtml(content);
+    
+    // Headers
+    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+    
+    // Bold, Italic, Underline
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/__(.+?)__/g, '<u>$1</u>');
+    
+    // Code
+    html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+    
+    // Lists
+    html = html.replace(/^- (.+)$/gm, '• $1');
+    html = html.replace(/^\d+\. (.+)$/gm, '$1. $2');
+    
+    // Blockquote
+    html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+    
+    return html;
+};
+
+// Full format note content for viewing
+const formatNoteContent = (content) => {
+    if (!content) return '';
+    let html = escapeHtml(content);
+    
+    // Headers
+    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+    
+    // Bold, Italic, Underline
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/__(.+?)__/g, '<u>$1</u>');
+    
+    // Code inline
+    html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+    
+    // Code blocks
+    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    
+    // Lists
+    html = html.replace(/((?:^- .+\n?)+)/gm, (match) => {
+        const items = match.trim().split('\n').map(line => `<li>${line.substring(2)}</li>`).join('');
+        return `<ul>${items}</ul>`;
+    });
+    
+    html = html.replace(/((?:^\d+\. .+\n?)+)/gm, (match) => {
+        const items = match.trim().split('\n').map(line => `<li>${line.replace(/^\d+\. /, '')}</li>`).join('');
+        return `<ol>${items}</ol>`;
+    });
+    
+    // Blockquote
+    html = html.replace(/((?:^> .+\n?)+)/gm, (match) => {
+        const text = match.trim().split('\n').map(line => line.substring(2)).join('<br>');
+        return `<blockquote>${text}</blockquote>`;
+    });
+    
+    // Line breaks
+    html = html.replace(/\n/g, '<br>');
+    
+    return html;
+};
+
+// Toggle note pin status
+const toggleNotePin = async (id) => {
+    showLoading(true, 'Updating...');
+    try {
+        const note = data.notes.find(n => n.id === id);
+        await db.ref(`notes/${id}`).update({ isPinned: !note.isPinned });
+        showToast(note.isPinned ? '📌 Note unpinned' : '📌 Note pinned');
+    } catch (error) {
+        showToast('❌ Error: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+};
+
+// Toggle note favorite status
+const toggleNoteFavorite = async (id) => {
+    showLoading(true, 'Updating...');
+    try {
+        const note = data.notes.find(n => n.id === id);
+        await db.ref(`notes/${id}`).update({ isFavorite: !note.isFavorite });
+        showToast(note.isFavorite ? '⭐ Removed from favorites' : '⭐ Added to favorites');
+    } catch (error) {
+        showToast('❌ Error: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+};
+
+// View note with Pro features
+const viewNotePro = (note) => {
+    const modal = document.getElementById('modalBody');
+    const formattedContent = formatNoteContent(note.content);
+    
+    modal.innerHTML = `
+        <div class="detail-row">
+            <div class="detail-label">Title</div>
+            <div class="detail-value" style="font-size:18px; font-weight:600;">${note.title}</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Category</div>
+            <div class="detail-value"><span class="badge badge-blue">${note.category || 'General'}</span></div>
+        </div>
+        ${note.isPrivate ? '<div class="detail-row"><div class="detail-label">Privacy</div><div class="detail-value"><span class="badge badge-red">🔒 Private</span></div></div>' : ''}
+        <div class="detail-row">
+            <div class="detail-label">Content</div>
+        </div>
+        <div class="note-view-content">${formattedContent}</div>
+        <div class="detail-row">
+            <div class="detail-label">Created By</div>
+            <div class="detail-value">${note.createdBy}</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Created At</div>
+            <div class="detail-value">${note.createdAt}</div>
+        </div>
+        ${note.createdBy === currentUser.name ? `
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick='editNotePro(${JSON.stringify(note).replace(/'/g, "&apos;")})'>✏️ Edit</button>
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+            </div>
+        ` : '<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}
+    `;
+    document.getElementById('modalTitle').textContent = '📝 Note Details';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
+
+// Edit note with Pro features (formatting toolbar)
+const editNotePro = (note) => {
+    const modal = document.getElementById('modalBody');
+    modal.innerHTML = `
+        <form id="editNoteForm" onsubmit="saveNotePro(event, '${note.id}')">
+            <div class="form-group">
+                <label>Title *</label>
+                <input type="text" name="title" value="${note.title}" required />
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" value="${note.category || ''}" placeholder="e.g., Work, Personal, Ideas" />
+            </div>
+            <div class="form-group">
+                <label>Formatting Toolbar</label>
+                <div class="formatting-toolbar">
+                    <button type="button" class="format-btn" onclick="insertFormat('**', '**')" title="Bold"><b>B</b></button>
+                    <button type="button" class="format-btn" onclick="insertFormat('*', '*')" title="Italic"><i>I</i></button>
+                    <button type="button" class="format-btn" onclick="insertFormat('__', '__')" title="Underline"><u>U</u></button>
+                    <button type="button" class="format-btn" onclick="insertFormat('# ', '')" title="H1">H1</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('## ', '')" title="H2">H2</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('### ', '')" title="H3">H3</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('- ', '')" title="List">• List</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('1. ', '')" title="Numbered List">1. List</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('> ', '')" title="Quote">" Quote</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('\`', '\`')" title="Code">{ } Code</button>
+                    <button type="button" class="format-btn" onclick="insertFormat('```\n', '\n```')" title="Code Block">[ ] Block</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Content *</label>
+                <textarea name="content" id="noteContent" required style="min-height:200px; font-family: monospace;">${note.content}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Privacy & Options</label>
+                <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                    <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                        <input type="checkbox" name="isPrivate" ${note.isPrivate ? 'checked' : ''} />
+                        <span>🔒 Private (only you can see)</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                        <input type="checkbox" name="isPinned" ${note.isPinned ? 'checked' : ''} />
+                        <span>📌 Pin to top</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                        <input type="checkbox" name="isFavorite" ${note.isFavorite ? 'checked' : ''} />
+                        <span>⭐ Mark as favorite</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" class="btn-submit">💾 Save Changes</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </form>
+    `;
+    document.getElementById('modalTitle').textContent = '✏️ Edit Note';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
+
+// Insert formatting into textarea (for edit modal)
+const insertFormat = (before, after) => {
+    const textarea = document.getElementById('noteContent');
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
+    const selected = text.substring(start, end);
+    
+    const newText = text.substring(0, start) + before + selected + after + text.substring(end);
+    textarea.value = newText;
+    
+    // Restore cursor position
+    const newCursor = start + before.length + selected.length;
+    textarea.setSelectionRange(newCursor, newCursor);
+    textarea.focus();
+};
+
+// Insert formatting into textarea (for add modal)
+const insertFormatAdd = (before, after) => {
+    const textarea = document.getElementById('addNoteContent');
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
+    const selected = text.substring(start, end);
+    
+    const newText = text.substring(0, start) + before + selected + after + text.substring(end);
+    textarea.value = newText;
+    
+    // Restore cursor position
+    const newCursor = start + before.length + selected.length;
+    textarea.setSelectionRange(newCursor, newCursor);
+    textarea.focus();
+};
+
+// Save note with Pro features
+const saveNotePro = async (e, id) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const noteData = {
+        title: formData.get('title'),
+        category: formData.get('category'),
+        content: formData.get('content'),
+        isPrivate: formData.get('isPrivate') === 'on',
+        isPinned: formData.get('isPinned') === 'on',
+        isFavorite: formData.get('isFavorite') === 'on'
+    };
+    
+    showLoading(true, 'Saving...');
+    try {
+        const note = data.notes.find(n => n.id === id);
+        await db.ref(`notes/${id}`).set({
+            ...note,
+            ...noteData
+        });
+        await logActivity('update', `${currentUser.name} updated note: ${noteData.title}`);
+        showToast('✅ Note updated');
+        closeModal();
+    } catch (error) {
+        showToast('❌ Error: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+};
+
 // Simple syntax highlighter
 const highlightCode = (code, lang) => {
     if (!code) return '';
@@ -230,28 +653,29 @@ const viewFileContent = (file) => {
     const modal = document.getElementById('modalBody');
     
     let content = '';
+    const fileContent = file.content || '';
     
     // Text files
     if (['txt', 'md', 'csv', 'log', 'xml'].includes(ext)) {
         content = `
             <div class="file-preview">
-                <pre>${escapeHtml(file.content || 'No content available')}</pre>
+                <pre>${escapeHtml(fileContent) || '<span style="color:var(--text-secondary);">Empty file or content not available</span>'}</pre>
             </div>
             <div class="modal-buttons">
-                <button class="btn-submit" onclick="copyToClipboard('${escapeHtml(file.content).replace(/'/g, "\\'")}')">📋 Copy</button>
+                <button class="btn-submit" onclick="copyToClipboard(\`${escapeHtml(fileContent).replace(/`/g, '\\`')}\`)">📋 Copy</button>
                 <button class="btn-cancel" onclick="closeModal()">Close</button>
             </div>
         `;
     }
     // Code files
     else if (['js', 'py', 'java', 'cpp', 'html', 'css', 'json', 'php'].includes(ext)) {
-        const highlighted = highlightCode(file.content, ext);
+        const highlighted = highlightCode(fileContent, ext);
         content = `
             <div class="code-highlight">
-                <pre><code>${highlighted}</code></pre>
+                <pre><code>${highlighted || '<span style="color:var(--text-secondary);">Empty file or content not available</span>'}</code></pre>
             </div>
             <div class="modal-buttons">
-                <button class="btn-submit" onclick="copyToClipboard('${escapeHtml(file.content).replace(/'/g, "\\'")}')">📋 Copy Code</button>
+                <button class="btn-submit" onclick="copyToClipboard(\`${escapeHtml(fileContent).replace(/`/g, '\\`')}\`)">📋 Copy Code</button>
                 <button class="btn-cancel" onclick="closeModal()">Close</button>
             </div>
         `;
@@ -260,8 +684,14 @@ const viewFileContent = (file) => {
     else if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'].includes(ext)) {
         content = `
             <div style="text-align:center;">
-                <img src="${file.content}" alt="${file.name}" 
-                     style="max-width:100%; max-height:70vh; border-radius:8px;" />
+                <img src="${fileContent}" alt="${file.name}" 
+                     style="max-width:100%; max-height:70vh; border-radius:8px;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <div style="display:none; text-align:center; padding:40px;">
+                    <p style="font-size:48px; margin-bottom:16px;">🖼️</p>
+                    <p style="color:var(--text-secondary);">Image preview not available</p>
+                    <p style="font-size:12px; margin-top:8px;">${file.name}</p>
+                </div>
             </div>
             <div class="modal-buttons">
                 <button class="btn-cancel" onclick="closeModal()">Close</button>
@@ -272,11 +702,12 @@ const viewFileContent = (file) => {
     else if (ext === 'pdf') {
         content = `
             <div style="text-align:center; padding:20px;">
-                <p style="margin-bottom:16px;">📄 ${file.name}</p>
+                <p style="font-size:48px; margin-bottom:16px;">📄</p>
+                <p style="margin-bottom:8px; font-weight:600;">${file.name}</p>
                 <p style="color:var(--text-secondary); margin-bottom:20px;">
-                    PDF preview requires download
+                    PDF preview not available in browser
                 </p>
-                <button class="btn-submit" onclick="downloadFile('${file.name}', '${file.content.replace(/'/g, "\\'")}')">
+                <button class="btn-submit" onclick="downloadFile('${file.name}', \`${fileContent.replace(/`/g, '\\`')}\`)">
                     ⬇️ Download PDF
                 </button>
             </div>
@@ -294,7 +725,7 @@ const viewFileContent = (file) => {
                 <p style="color:var(--text-secondary); margin-bottom:20px;">
                     Preview not available for this file type
                 </p>
-                <button class="btn-submit" onclick="downloadFile('${file.name}', '${file.content.replace(/'/g, "\\'")}')">
+                <button class="btn-submit" onclick="downloadFile('${file.name}', \`${fileContent.replace(/`/g, '\\`')}\`)">
                     ⬇️ Download File
                 </button>
             </div>
@@ -499,7 +930,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">📁 Recent Projects</h3>
         <div class="grid">${recentProjects.length ? recentProjects.map(p => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('projects')" title="Click to view all projects">
                 <div class="card-title">${p.name}</div>
                 <p class="card-meta">${p.status} • ${p.createdAt}</p>
             </div>
@@ -507,7 +938,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">✅ Recent Tasks</h3>
         <div class="grid">${recentTasks.length ? recentTasks.map(t => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('tasks')" title="Click to view all tasks">
                 <div class="card-title">${t.title}</div>
                 <p class="card-meta">${t.priority} • ${t.status}</p>
             </div>
@@ -515,7 +946,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">📄 Recent Documents</h3>
         <div class="grid">${recentDocs.length ? recentDocs.map(d => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('documents')" title="Click to view all documents">
                 <div class="card-title">${d.name}</div>
                 <p class="card-meta">📄 ${d.files?.length || 0} files • ${d.uploadedAt}</p>
             </div>
@@ -523,7 +954,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">📝 Recent Notes</h3>
         <div class="grid">${recentNotes.length ? recentNotes.map(n => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('notes')" title="Click to view all notes">
                 <div class="card-title">${n.title}</div>
                 <p class="card-meta">${n.category || 'General'} • ${n.createdAt}</p>
             </div>
@@ -531,7 +962,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">🔗 Recent URLs</h3>
         <div class="grid">${recentUrls.length ? recentUrls.map(u => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('urls')" title="Click to view all URLs">
                 <div class="card-title">${u.title}</div>
                 <p class="card-meta">🔗 ${u.links?.length || 0} links • ${u.createdAt}</p>
             </div>
@@ -539,7 +970,7 @@ const renderHome = () => {
         
         <h3 style="margin:24px 0 16px;font-size:18px;">👥 Recent Contacts</h3>
         <div class="grid">${recentContacts.length ? recentContacts.map(c => `
-            <div class="card">
+            <div class="card home-card" onclick="switchTab('contacts')" title="Click to view all contacts">
                 <div class="card-title">${c.name}</div>
                 <p class="card-meta">${c.company} • ${c.email}</p>
             </div>
@@ -604,7 +1035,7 @@ const editTask=(task)=>{const modal=document.getElementById('modalBody');modal.i
 
 const saveTask=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const taskData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const task=data.tasks.find(t=>t.id===id);await db.ref(`tasks/${id}`).set({...task,...taskData});await logActivity('update',`${currentUser.name} updated task: ${taskData.title}`);showToast('✅ Task updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderDocuments=(search='')=>{const filtered=data.documents.filter(d=>d.name?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${d.name}</div><div class="card-actions"><button class="btn-icon view" onclick='viewDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(d)?`<button class="btn-icon delete" onclick="deleteItem('document','${d.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${d.uploadedBy} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`};
+const renderDocuments=(search='')=>{const filtered=data.documents.filter(d=>d.name?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${d.name}</div><div class="card-actions"><button class="btn-icon view" onclick='viewDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(d)?`<button class="btn-icon edit" onclick='editDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button><button class="btn-icon delete" onclick="deleteItem('document','${d.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${d.uploadedBy} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`};
 
 const viewDocument = (doc) => {
     const modal = document.getElementById('modalBody');
@@ -745,7 +1176,48 @@ const addUrlField=()=>{const container=document.getElementById('urlsContainer');
 
 const saveUrl=async(e,id)=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);if(links.length===0){showToast('❌ Add at least one URL','error');return}showLoading(true,'Saving...');try{const url=data.urls.find(u=>u.id===id);await db.ref(`urls/${id}`).set({...url,title,links});await logActivity('update',`${currentUser.name} updated URLs: ${title}`);showToast('✅ URLs updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderNotes=(search='')=>{const filtered=data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(n=>`<div class="card"><div class="card-header"><div class="card-title">${n.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewNote(${JSON.stringify(n).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(n)?`<button class="btn-icon delete" onclick="deleteItem('note','${n.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-description">${(n.content||'').substring(0,100)}...</p><p class="card-meta">${n.category||'General'} • ${n.createdBy} • ${n.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}</div>`};
+const renderNotes=(search='')=>{
+    // Sort: pinned first, then favorites, then by date
+    let filtered = data.notes.filter(n => {
+        // Hide private notes from other users
+        if (n.isPrivate && n.createdBy !== currentUser.name) return false;
+        return n.title?.toLowerCase().includes(search) || n.content?.toLowerCase().includes(search);
+    });
+    
+    filtered.sort((a, b) => {
+        if (a.isPinned && !b.isPinned) return -1;
+        if (!a.isPinned && b.isPinned) return 1;
+        if (a.isFavorite && !b.isFavorite) return -1;
+        if (!a.isFavorite && b.isFavorite) return 1;
+        return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    
+    document.getElementById('contentContainer').innerHTML = `
+        <div class="grid">${filtered.length > 0 ? filtered.map(n => {
+            const isOwner = n.createdBy === currentUser.name;
+            const contentPreview = formatNoteContentPreview(n.content || '');
+            return `<div class="card note-card ${n.isPinned ? 'pinned' : ''} ${n.isPrivate ? 'private' : ''} ${n.isFavorite ? 'favorite' : ''}">
+                <div class="note-header">
+                    <div class="card-title" style="flex:1;">${n.title}</div>
+                    <div class="note-badges">
+                        ${n.isPinned ? '<span class="note-badge pinned">📌 Pinned</span>' : ''}
+                        ${n.isFavorite ? '<span class="note-badge favorite">⭐ Favorite</span>' : ''}
+                        ${n.isPrivate ? '<span class="note-badge private">🔒 Private</span>' : ''}
+                    </div>
+                </div>
+                <div class="note-content-preview">${contentPreview}</div>
+                <p class="card-meta" style="margin-top:8px;">${n.category || 'General'} • ${n.createdBy} • ${n.createdAt}</p>
+                <div class="note-actions-bar">
+                    <button class="note-action-btn" onclick='viewNotePro(${JSON.stringify(n).replace(/'/g, "&apos;")})' title="View">👁️ View</button>
+                    ${isOwner ? `<button class="note-action-btn ${n.isPinned ? 'active' : ''}" onclick="toggleNotePin('${n.id}')" title="Pin/Unpin">📌 ${n.isPinned ? 'Unpin' : 'Pin'}</button>` : ''}
+                    ${isOwner ? `<button class="note-action-btn ${n.isFavorite ? 'active' : ''}" onclick="toggleNoteFavorite('${n.id}')" title="Favorite">⭐ ${n.isFavorite ? 'Unfav' : 'Fav'}</button>` : ''}
+                    ${isOwner ? `<button class="note-action-btn" onclick='editNotePro(${JSON.stringify(n).replace(/'/g, "&apos;")})' title="Edit">✏️ Edit</button>` : ''}
+                    ${canDelete(n) ? `<button class="note-action-btn" onclick="deleteItem('note','${n.id}')" title="Delete" style="color:var(--danger);">🗑️ Delete</button>` : ''}
+                </div>
+            </div>`;
+        }).join('') : '<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}</div>
+    `;
+};
 
 const viewNote=(note)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${note.title}</div></div><div class="detail-row"><div class="detail-label">Category</div><div class="detail-value"><span class="badge badge-blue">${note.category||'General'}</span></div></div><div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap;">${note.content}</div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${note.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${note.createdAt}</div></div>${canDelete(note)?`<div class="modal-buttons"><button class="btn-submit" onclick='editNote(${JSON.stringify(note).replace(/'/g,"&apos;")})'>Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='Note Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
@@ -759,7 +1231,7 @@ const editUser=(user)=>{const modal=document.getElementById('modalBody');modal.i
 
 const saveUser=async(e,username)=>{e.preventDefault();const formData=new FormData(e.target);const userData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const user=data.users.find(u=>u.username===username);const updatedUser={...user,email:userData.email,role:userData.role,password:userData.password||user.password};await db.ref(`users/${username}`).set(updatedUser);await logActivity('update',`${currentUser.name} updated user: ${username}`);showToast('✅ User updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const openModal=(mode)=>{const modal=document.getElementById('modalBody');const title=document.getElementById('modalTitle');if(currentTab==='projects'){title.textContent='Add Project';modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Project Name *</label><input type="text" name="name" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description *</label><textarea name="description" required spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){title.textContent='Add Task';modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description</label><textarea name="description" spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option selected>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><div class="date-input-group"><input type="date" id="dateCalendar" onchange="syncDateInputs('calendar')" title="Select from calendar" /><input type="text" id="dateManual" placeholder="DD/MM/YYYY" pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$" onchange="syncDateInputs('manual')" title="Enter as DD/MM/YYYY" /></div></div><div class="form-group"><label>Assigned To</label><select name="assignedTo"><option value="">Unassigned</option>${data.users.map(u => `<option value="${u.username}">${u.username} ${u.role === 'admin' ? '👑' : '👤'}</option>`).join('')}</select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){title.textContent='Upload Document';modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Document Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required style="margin-top:8px;"/><div id="filePreview" style="margin-top:12px;"></div></div><div id="uploadProgress" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div><p id="progressText" style="margin-top:8px;font-size:13px;color:var(--text-secondary);text-align:center;">Uploading...</p></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('fileInput').addEventListener('change',e=>{const preview=document.getElementById('filePreview');preview.innerHTML=Array.from(e.target.files).map(f=>`<p style="font-size:12px;">📄 ${f.name} (${(f.size/1024).toFixed(1)} KB)</p>`).join('')})}else if(currentTab==='urls'){title.textContent='Add URLs';modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;display:flex;gap:8px;"><input type="url" placeholder="https://example.com" style="flex:1;" required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){title.textContent='Add Note';modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="e.g., Personal, Work, Ideas"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:150px;"></textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
+const openModal=(mode)=>{const modal=document.getElementById('modalBody');const title=document.getElementById('modalTitle');if(currentTab==='projects'){title.textContent='Add Project';modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Project Name *</label><input type="text" name="name" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description *</label><textarea name="description" required spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){title.textContent='Add Task';modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description</label><textarea name="description" spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option selected>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><div class="date-input-group"><input type="date" id="dateCalendar" onchange="syncDateInputs('calendar')" title="Select from calendar" /><input type="text" id="dateManual" placeholder="DD/MM/YYYY" pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$" onchange="syncDateInputs('manual')" title="Enter as DD/MM/YYYY" /></div></div><div class="form-group"><label>Assigned To</label><select name="assignedTo"><option value="">Unassigned</option>${data.users.map(u => `<option value="${u.username}">${u.username} ${u.role === 'admin' ? '👑' : '👤'}</option>`).join('')}</select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){title.textContent='Upload Document';modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Document Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required style="margin-top:8px;"/><div id="filePreview" style="margin-top:12px;"></div></div><div id="uploadProgress" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div><p id="progressText" style="margin-top:8px;font-size:13px;color:var(--text-secondary);text-align:center;">Uploading...</p></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('fileInput').addEventListener('change',e=>{const preview=document.getElementById('filePreview');preview.innerHTML=Array.from(e.target.files).map(f=>`<p style="font-size:12px;">📄 ${f.name} (${(f.size/1024).toFixed(1)} KB)</p>`).join('')})}else if(currentTab==='urls'){title.textContent='Add URLs';modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;display:flex;gap:8px;"><input type="url" placeholder="https://example.com" style="flex:1;" required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){title.textContent='Add Note';modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="e.g., Personal, Work, Ideas"/></div><div class="form-group"><label>Formatting Toolbar</label><div class="formatting-toolbar"><button type="button" class="format-btn" onclick="insertFormatAdd('**','**')" title="Bold"><b>B</b></button><button type="button" class="format-btn" onclick="insertFormatAdd('*','*')" title="Italic"><i>I</i></button><button type="button" class="format-btn" onclick="insertFormatAdd('__','__')" title="Underline"><u>U</u></button><button type="button" class="format-btn" onclick="insertFormatAdd('# ','')" title="H1">H1</button><button type="button" class="format-btn" onclick="insertFormatAdd('## ','')" title="H2">H2</button><button type="button" class="format-btn" onclick="insertFormatAdd('### ','')" title="H3">H3</button><button type="button" class="format-btn" onclick="insertFormatAdd('- ','')" title="List">• List</button><button type="button" class="format-btn" onclick="insertFormatAdd('1. ','')" title="Numbered List">1. List</button><button type="button" class="format-btn" onclick="insertFormatAdd('> ','')" title="Quote">" Quote</button><button type="button" class="format-btn" onclick="insertFormatAdd('\`','\`')" title="Code">{ } Code</button><button type="button" class="format-btn" onclick="insertFormatAdd('\\n\\`\\`\\`\\n','\\n\\`\\`\\`\\n')" title="Code Block">[ ] Block</button></div></div><div class="form-group"><label>Content *</label><textarea name="content" id="addNoteContent" required style="min-height:150px; font-family:monospace;"></textarea></div><div class="form-group"><label>Privacy & Options</label><div style="display:flex; gap:16px; flex-wrap:wrap;"><label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" name="isPrivate" /> <span>🔒 Private (only you can see)</span></label><label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" name="isPinned" /> <span>📌 Pin to top</span></label><label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" name="isFavorite" /> <span>⭐ Mark as favorite</span></label></div></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
 
 const closeModal=()=>{document.getElementById('modalOverlay').classList.add('hidden')};
 
@@ -825,7 +1297,35 @@ const addDocument=async e=>{e.preventDefault();const name=e.target.elements.name
 
 const addUrl=async e=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);if(links.length===0){showToast('❌ Add at least one URL','error');return}showLoading(true,'Creating...');try{const id='url_'+Date.now();await db.ref(`urls/${id}`).set({id,title,links,addedBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} added URLs: ${title}`);showToast('✅ URLs added');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const addNote=async e=>{e.preventDefault();const formData=new FormData(e.target);const noteData=Object.fromEntries(formData);showLoading(true,'Creating...');try{const id='note_'+Date.now();await db.ref(`notes/${id}`).set({...noteData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created note: ${noteData.title}`);showToast('✅ Note created');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const addNote=async e=>{
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const noteData = {
+        title: formData.get('title'),
+        category: formData.get('category'),
+        content: formData.get('content'),
+        isPrivate: formData.get('isPrivate') === 'on',
+        isPinned: formData.get('isPinned') === 'on',
+        isFavorite: formData.get('isFavorite') === 'on'
+    };
+    showLoading(true,'Creating...');
+    try {
+        const id='note_'+Date.now();
+        await db.ref(`notes/${id}`).set({
+            ...noteData,
+            id,
+            createdBy: currentUser.name,
+            createdAt: getDateTime()
+        });
+        await logActivity('create', `${currentUser.name} created note: ${noteData.title}`);
+        showToast('✅ Note created');
+        closeModal();
+    } catch(error) {
+        showToast('❌ Error: '+error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+};
 
 const deleteItem=async(type,id)=>{if(!confirm(`Delete this ${type}?`))return;showLoading(true,'Deleting...');try{const path=type==='user'?`users/${id}`:`${type}s/${id}`;await db.ref(path).remove();await logActivity('delete',`${currentUser.name} deleted ${type}: ${id}`);showToast('✅ Deleted')}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
