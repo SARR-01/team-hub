@@ -6,24 +6,36 @@
     <title>Team Hub - Complete Platform</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#667eea;--secondary:#764ba2;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-primary:#fff;--bg-secondary:#f9fafb;--bg-tertiary:#f3f4f6;--text-primary:#1f2937;--text-secondary:#6b7280;--border-color:#e5e7eb;--card-bg:#fff;--input-bg:#fff;--header-bg:#fff;--header-text:#1f2937}[data-theme=dark]{--bg-primary:#1f2937;--bg-secondary:#111827;--bg-tertiary:#374151;--text-primary:#f9fafb;--text-secondary:#d1d5db;--border-color:#374151;--card-bg:#374151;--input-bg:#4b5563;--header-bg:#1f2937;--header-text:#f9fafb}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);transition:all .3s;overflow-x:hidden}.hidden{display:none!important}.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.loading-text{color:#fff;font-size:18px;font-weight:600}.toast{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,var(--success),#059669);color:#fff;padding:16px 24px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);z-index:10001;animation:slideIn .3s;font-weight:600;max-width:90vw}.toast.error{background:linear-gradient(135deg,var(--danger),#dc2626)}.toast.warning{background:linear-gradient(135deg,var(--warning),#d97706)}@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}.login-container{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);display:flex;align-items:center;justify-content:center;padding:16px}.login-box{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);padding:32px;width:100%;max-width:420px}.login-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}h1{font-size:clamp(24px,5vw,32px);font-weight:700;text-align:center;margin-bottom:8px;color:#1f2937}.subtitle{color:#6b7280;text-align:center;margin-bottom:24px;font-size:clamp(13px,3vw,15px)}.cloud-notice{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:2px solid var(--success);border-radius:12px;padding:12px;margin-bottom:20px;text-align:center}.cloud-notice-title{font-size:clamp(11px,2.5vw,13px);font-weight:700;color:#065f46;margin-bottom:6px}.cloud-notice-text{font-size:clamp(10px,2.5vw,12px);color:#047857}.form-group{margin-bottom:16px}label{display:block;font-size:clamp(12px,2.5vw,14px);font-weight:600;margin-bottom:6px;color:var(--text-primary)}input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border-color);border-radius:10px;font-size:clamp(13px,3vw,15px);outline:0;transition:all .3s;background:var(--input-bg);color:var(--text-primary)}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.1)}textarea{resize:vertical;min-height:80px;font-family:inherit}.btn-primary{width:100%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(14px,3vw,16px);transition:transform .2s}.btn-primary:hover{transform:translateY(-2px)}.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}.header{background:var(--header-bg);border-bottom:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:40}.header-content{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.header-left{display:flex;align-items:center;gap:12px}.header-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.header-title h1{font-size:clamp(16px,4vw,22px);margin:0;text-align:left;color:var(--header-text)}.header-title p{font-size:clamp(10px,2.5vw,12px);color:var(--text-secondary)}.header-right{display:flex;align-items:center;gap:8px}.theme-toggle{width:36px;height:36px;border-radius:8px;background:var(--bg-tertiary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-primary);flex-shrink:0}.theme-toggle:hover{background:var(--border-color);transform:scale(1.1)}.user-info{text-align:right;display:none}.user-name{font-weight:600;font-size:clamp(12px,3vw,14px);color:var(--header-text)}.user-role{font-size:clamp(9px,2vw,11px);color:var(--text-secondary);text-transform:uppercase}.btn-logout{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fef2f2;color:var(--danger);border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all .3s;font-size:clamp(11px,2.5vw,13px)}.btn-logout:hover{background:#fee2e2}.main-container{display:flex;flex-direction:column}.sidebar{width:100%;background:var(--bg-primary);border-bottom:1px solid var(--border-color);padding:12px 8px;display:flex;overflow-x:auto;gap:8px}.tab-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:600;color:var(--text-secondary);background:0 0;border:none;cursor:pointer;transition:all .3s;font-size:clamp(12px,3vw,14px);white-space:nowrap;flex-shrink:0}.tab-btn svg{width:18px;height:18px;flex-shrink:0}.tab-btn:hover{background:var(--bg-tertiary);color:var(--text-primary)}.tab-btn.active{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.4)}.content-area{flex:1;padding:16px;width:100%;max-width:100%;overflow-x:hidden}.toolbar{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap}.search-wrapper{flex:1;position:relative;min-width:150px}.search-wrapper svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none;width:18px;height:18px}.search-input{width:100%;padding-left:40px!important}.btn-add{display:flex;align-items:center;gap:6px;padding:12px 16px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:clamp(12px,3vw,14px);white-space:nowrap;transition:transform .2s}.btn-add svg{width:18px;height:18px}.btn-add:hover{transform:translateY(-2px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:var(--card-bg);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--border-color);padding:16px;transition:all .3s}.card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-2px)}.card-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.card-title{font-size:clamp(16px,4vw,18px);font-weight:700;margin-bottom:4px;word-break:break-word}.card-actions{display:flex;gap:6px;flex-wrap:wrap}.btn-icon{width:30px;height:30px;border:none;background:var(--bg-tertiary);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-size:16px}.btn-icon:hover{background:var(--border-color)}.btn-icon.delete:hover{background:#fee2e2;color:var(--danger)}.btn-icon.view{background:#dbeafe;color:#1e40af}.btn-icon.view:hover{background:#bfdbfe}.btn-icon.edit{background:#fef3c7;color:#92400e}.btn-icon.edit:hover{background:#fde68a}.card-description{color:var(--text-secondary);font-size:clamp(12px,3vw,13px);margin-bottom:12px;line-height:1.5;word-break:break-word}.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-color);flex-wrap:wrap;gap:8px}.badge{padding:5px 10px;border-radius:16px;font-size:clamp(10px,2.5vw,11px);font-weight:700}.badge-green{background:#d1fae5;color:#065f46}.badge-blue{background:#dbeafe;color:#1e40af}.badge-purple{background:#e9d5ff;color:#6b21a8}.badge-orange{background:#fed7aa;color:#9a3412}.badge-red{background:#fee2e2;color:#991b1b}.badge-yellow{background:#fef3c7;color:#92400e}.card-meta{font-size:clamp(10px,2.5vw,11px);color:var(--text-secondary)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;animation:fadeIn .2s;overflow-y:auto}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-primary);border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.3);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;animation:slideUp .3s;margin:auto}.modal.large{max-width:800px}@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.modal-header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:20px 24px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center}.modal-title{font-size:clamp(18px,4vw,22px);font-weight:700;color:#fff}.modal-close{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;flex-shrink:0}.modal-close:hover{background:rgba(255,255,255,.3)}.modal-body{padding:24px}.modal-buttons{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.btn-submit{flex:1;min-width:120px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.btn-cancel{flex:1;min-width:120px;background:var(--bg-tertiary);color:var(--text-primary);font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.progress-bar{width:100%;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .3s;border-radius:4px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px}.stat-card{background:#fff;border-radius:14px;padding:20px;text-align:center;border:2px solid;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .3s}.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.stat-card.blue{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%)}.stat-card.green{border-color:#86efac;background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)}.stat-card.purple{border-color:#c4b5fd;background:linear-gradient(135deg,#e9d5ff 0%,#ddd6fe 100%)}.stat-card.orange{border-color:#fdba74;background:linear-gradient(135deg,#fed7aa 0%,#fdba74 100%)}.stat-number{font-size:clamp(28px,8vw,38px);font-weight:800;margin-bottom:6px}.stat-number.blue{color:#1e40af}.stat-number.green{color:#15803d}.stat-number.purple{color:#6b21a8}.stat-number.orange{color:#9a3412}.stat-label{font-size:clamp(11px,3vw,13px);color:#374151;font-weight:600}.detail-row{padding:12px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:12px}.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;font-weight:700;margin-bottom:4px}.detail-value{font-size:14px;color:var(--text-primary);font-weight:500;word-break:break-word}.tag{display:inline-block;padding:4px 10px;background:var(--primary);color:#fff;border-radius:12px;font-size:11px;margin:2px;cursor:pointer;transition:all .2s}.tag:hover{opacity:.8;transform:scale(1.05)}.tag-container{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.file-preview{max-width:100%;max-height:500px;overflow:auto;background:var(--bg-tertiary);border-radius:8px;padding:16px;margin:16px 0}.file-preview pre{white-space:pre-wrap;font-family:monospace;font-size:13px;line-height:1.6}.code-highlight{background:var(--bg-tertiary);padding:20px;border-radius:8px;overflow-x:auto;max-height:500px}.code-highlight code{font-family:'Courier New',monospace;font-size:13px}.file-item{display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg-tertiary);border-radius:6px;margin-bottom:6px}.note-card{position:relative}.note-card.pinned{border:2px solid var(--warning);background:linear-gradient(135deg,#fef3c7,#fde68a)}.note-card.pinned::before{content:'📌';position:absolute;top:12px;right:12px;font-size:16px}.note-preview{max-height:80px;overflow:hidden;position:relative}.note-preview::after{content:'';position:absolute;bottom:0;left:0;right:0;height:20px;background:linear-gradient(transparent,var(--card-bg))}.color-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.color-option{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s}.color-option:hover{transform:scale(1.1)}.color-option.selected{border-color:var(--primary);box-shadow:0 0 0 2px var(--bg-primary)}@media (min-width:768px){.header-content{padding:16px 24px}.user-info{display:block}.main-container{flex-direction:row}.sidebar{width:240px;min-height:calc(100vh - 82px);border-right:1px solid var(--border-color);border-bottom:none;padding:20px 12px;flex-direction:column;overflow-x:visible}.tab-btn{width:100%;margin-bottom:6px}.content-area{padding:24px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.login-box{padding:48px}}@media (max-width:480px){.grid{grid-template-columns:1fr}.btn-logout span{display:none}}
+        *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#667eea;--secondary:#764ba2;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-primary:#fff;--bg-secondary:#f9fafb;--bg-tertiary:#f3f4f6;--text-primary:#1f2937;--text-secondary:#6b7280;--border-color:#e5e7eb;--card-bg:#fff;--input-bg:#fff;--header-bg:#fff;--header-text:#1f2937}[data-theme=dark]{--bg-primary:#1f2937;--bg-secondary:#111827;--bg-tertiary:#374151;--text-primary:#f9fafb;--text-secondary:#d1d5db;--border-color:#374151;--card-bg:#374151;--input-bg:#4b5563;--header-bg:#1f2937;--header-text:#f9fafb}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);transition:all .3s;overflow-x:hidden}.hidden{display:none!important}.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.loading-text{color:#fff;font-size:18px;font-weight:600}.toast{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,var(--success),#059669);color:#fff;padding:16px 24px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);z-index:10001;animation:slideIn .3s;font-weight:600;max-width:90vw}.toast.error{background:linear-gradient(135deg,var(--danger),#dc2626)}@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}.login-container{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);display:flex;align-items:center;justify-content:center;padding:16px}.login-box{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);padding:32px;width:100%;max-width:420px}.login-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}h1{font-size:clamp(24px,5vw,32px);font-weight:700;text-align:center;margin-bottom:8px;color:#1f2937}.subtitle{color:#6b7280;text-align:center;margin-bottom:24px;font-size:clamp(13px,3vw,15px)}.cloud-notice{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:2px solid var(--success);border-radius:12px;padding:12px;margin-bottom:20px;text-align:center}.cloud-notice-title{font-size:clamp(11px,2.5vw,13px);font-weight:700;color:#065f46;margin-bottom:6px}.cloud-notice-text{font-size:clamp(10px,2.5vw,12px);color:#047857}.form-group{margin-bottom:16px}label{display:block;font-size:clamp(12px,2.5vw,14px);font-weight:600;margin-bottom:6px;color:var(--text-primary)}input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border-color);border-radius:10px;font-size:clamp(13px,3vw,15px);outline:0;transition:all .3s;background:var(--input-bg);color:var(--text-primary)}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.1)}textarea{resize:vertical;min-height:80px;font-family:inherit}.btn-primary{width:100%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(14px,3vw,16px);transition:transform .2s}.btn-primary:hover{transform:translateY(-2px)}.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}.header{background:var(--header-bg);border-bottom:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:40}.header-content{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.header-left{display:flex;align-items:center;gap:12px}.header-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.header-title h1{font-size:clamp(16px,4vw,22px);margin:0;text-align:left;color:var(--header-text)}.header-title p{font-size:clamp(10px,2.5vw,12px);color:var(--text-secondary)}.header-right{display:flex;align-items:center;gap:8px}.theme-toggle{width:36px;height:36px;border-radius:8px;background:var(--bg-tertiary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-primary);flex-shrink:0}.theme-toggle:hover{background:var(--border-color);transform:scale(1.1)}.user-info{text-align:right;display:none}.user-name{font-weight:600;font-size:clamp(12px,3vw,14px);color:var(--header-text)}.user-role{font-size:clamp(9px,2vw,11px);color:var(--text-secondary);text-transform:uppercase}.btn-logout{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fef2f2;color:var(--danger);border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all .3s;font-size:clamp(11px,2.5vw,13px)}.btn-logout:hover{background:#fee2e2}.main-container{display:flex;flex-direction:column}.sidebar{width:100%;background:var(--bg-primary);border-bottom:1px solid var(--border-color);padding:12px 8px;display:flex;overflow-x:auto;gap:8px}.tab-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:600;color:var(--text-secondary);background:0 0;border:none;cursor:pointer;transition:all .3s;font-size:clamp(12px,3vw,14px);white-space:nowrap;flex-shrink:0}.tab-btn svg{width:18px;height:18px;flex-shrink:0}.tab-btn:hover{background:var(--bg-tertiary);color:var(--text-primary)}.tab-btn.active{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.4)}.content-area{flex:1;padding:16px;width:100%;max-width:100%;overflow-x:hidden}.toolbar{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap}.search-wrapper{flex:1;position:relative;min-width:150px}.search-wrapper svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none;width:18px;height:18px}.search-input{width:100%;padding-left:40px!important}.btn-add{display:flex;align-items:center;gap:6px;padding:12px 16px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:clamp(12px,3vw,14px);white-space:nowrap;transition:transform .2s}.btn-add svg{width:18px;height:18px}.btn-add:hover{transform:translateY(-2px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:var(--card-bg);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--border-color);padding:16px;transition:all .3s}.card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-2px)}.card-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.card-title{font-size:clamp(16px,4vw,18px);font-weight:700;margin-bottom:4px;word-break:break-word}.card-actions{display:flex;gap:6px;flex-wrap:wrap}.btn-icon{width:30px;height:30px;border:none;background:var(--bg-tertiary);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-size:16px}.btn-icon:hover{background:var(--border-color)}.btn-icon.delete:hover{background:#fee2e2;color:var(--danger)}.btn-icon.view{background:#dbeafe;color:#1e40af}.btn-icon.view:hover{background:#bfdbfe}.card-description{color:var(--text-secondary);font-size:clamp(12px,3vw,13px);margin-bottom:12px;line-height:1.5;word-break:break-word}.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-color);flex-wrap:wrap;gap:8px}.badge{padding:5px 10px;border-radius:16px;font-size:clamp(10px,2.5vw,11px);font-weight:700}.badge-green{background:#d1fae5;color:#065f46}.badge-blue{background:#dbeafe;color:#1e40af}.badge-purple{background:#e9d5ff;color:#6b21a8}.badge-orange{background:#fed7aa;color:#9a3412}.badge-red{background:#fee2e2;color:#991b1b}.card-meta{font-size:clamp(10px,2.5vw,11px);color:var(--text-secondary)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;animation:fadeIn .2s;overflow-y:auto}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-primary);border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.3);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;animation:slideUp .3s;margin:auto}.modal.large{max-width:800px}@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.modal-header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:20px 24px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center}.modal-title{font-size:clamp(18px,4vw,22px);font-weight:700;color:#fff}.modal-close{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;flex-shrink:0}.modal-close:hover{background:rgba(255,255,255,.3)}.modal-body{padding:24px}.modal-buttons{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.btn-submit{flex:1;min-width:120px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.btn-cancel{flex:1;min-width:120px;background:var(--bg-tertiary);color:var(--text-primary);font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.progress-bar{width:100%;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .3s;border-radius:4px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px}.stat-card{background:#fff;border-radius:14px;padding:20px;text-align:center;border:2px solid;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .3s}.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.stat-card.blue{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%)}.stat-card.green{border-color:#86efac;background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)}.stat-card.purple{border-color:#c4b5fd;background:linear-gradient(135deg,#e9d5ff 0%,#ddd6fe 100%)}.stat-card.orange{border-color:#fdba74;background:linear-gradient(135deg,#fed7aa 0%,#fdba74 100%)}.stat-number{font-size:clamp(28px,8vw,38px);font-weight:800;margin-bottom:6px}.stat-number.blue{color:#1e40af}.stat-number.green{color:#15803d}.stat-number.purple{color:#6b21a8}.stat-number.orange{color:#9a3412}.stat-label{font-size:clamp(11px,3vw,13px);color:#374151;font-weight:600}.detail-row{padding:12px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:12px}.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;font-weight:700;margin-bottom:4px}.detail-value{font-size:14px;color:var(--text-primary);font-weight:500;word-break:break-word}.tag{display:inline-block;padding:4px 10px;background:var(--primary);color:#fff;border-radius:12px;font-size:11px;margin:2px}.tag-container{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.code-highlight{background:var(--bg-tertiary);padding:20px;border-radius:8px;overflow-x:auto;max-height:500px}.code-highlight pre{margin:0;white-space:pre-wrap}.file-item{display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg-tertiary);border-radius:6px;margin-bottom:6px}.note-card{position:relative}.note-card.pinned{border:2px solid var(--warning);background:linear-gradient(135deg,#fef3c7,#fde68a)}.note-card.pinned::before{content:'📌';position:absolute;top:12px;right:12px;font-size:16px}.note-preview{max-height:80px;overflow:hidden;position:relative}.note-preview::after{content:'';position:absolute;bottom:0;left:0;right:0;height:20px;background:linear-gradient(transparent,var(--card-bg))}.color-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.color-option{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s}.color-option:hover{transform:scale(1.1)}.color-option.selected{border-color:var(--primary);box-shadow:0 0 0 2px var(--bg-primary)}@media (min-width:768px){.header-content{padding:16px 24px}.user-info{display:block}.main-container{flex-direction:row}.sidebar{width:240px;min-height:calc(100vh - 82px);border-right:1px solid var(--border-color);border-bottom:none;padding:20px 12px;flex-direction:column;overflow-x:visible}.tab-btn{width:100%;margin-bottom:6px}.content-area{padding:24px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.login-box{padding:48px}}@media (max-width:480px){.grid{grid-template-columns:1fr}.btn-logout span{display:none}}
     </style>
 </head>
 <body>
 <div id="loadingOverlay" class="loading-overlay"><div class="spinner"></div><div class="loading-text">Loading...</div></div>
 <div id="toast" class="toast hidden"></div>
+
 <div id="loginPage" class="login-container hidden">
     <div class="login-box">
         <div class="login-logo"><svg width="35" height="35" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-        <h1>Team Hub</h1><p class="subtitle">Complete Platform v2.0</p>
-        <div class="cloud-notice"><div class="cloud-notice-title">☁️ CLOUD POWERED</div><div class="cloud-notice-text">Real-time collaboration • All Features Working</div></div>
+        <h1>Team Hub</h1>
+        <p class="subtitle">Complete Platform v2.0</p>
+        <div class="cloud-notice">
+            <div class="cloud-notice-title">☁️ CLOUD POWERED</div>
+            <div class="cloud-notice-text">Real-time collaboration • All Features Working</div>
+        </div>
         <form id="loginForm">
-            <div class="form-group"><label>Username</label><input type="text" id="username" required autocomplete="username"/></div>
-            <div class="form-group"><label>Password</label><input type="password" id="password" required autocomplete="current-password"/></div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="username" required autocomplete="username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required autocomplete="current-password">
+            </div>
             <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
         </form>
     </div>
 </div>
+
 <div id="dashboardPage" class="hidden">
     <div class="header">
         <div class="header-content">
@@ -42,144 +54,1228 @@
         <div class="sidebar" id="sidebar"></div>
         <div class="content-area">
             <div class="toolbar">
-                <div class="search-wrapper"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" id="searchInput" class="search-input" placeholder="Search everything..." oninput="performSearch()"/></div>
+                <div class="search-wrapper"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" id="searchInput" class="search-input" placeholder="Search everything..." oninput="performSearch()"></div>
                 <button id="addNewBtn" onclick="openModal()" class="btn-add"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg><span id="addBtnText">Add</span></button>
             </div>
             <div id="contentContainer"></div>
         </div>
     </div>
 </div>
+
 <div id="modalOverlay" class="modal-overlay hidden">
-    <div class="modal"><div class="modal-header"><h2 class="modal-title" id="modalTitle">Modal</h2><button class="modal-close" onclick="closeModal()"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="modal-body" id="modalBody"></div></div>
+    <div class="modal">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">Modal</h2>
+            <button class="modal-close" onclick="closeModal()"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
 </div>
+
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",authDomain:"team-hub-666f4.firebaseapp.com",databaseURL:"https://team-hub-666f4-default-rtdb.firebaseio.com",projectId:"team-hub-666f4",storageBucket:"team-hub-666f4.firebasestorage.app",messagingSenderId:"201156915923",appId:"1:201156915923:web:ba3b8f4420832a414e9a26"};
-let db,currentUser,currentTab='home';
-let data={projects:[],tasks:[],documents:[],contacts:[],urls:[],notes:[],users:[],activities:[]};
-let listeners={};
-let currentViewingFile=null;
-let currentViewingDoc=null;
+// Firebase Config
+const firebaseConfig = {
+    apiKey: "AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",
+    authDomain: "team-hub-666f4.firebaseapp.com",
+    databaseURL: "https://team-hub-666f4-default-rtdb.firebaseio.com",
+    projectId: "team-hub-666f4",
+    storageBucket: "team-hub-666f4.firebasestorage.app",
+    messagingSenderId: "201156915923",
+    appId: "1:201156915923:web:ba3b8f4420832a414e9a26"
+};
 
-const showLoading=(s=true,t='Loading...')=>{const o=document.getElementById('loadingOverlay');if(!o)return;o.querySelector('.loading-text').textContent=t;o.classList.toggle('hidden',!s)};
-const showToast=(m,t='success')=>{const toast=document.getElementById('toast');toast.textContent=m;toast.classList.remove('error','warning');if(t==='error')toast.classList.add('error');if(t==='warning')toast.classList.add('warning');toast.classList.remove('hidden');setTimeout(()=>toast.classList.add('hidden'),5000)};
-const getDateTime=()=>new Date().toLocaleString('en-US',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:true});
-const saveSession=()=>currentUser&&sessionStorage.setItem('teamhub_user',JSON.stringify(currentUser));
-const loadSession=()=>{const s=sessionStorage.getItem('teamhub_user');if(s){try{currentUser=JSON.parse(s);return true}catch(e){sessionStorage.removeItem('teamhub_user');return false}}return false};
-const clearSession=()=>{sessionStorage.removeItem('teamhub_user');currentUser=null};
-const toggleTheme=()=>{const theme=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('theme',theme);document.getElementById('themeIcon').innerHTML=theme==='dark'?'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>':'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';showToast(`${theme==='dark'?'🌙':'☀️'} ${theme.charAt(0).toUpperCase()+theme.slice(1)} mode`)};
+// Global Variables
+let db = null;
+let currentUser = null;
+let currentTab = 'home';
+let data = {projects: [], tasks: [], documents: [], contacts: [], urls: [], notes: [], users: [], activities: []};
+let listeners = {};
+let currentViewingFile = null;
+let currentViewingDoc = null;
 
-const esc=t=>{if(!t)return'';const d=document.createElement('div');d.textContent=t;return d.innerHTML};
+// Utility Functions
+function showLoading(show = true, text = 'Loading...') {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.querySelector('.loading-text').textContent = text;
+        overlay.classList.toggle('hidden', !show);
+    }
+}
 
-function dataURItoBlob(dataURI){try{const arr=dataURI.split(',');const mime=arr[0].match(/:(.*?);/)[1];const bstr=atob(arr[1]);let n=bstr.length;const u8arr=new Uint8Array(n);while(n--){u8arr[n]=bstr.charCodeAt(n)}return new Blob([u8arr],{type:mime})}catch(e){console.error('Blob error',e);return null}}
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.className = 'toast ' + (type === 'error' ? 'error' : '');
+    setTimeout(() => toast.classList.add('hidden'), 3000);
+}
 
-const downloadFile=(filename,dataURI)=>{try{const blob=dataURItoBlob(dataURI);if(!blob){showToast('❌ File error','error');return}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);showToast('✅ Downloaded')}catch(e){showToast('❌ Failed','error')}};
+function getDateTime() {
+    return new Date().toLocaleString('en-US', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hour12: true
+    });
+}
 
-const copyToClipboard=text=>{navigator.clipboard.writeText(text).then(()=>showToast('✅ Copied')).catch(()=>showToast('❌ Failed','error'))};
+function esc(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
 
-const highlightCode=(code,lang)=>{if(!code)return'';const keywords={'js':['function','const','let','var','if','else','return','for','while'],'py':['def','class','if','else','return','import']};let h=esc(code);if(keywords[lang]){keywords[lang].forEach(kw=>{h=h.replace(new RegExp(`\\b${kw}\\b`,'g'),`<span style="color:#667eea;font-weight:bold;">${kw}</span>`)})}return h};
+function saveSession() {
+    if (currentUser) sessionStorage.setItem('teamhub_user', JSON.stringify(currentUser));
+}
 
-const viewFileContent=file=>{currentViewingFile=file;const ext=(file.name.split('.').pop()||'').toLowerCase();const modal=document.getElementById('modalBody');if(!file.content){modal.innerHTML='<div style="text-align:center;padding:40px;"><p>No content</p></div><button class="btn-cancel" onclick="closeModal()" style="width:100%">Close</button>';document.getElementById('modalTitle').textContent=file.name;document.getElementById('modalOverlay').classList.remove('hidden');return}let content='';if(['jpg','jpeg','png','gif','webp','svg'].includes(ext)){content=`<div style="text-align:center;padding:20px"><img src="${file.content}" style="max-width:100%;max-height:60vh;border-radius:8px" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div style="display:none;color:var(--danger)">Failed to load</div></div><div class="modal-buttons"><button class="btn-submit" onclick="downloadCurrentFile()">Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else if(['txt','md','csv','js','py','html','css','json'].includes(ext)){let text=file.content;if(file.content.startsWith('data:')){try{text=atob(file.content.split(',')[1])}catch(e){}}const display=['js','py','html','css','json'].includes(ext)?highlightCode(text,ext):esc(text);content=`<div style="background:var(--bg-tertiary);padding:20px;border-radius:8px;max-height:400px;overflow:auto"><pre>${display}</pre></div><div class="modal-buttons"><button class="btn-submit" onclick="copyToClipboard(atob('${btoa(unescape(encodeURIComponent(text))}'))">Copy</button><button class="btn-submit" onclick="downloadCurrentFile()">Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else{content=`<div style="text-align:center;padding:40px"><p style="font-size:48px">📄</p><p>${esc(file.name)}</p><button class="btn-submit" onclick="downloadCurrentFile()">Download</button></div><div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}modal.innerHTML=content;document.getElementById('modalTitle').textContent=file.name;document.getElementById('modalOverlay').classList.remove('hidden')};
+function loadSession() {
+    const s = sessionStorage.getItem('teamhub_user');
+    if (s) {
+        try {
+            currentUser = JSON.parse(s);
+            return true;
+        } catch (e) {
+            sessionStorage.removeItem('teamhub_user');
+        }
+    }
+    return false;
+}
 
-const downloadCurrentFile=()=>{if(currentViewingFile&&currentViewingFile.content){downloadFile(currentViewingFile.name,currentViewingFile.content)}};
+function clearSession() {
+    sessionStorage.removeItem('teamhub_user');
+    currentUser = null;
+}
 
-const getFileIcon=fn=>{const ext=(fn.split('.').pop()||'').toLowerCase();const icons={'jpg':'🖼️','png':'🖼️','gif':'🖼️','pdf':'📑','txt':'📄','js':'💻','py':'💻','html':'💻','zip':'📦'};return icons[ext]||'📄'};
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    showToast(next === 'dark' ? '🌙 Dark mode' : '☀️ Light mode');
+}
 
-const viewDocument=doc=>{currentViewingDoc=doc;const modal=document.getElementById('modalBody');const files=doc.files||[];let filesHtml='';files.forEach((f,i)=>{filesHtml+=`<tr><td style="padding:12px">${getFileIcon(f.name)} ${esc(f.name)}</td><td style="padding:12px">${((f.size||0)/1024).toFixed(1)}KB</td><td style="padding:12px"><button class="btn-icon" onclick="viewDocFile(${i})">👁️</button><button class="btn-icon" onclick="downloadDocFile(${i})">⬇️</button></td></tr>`});modal.innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${esc(doc.name)}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(doc.description)||'No description'}</div></div><div style="margin-top:20px"><div class="detail-label">Files (${files.length})</div><table style="width:100%;background:var(--bg-tertiary);border-radius:8px;margin-top:10px"><thead style="background:var(--bg-secondary)"><tr><th style="padding:12px;text-align:left">Name</th><th style="padding:12px;text-align:left">Size</th><th style="padding:12px;text-align:left">Actions</th></tr></thead><tbody>${filesHtml}</tbody></table></div>${canDelete(doc)?`<div class="modal-buttons"><button class="btn-submit" onclick="editCurrentDocument()">Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:`<button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`}`;document.getElementById('modalTitle').textContent='📄 Document';document.getElementById('modalOverlay').classList.remove('hidden')};
+// File Handling Functions
+function dataURItoBlob(dataURI) {
+    try {
+        const arr = dataURI.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        const u8arr = new Uint8Array(bstr.length);
+        for (let i = 0; i < bstr.length; i++) {
+            u8arr[i] = bstr.charCodeAt(i);
+        }
+        return new Blob([u8arr], {type: mime});
+    } catch (e) {
+        console.error('Blob error:', e);
+        return null;
+    }
+}
 
-const viewDocFile=i=>{if(currentViewingDoc&&currentViewingDoc.files[i]){viewFileContent(currentViewingDoc.files[i])}};
-const downloadDocFile=i=>{if(currentViewingDoc&&currentViewingDoc.files[i]){const f=currentViewingDoc.files[i];downloadFile(f.name,f.content)}};
-const editCurrentDocument=()=>{if(currentViewingDoc)editDocument(currentViewingDoc)};
+function downloadFile(filename, dataURI) {
+    try {
+        const blob = dataURItoBlob(dataURI);
+        if (!blob) {
+            showToast('❌ Invalid file', 'error');
+            return;
+        }
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename || 'download';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('✅ Downloaded');
+    } catch (e) {
+        showToast('❌ Download failed', 'error');
+    }
+}
 
-const editDocument=doc=>{const modal=document.getElementById('modalBody');const filesHtml=doc.files.map((f,i)=>`<div class="file-item" id="file-${i}"><div style="display:flex;align-items:center;gap:8px"><span>${getFileIcon(f.name)}</span><div><div>${esc(f.name)}</div><div style="font-size:11px;color:var(--text-secondary)">${((f.size||0)/1024).toFixed(1)}KB</div></div></div><button class="btn-icon" onclick="removeFileFromEdit(${i})">🗑️</button></div>`).join('');modal.innerHTML=`<form id="editDocForm" onsubmit="saveDocumentEdits(event,'${doc.id}')"><div class="form-group"><label>Name *</label><input type="text" name="name" value="${esc(doc.name)}" required></div><div class="form-group"><label>Description</label><textarea name="description">${esc(doc.description)||''}</textarea></div><div class="form-group"><label>Current Files (${doc.files.length})</label><div id="currentFilesList">${filesHtml}</div></div><div class="form-group"><label>Add Files</label><input type="file" id="newFilesInput" multiple></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;window.currentDocFiles=[...doc.files];document.getElementById('modalTitle').textContent='✏️ Edit Document';document.getElementById('modalOverlay').classList.remove('hidden')};
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => showToast('✅ Copied'))
+        .catch(() => showToast('❌ Failed', 'error'));
+}
 
-const removeFileFromEdit=i=>{if(confirm('Remove?')){window.currentDocFiles.splice(i,1);const el=document.getElementById(`file-${i}`);if(el)el.remove()}};
+function getFileIcon(filename) {
+    const ext = (filename.split('.').pop() || '').toLowerCase();
+    const icons = {
+        jpg: '🖼️', jpeg: '🖼️', png: '🖼️', gif: '🖼️', webp: '🖼️', svg: '🖼️',
+        pdf: '📑', txt: '📄', md: '📄', js: '💻', py: '💻', html: '💻', css: '💻',
+        json: '💻', zip: '📦', mp4: '🎬', mp3: '🎵'
+    };
+    return icons[ext] || '📄';
+}
 
-const readFileAsBase64=file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=e=>resolve({name:file.name,type:file.type,size:file.size,content:e.target.result});r.onerror=reject;r.readAsDataURL(file)});
+// View Functions
+function viewFileContent(file) {
+    currentViewingFile = file;
+    const ext = (file.name.split('.').pop() || '').toLowerCase();
+    const modal = document.getElementById('modalBody');
+    
+    if (!file.content) {
+        modal.innerHTML = '<p>No content available</p><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>';
+        document.getElementById('modalTitle').textContent = file.name;
+        document.getElementById('modalOverlay').classList.remove('hidden');
+        return;
+    }
 
-const saveDocumentEdits=async(e,id)=>{e.preventDefault();const fd=new FormData(e.target);const docData={name:fd.get('name'),description:fd.get('description')};showLoading(true);try{const doc=data.documents.find(d=>d.id===id);const nf=document.getElementById('newFilesInput').files;let allFiles=[...window.currentDocFiles];if(nf.length>0){for(let i=0;i<nf.length;i++){const d=await readFileAsBase64(nf[i]);allFiles.push(d)}}await db.ref(`documents/${id}`).set({...doc,name:docData.name,description:docData.description,files:allFiles});await logActivity('update',`${currentUser.name} updated doc`);showToast('✅ Saved');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+    let content = '';
+    const isImage = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp'].includes(ext);
+    const isText = ['txt', 'md', 'csv', 'log', 'xml', 'json', 'js', 'css', 'html', 'py', 'java', 'cpp', 'php'].includes(ext);
 
-const renderNotes=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.notes.filter(n=>(n.title||'').toLowerCase().includes(s)||(n.content||'').toLowerCase().includes(s));const p=f.filter(n=>n.pinned),r=f.filter(n=>!n.pinned);let h='';if(p.length){h+=`<h3 style="margin-bottom:12px">📌 Pinned</h3><div class="grid">`+p.map(n=>renderNoteCard(n)).join('')+'</div>'}if(r.length){h+=`<h3 style="margin:20px 0 12px">📝 All Notes</h3><div class="grid">`+r.map(n=>renderNoteCard(n)).join('')+'</div>'}if(!f.length)h='<p style="text-align:center;padding:40px;color:var(--text-secondary)">No notes</p>';document.getElementById('contentContainer').innerHTML=h};
+    if (isImage) {
+        content = `
+            <div style="text-align:center;padding:20px">
+                <img src="${file.content}" style="max-width:100%;max-height:60vh;border-radius:8px" 
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div style="display:none;color:var(--danger)">Failed to load image</div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="downloadCurrentFile()">Download</button>
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+            </div>`;
+    } else if (isText) {
+        let text = file.content;
+        if (file.content.startsWith('data:')) {
+            try {
+                text = atob(file.content.split(',')[1]);
+            } catch (e) {
+                text = file.content;
+            }
+        }
+        content = `
+            <div class="code-highlight"><pre>${esc(text)}</pre></div>
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="copyCurrentFile()">Copy Text</button>
+                <button class="btn-submit" onclick="downloadCurrentFile()">Download</button>
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+            </div>`;
+    } else {
+        content = `
+            <div style="text-align:center;padding:40px">
+                <p style="font-size:48px">📄</p>
+                <p style="font-size:18px;font-weight:600">${esc(file.name)}</p>
+                <p style="color:var(--text-secondary);margin:16px 0">This file type cannot be previewed</p>
+                <button class="btn-submit" onclick="downloadCurrentFile()">Download File</button>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+            </div>`;
+    }
 
-const renderNoteCard=n=>`<div class="card note-card ${n.pinned?'pinned':''}" style="background:${n.color||'#fff'}"><div class="card-header"><div class="card-title">${esc(n.title)}</div><div class="card-actions"><button class="btn-icon view" onclick="viewNoteById('${n.id}')">👁️</button>${canDelete(n)?`<button class="btn-icon delete" onclick="deleteItem('note','${n.id}')">🗑️</button>`:''}</div></div><div class="note-preview"><p class="card-description">${(n.content||'').substring(0,120)}...</p></div>${n.tags?`<div class="tag-container">${n.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}<p class="card-meta">${n.category||'General'} • ${esc(n.createdBy)}</p></div>`;
+    modal.innerHTML = content;
+    document.getElementById('modalTitle').textContent = '📄 ' + file.name;
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const viewNoteById=id=>{const n=data.notes.find(x=>x.id===id);if(n)viewNote(n)};
-const viewNote=n=>{document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(n.title)}</div></div><div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap">${esc(n.content)}</div></div>${canDelete(n)?`<div class="modal-buttons"><button class="btn-submit" onclick="editNoteById('${n.id}')">Edit</button><button class="btn-submit" onclick="togglePinNote('${n.id}',${!n.pinned})">${n.pinned?'Unpin':'Pin'}</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:`<button class="btn-cancel" onclick="closeModal()" style="width:100%">Close</button>`}`;document.getElementById('modalTitle').textContent='📝 Note';document.getElementById('modalOverlay').classList.remove('hidden')};
-const editNoteById=id=>{const n=data.notes.find(x=>x.id===id);if(n)editNote(n)};
+function downloadCurrentFile() {
+    if (currentViewingFile && currentViewingFile.content) {
+        downloadFile(currentViewingFile.name, currentViewingFile.content);
+    }
+}
 
-const editNote=n=>{const colors=['#ffffff','#fef3c7','#dbeafe','#d1fae5','#e9d5ff','#fed7aa','#fee2e2'];document.getElementById('modalBody').innerHTML=`<form id="editNoteForm" onsubmit="saveNote(event,'${n.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${esc(n.title)}" required></div><div class="form-group"><label>Category</label><input type="text" name="category" value="${esc(n.category)||''}"></div><div class="form-group"><label>Tags</label><input type="text" name="tags" value="${(n.tags||[]).join(', ')}"></div><div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c=>`<div class="color-option ${n.color===c?'selected':''}" style="background:${c}" onclick="selectColor(this,'${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="selectedColor" value="${n.color||'#ffffff'}"></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px">${esc(n.content)}</textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Note'};
-const selectColor=(el,c)=>{document.querySelectorAll('.color-option').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');document.getElementById('selectedColor').value=c};
-const togglePinNote=async(id,pin)=>{showLoading(true);try{const n=data.notes.find(x=>x.id===id);await db.ref(`notes/${id}`).update({pinned:pin});showToast(pin?'📌 Pinned':'📌 Unpinned');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function copyCurrentFile() {
+    if (currentViewingFile && currentViewingFile.content) {
+        let text = currentViewingFile.content;
+        if (text.startsWith('data:')) {
+            try {
+                text = atob(text.split(',')[1]);
+            } catch (e) {}
+        }
+        copyToClipboard(text);
+    }
+}
 
-const saveNote=async(e,id)=>{e.preventDefault();const fd=new FormData(e.target);const nd={title:fd.get('title'),category:fd.get('category'),color:fd.get('color'),content:fd.get('content'),tags:fd.get('tags')?fd.get('tags').split(',').map(t=>t.trim()).filter(t=>t):[]};showLoading(true);try{await db.ref(`notes/${id}`).update(nd);await logActivity('update',`${currentUser.name} updated note`);showToast('✅ Saved');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function viewDocument(doc) {
+    currentViewingDoc = doc;
+    const modal = document.getElementById('modalBody');
+    const files = doc.files || [];
+    
+    let filesHtml = '';
+    files.forEach((f, idx) => {
+        filesHtml += `
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <td style="padding:12px">${getFileIcon(f.name)} ${esc(f.name)}</td>
+                <td style="padding:12px;color:var(--text-secondary)">${((f.size || 0) / 1024).toFixed(1)} KB</td>
+                <td style="padding:12px">
+                    <button class="btn-icon view" onclick="viewDocFile(${idx})" title="View">👁️</button>
+                    <button class="btn-icon" style="background:#d1fae5;color:#065f46" onclick="downloadDocFile(${idx})" title="Download">⬇️</button>
+                </td>
+            </tr>`;
+    });
 
-const addNote=async e=>{e.preventDefault();const fd=new FormData(e.target);const nd={title:fd.get('title'),category:fd.get('category'),color:fd.get('color'),content:fd.get('content'),tags:fd.get('tags')?fd.get('tags').split(',').map(t=>t.trim()).filter(t=>t):[],id:'note_'+Date.now(),createdBy:currentUser.name,createdAt:getDateTime(),pinned:false};showLoading(true);try{await db.ref(`notes/${nd.id}`).set(nd);await logActivity('create',`${currentUser.name} created note`);showToast('✅ Created');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+    const filesTable = files.length ? `
+        <div style="margin-top:20px">
+            <div class="detail-label" style="margin-bottom:8px">Files (${files.length})</div>
+            <table style="width:100%;background:var(--bg-tertiary);border-radius:8px;overflow:hidden">
+                <thead style="background:var(--bg-secondary)">
+                    <tr>
+                        <th style="padding:12px;text-align:left">Name</th>
+                        <th style="padding:12px;text-align:left">Size</th>
+                        <th style="padding:12px;text-align:left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>${filesHtml}</tbody>
+            </table>
+        </div>` : '<p style="margin-top:16px;color:var(--text-secondary)">No files</p>';
 
-const renderHome=()=>{const c=document.getElementById('contentContainer');const s=document.getElementById('searchInput').value.toLowerCase();if(s){let h=`<h2>Search: "${esc(s)}"</h2>`;const r={projects:data.projects.filter(p=>(p.name||'').toLowerCase().includes(s)),tasks:data.tasks.filter(t=>(t.title||'').toLowerCase().includes(s)),docs:data.documents.filter(d=>(d.name||'').toLowerCase().includes(s)),contacts:data.contacts.filter(x=>(x.name||'').toLowerCase().includes(s)),urls:data.urls.filter(u=>(u.title||'').toLowerCase().includes(s)),notes:data.notes.filter(n=>(n.title||'').toLowerCase().includes(s))};Object.entries({📁:r.projects,'✅':r.tasks,📄:r.docs,👥:r.contacts,🔗:r.urls,📝:r.notes}).forEach(([k,v])=>{if(v.length)h+=`<h3>${k} (${v.length})</h3><div class="grid">`+v.map(i=>`<div class="card"><div class="card-title">${esc(i.name||i.title)}</div></div>`).join('')+'</div>'});if(!Object.values(r).some(x=>x.length))h+='<p style="text-align:center;padding:40px">No results</p>';c.innerHTML=h;return}c.innerHTML=`<div class="stats-grid"><div class="stat-card blue" onclick="switchTab('projects')"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green" onclick="switchTab('tasks')"><div class="stat-number green">${data.tasks.length}</div><div class="stat-label">Tasks</div></div><div class="stat-card purple" onclick="switchTab('documents')"><div class="stat-number purple">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card orange" onclick="switchTab('contacts')"><div class="stat-number orange">${data.contacts.length}</div><div class="stat-label">Contacts</div></div></div><h2 style="margin:24px 0">Welcome, ${esc(currentUser.name)}!</h2><h3>📁 Recent Projects</h3><div class="grid">${data.projects.slice(-5).reverse().map(p=>`<div class="card"><div class="card-title">${esc(p.name)}</div><p class="card-meta">${p.status}</p></div>`).join('')||'<p style="color:var(--text-secondary)">None</p>'}</div>`};
+    const buttons = canDelete(doc) ? `
+        <div class="modal-buttons" style="margin-top:20px">
+            <button class="btn-submit" onclick="editCurrentDoc()">Edit</button>
+            <button class="btn-cancel" onclick="closeModal()">Close</button>
+        </div>` : `
+        <div style="margin-top:20px;text-align:center;color:var(--text-secondary);font-size:12px">View Only</div>
+        <button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`;
 
-const initFirebase=async()=>{showLoading(true,'Initializing...');try{firebase.initializeApp(firebaseConfig);db=firebase.database();const snap=await db.ref('users').once('value');if(!snap.exists()){await db.ref('users').set({admin:{username:'admin',password:'admin123',email:'admin@team.com',role:'admin',createdAt:getDateTime()},user1:{username:'user1',password:'user123',email:'user@team.com',role:'user',createdAt:getDateTime()}})}setupListeners();const th=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',th);if(loadSession()){showDashboard();showToast('✅ Welcome back!')}else{showLoading(false);document.getElementById('loginPage').classList.remove('hidden')}}catch(e){console.error(e);showLoading(false);showToast('❌ Init failed','error');document.getElementById('loginPage').classList.remove('hidden')}};
+    modal.innerHTML = `
+        <div class="detail-row">
+            <div class="detail-label">Name</div>
+            <div class="detail-value">${esc(doc.name)}</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Description</div>
+            <div class="detail-value">${esc(doc.description) || 'No description'}</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Uploaded By</div>
+            <div class="detail-value">${esc(doc.uploadedBy)} • ${doc.uploadedAt}</div>
+        </div>
+        ${filesTable}${buttons}`;
 
-const setupListeners=()=>{['projects','tasks','documents','contacts','urls','notes','users','activities'].forEach(t=>{listeners[t]=db.ref(t).on('value',s=>{data[t]=s.val()?Object.values(s.val()):[];if(currentUser)renderContent()})})};
+    document.getElementById('modalTitle').textContent = '📄 Document';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const removeListeners=()=>{Object.keys(listeners).forEach(k=>{if(listeners[k])db.ref(k).off('value',listeners[k])});listeners={}};
+function viewDocFile(idx) {
+    if (currentViewingDoc && currentViewingDoc.files[idx]) {
+        viewFileContent(currentViewingDoc.files[idx]);
+    }
+}
 
-document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();const u=document.getElementById('username').value.trim();const p=document.getElementById('password').value.trim();const btn=document.getElementById('loginBtn');if(!u||!p){showToast('❌ Enter credentials','error');return}btn.disabled=true;btn.textContent='Signing in...';try{const snap=await db.ref('users').once('value');const users=snap.val()?Object.values(snap.val()):[];const user=users.find(x=>x.username===u&&x.password===p);if(user){currentUser={name:user.username,role:user.role,email:user.email};await db.ref(`users/${u}/lastLogin`).set(getDateTime());await logActivity('login',`${u} logged in`);saveSession();showDashboard();showToast(`✅ Welcome ${u}!`)}else{showToast('❌ Invalid','error')}}catch(e){showToast('❌ Error','error')}finally{btn.disabled=false;btn.textContent='Sign In'}});
+function downloadDocFile(idx) {
+    if (currentViewingDoc && currentViewingDoc.files[idx]) {
+        const f = currentViewingDoc.files[idx];
+        downloadFile(f.name, f.content);
+    }
+}
 
-const showDashboard=()=>{showLoading(false);document.getElementById('loginPage').classList.add('hidden');document.getElementById('dashboardPage').classList.remove('hidden');document.getElementById('currentUserName').textContent=currentUser.name;document.getElementById('currentUserRole').textContent=currentUser.role;initSidebar();switchTab('home')};
+function editCurrentDoc() {
+    if (currentViewingDoc) editDocument(currentViewingDoc);
+}
 
-document.getElementById('logoutBtn').addEventListener('click',async()=>{if(!confirm('Logout?'))return;await logActivity('logout',`${currentUser.name} logged out`);removeListeners();clearSession();showToast('✅ Logged out');setTimeout(()=>{document.getElementById('loginPage').classList.remove('hidden');document.getElementById('dashboardPage').classList.add('hidden');document.getElementById('username').value='';document.getElementById('password').value='';currentTab='home'},800)});
+function editDocument(doc) {
+    const modal = document.getElementById('modalBody');
+    const filesHtml = (doc.files || []).map((f, i) => `
+        <div class="file-item" id="edit-file-${i}">
+            <div style="display:flex;align-items:center;gap:8px">
+                <span>${getFileIcon(f.name)}</span>
+                <div>
+                    <div style="font-weight:600">${esc(f.name)}</div>
+                    <div style="font-size:11px;color:var(--text-secondary)">${((f.size || 0) / 1024).toFixed(1)} KB</div>
+                </div>
+            </div>
+            <button type="button" class="btn-icon delete" onclick="removeEditFile(${i})">🗑️</button>
+        </div>`).join('');
 
-const initSidebar=()=>{const tabs=[{id:'home',icon:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',label:'Home'},{id:'projects',icon:'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',label:'Projects'},{id:'tasks',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',label:'Tasks'},{id:'documents',icon:'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',label:'Documents'},{id:'contacts',icon:'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',label:'Contacts'},{id:'urls',icon:'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',label:'URLs'},{id:'notes',icon:'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',label:'Notes'},{id:'admin',icon:'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',label:'Admin',adminOnly:true}];document.getElementById('sidebar').innerHTML=tabs.filter(t=>!t.adminOnly||currentUser.role==='admin').map(t=>`<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id==='home'?'active':''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`).join('')};
+    modal.innerHTML = `
+        <form id="editDocForm" onsubmit="saveDocEdit(event, '${doc.id}')">
+            <div class="form-group">
+                <label>Name *</label>
+                <input type="text" name="name" value="${esc(doc.name)}" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description">${esc(doc.description) || ''}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Current Files (${doc.files.length})</label>
+                <div id="editFilesList">${filesHtml}</div>
+            </div>
+            <div class="form-group">
+                <label>Add New Files</label>
+                <input type="file" id="newFilesInput" multiple>
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" class="btn-submit">Save Changes</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </form>`;
 
-const switchTab=tab=>{currentTab=tab;document.getElementById('searchInput').value='';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-tab="${tab}"]`)?.classList.add('active');const hide=['home','admin','contacts'];document.getElementById('addNewBtn').classList.toggle('hidden',hide.includes(tab));const labels={projects:'Project',tasks:'Task',documents:'Document',urls:'URL',notes:'Note'};document.getElementById('addBtnText').textContent=labels[tab]?'Add '+labels[tab]:'Add';renderContent()};
+    window.editDocFiles = [...(doc.files || [])];
+    document.getElementById('modalTitle').textContent = '✏️ Edit Document';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const performSearch=()=>renderContent();
-const renderContent=()=>{if(currentTab==='home')renderHome();else if(currentTab==='projects')renderProjects();else if(currentTab==='tasks')renderTasks();else if(currentTab==='documents')renderDocuments();else if(currentTab==='contacts')renderContacts();else if(currentTab==='urls')renderUrls();else if(currentTab==='notes')renderNotes();else if(currentTab==='admin')renderAdmin()};
+function removeEditFile(idx) {
+    if (confirm('Remove this file?')) {
+        window.editDocFiles.splice(idx, 1);
+        document.getElementById(`edit-file-${idx}`).style.display = 'none';
+    }
+}
 
-const renderProjects=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.projects.filter(p=>(p.name||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div class="grid">${f.map(p=>`<div class="card"><div class="card-header"><div class="card-title">${esc(p.name)}</div><div class="card-actions"><button class="btn-icon view" onclick="viewProjectById('${p.id}')">👁️</button>${canDelete(p)?`<button class="btn-icon delete" onclick="deleteItem('project','${p.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(p.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span></div></div>`).join('')||'<p style="text-align:center;padding:40px">No projects</p>'}</div>`};
+async function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve({
+            name: file.name,
+            type: file.type,
+            size: file.size,
+            content: e.target.result
+        });
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
 
-const viewProjectById=id=>{const p=data.projects.find(x=>x.id===id);if(p)viewProject(p)};
-const viewProject=p=>{document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${esc(p.name)}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(p.description)}</div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span></div></div><button class="btn-cancel" onclick="closeModal()" style="width:100%">Close</button>`;document.getElementById('modalTitle').textContent='📁 Project';document.getElementById('modalOverlay').classList.remove('hidden')};
+async function saveDocEdit(e, id) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.elements.name.value;
+    const description = form.elements.description.value;
+    
+    showLoading(true, 'Saving...');
+    try {
+        const newFiles = document.getElementById('newFilesInput').files;
+        let allFiles = [...window.editDocFiles];
+        
+        if (newFiles.length > 0) {
+            for (let file of newFiles) {
+                const data = await readFileAsBase64(file);
+                allFiles.push(data);
+            }
+        }
+        
+        await db.ref(`documents/${id}`).update({
+            name: name,
+            description: description,
+            files: allFiles
+        });
+        
+        await logActivity('update', `${currentUser.name} updated document`);
+        showToast('✅ Document saved');
+        closeModal();
+    } catch (err) {
+        showToast('❌ Save failed', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
 
-const renderTasks=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.tasks.filter(t=>(t.title||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div class="grid">${f.map(t=>`<div class="card"><div class="card-header"><div class="card-title">${esc(t.title)}</div><div class="card-actions"><button class="btn-icon view" onclick="viewTaskById('${t.id}')">👁️</button>${canDelete(t)?`<button class="btn-icon delete" onclick="deleteItem('task','${t.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(t.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span></div></div>`).join('')||'<p style="text-align:center;padding:40px">No tasks</p>'}</div>`};
+// Note Functions
+function renderNotes() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.notes.filter(n => 
+        (n.title || '').toLowerCase().includes(search) ||
+        (n.content || '').toLowerCase().includes(search)
+    );
+    
+    const pinned = filtered.filter(n => n.pinned);
+    const regular = filtered.filter(n => !n.pinned);
+    
+    let html = '';
+    if (pinned.length) {
+        html += `<h3 style="margin-bottom:12px">📌 Pinned</h3><div class="grid">` +
+            pinned.map(n => renderNoteCard(n)).join('') + '</div>';
+    }
+    if (regular.length) {
+        html += `<h3 style="margin:20px 0 12px">📝 Notes</h3><div class="grid">` +
+            regular.map(n => renderNoteCard(n)).join('') + '</div>';
+    }
+    if (!filtered.length) {
+        html = '<p style="text-align:center;padding:40px;color:var(--text-secondary)">No notes found</p>';
+    }
+    
+    document.getElementById('contentContainer').innerHTML = html;
+}
 
-const viewTaskById=id=>{const t=data.tasks.find(x=>x.id===id);if(t)viewTask(t)};
-const viewTask=t=>{document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(t.title)}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(t.description)||'N/A'}</div></div><div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span></div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span></div></div><button class="btn-cancel" onclick="closeModal()" style="width:100%">Close</button>`;document.getElementById('modalTitle').textContent='✅ Task';document.getElementById('modalOverlay').classList.remove('hidden')};
+function renderNoteCard(note) {
+    return `
+        <div class="card note-card ${note.pinned ? 'pinned' : ''}" style="background:${note.color || '#fff'}">
+            <div class="card-header">
+                <div class="card-title">${esc(note.title)}</div>
+                <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewNote('${note.id}')">👁️</button>
+                    ${canDelete(note) ? `<button class="btn-icon delete" onclick="deleteItem('note', '${note.id}')">🗑️</button>` : ''}
+                </div>
+            </div>
+            <div class="note-preview">
+                <p class="card-description">${(note.content || '').substring(0, 120)}...</p>
+            </div>
+            ${note.tags ? `<div class="tag-container">${note.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+            <p class="card-meta">${note.category || 'General'} • ${esc(note.createdBy)}</p>
+        </div>`;
+}
 
-const renderDocuments=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.documents.filter(d=>(d.name||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div class="grid">${f.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${esc(d.name)}</div><div class="card-actions"><button class="btn-icon view" onclick="viewDocumentById('${d.id}')">👁️</button>${canDelete(d)?`<button class="btn-icon delete" onclick="deleteItem('document','${d.id}')">🗑️</button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} files • ${esc(d.uploadedBy)}</p></div>`).join('')||'<p style="text-align:center;padding:40px">No documents</p>'}</div>`};
+function viewNote(id) {
+    const note = data.notes.find(n => n.id === id);
+    if (!note) return;
+    
+    const modal = document.getElementById('modalBody');
+    modal.innerHTML = `
+        <div class="detail-row">
+            <div class="detail-label">Title</div>
+            <div class="detail-value">${esc(note.title)}</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Category</div>
+            <div class="detail-value"><span class="badge badge-blue">${note.category || 'General'}</span></div>
+        </div>
+        ${note.tags ? `<div class="detail-row"><div class="detail-label">Tags</div><div class="tag-container">${note.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div></div>` : ''}
+        <div class="detail-row">
+            <div class="detail-label">Content</div>
+            <div class="detail-value" style="white-space:pre-wrap">${esc(note.content)}</div>
+        </div>
+        ${canDelete(note) ? `
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="editNote('${note.id}')">Edit</button>
+                <button class="btn-submit" onclick="togglePin('${note.id}', ${!note.pinned})">${note.pinned ? 'Unpin' : 'Pin'}</button>
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+            </div>` : `
+            <button class="btn-cancel" onclick="closeModal()" style="width:100%">Close</button>`}`;
+    
+    document.getElementById('modalTitle').textContent = '📝 Note';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const viewDocumentById=id=>{const d=data.documents.find(x=>x.id===id);if(d)viewDocument(d)};
-const renderContacts=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.contacts.filter(c=>(c.name||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div class="grid">${f.map(c=>`<div class="card"><div class="card-header"><div><div class="card-title">${esc(c.name)}</div><p style="color:var(--text-secondary);font-size:13px">${esc(c.company)}</p></div></div><p class="card-meta">✉️ ${esc(c.email)}</p></div>`).join('')||'<p style="text-align:center;padding:40px">No contacts</p>'}</div>`};
+function editNote(id) {
+    const note = data.notes.find(n => n.id === id);
+    if (!note) return;
+    
+    const colors = ['#ffffff', '#fef3c7', '#dbeafe', '#d1fae5', '#e9d5ff', '#fed7aa', '#fee2e2'];
+    const modal = document.getElementById('modalBody');
+    
+    modal.innerHTML = `
+        <form id="editNoteForm" onsubmit="saveNote(event, '${id}')">
+            <div class="form-group">
+                <label>Title *</label>
+                <input type="text" name="title" value="${esc(note.title)}" required>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" value="${esc(note.category) || ''}">
+            </div>
+            <div class="form-group">
+                <label>Tags (comma separated)</label>
+                <input type="text" name="tags" value="${(note.tags || []).join(', ')}">
+            </div>
+            <div class="form-group">
+                <label>Color</label>
+                <div class="color-picker">
+                    ${colors.map(c => `<div class="color-option ${note.color === c ? 'selected' : ''}" style="background:${c}" onclick="selectNoteColor(this, '${c}')"></div>`).join('')}
+                </div>
+                <input type="hidden" name="color" id="noteColor" value="${note.color || '#ffffff'}">
+            </div>
+            <div class="form-group">
+                <label>Content *</label>
+                <textarea name="content" required style="min-height:200px">${esc(note.content)}</textarea>
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" class="btn-submit">Save</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </form>`;
+    
+    document.getElementById('modalTitle').textContent = '✏️ Edit Note';
+}
 
-const renderUrls=()=>{const s=document.getElementById('searchInput').value.toLowerCase();const f=data.urls.filter(u=>(u.title||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div class="grid">${f.map(u=>`<div class="card"><div class="card-header"><div class="card-title">${esc(u.title)}</div><div class="card-actions"><button class="btn-icon view" onclick="viewUrlById('${u.id}')">👁️</button>${canDelete(u)?`<button class="btn-icon delete" onclick="deleteItem('url','${u.id}')">🗑️</button>`:''}</div></div><p class="card-meta">🔗 ${u.links?.length||0} links</p></div>`).join('')||'<p style="text-align:center;padding:40px">No URLs</p>'}</div>`};
+function selectNoteColor(el, color) {
+    document.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('noteColor').value = color;
+}
 
-const viewUrlById=id=>{const u=data.urls.find(x=>x.id===id);if(u)viewUrl(u)};
-const viewUrl=u=>{const links=(u.links||[]).map(l=>`<div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px"><a href="${esc(l)}" target="_blank" style="color:var(--primary)">${esc(l)}</a></div>`).join('');document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(u.title)}</div></div><div class="detail-label">Links</div>${links}<button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`;document.getElementById('modalTitle').textContent='🔗 URLs';document.getElementById('modalOverlay').classList.remove('hidden')};
+async function togglePin(id, pin) {
+    showLoading(true);
+    try {
+        await db.ref(`notes/${id}`).update({pinned: pin});
+        showToast(pin ? '📌 Pinned' : '📌 Unpinned');
+        closeModal();
+    } catch (e) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
 
-const renderAdmin=()=>{if(currentUser.role!=='admin')return;const s=document.getElementById('searchInput').value.toLowerCase();const f=data.users.filter(u=>(u.username||'').toLowerCase().includes(s));document.getElementById('contentContainer').innerHTML=`<div style="background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border-color)"><h2 style="font-size:18px;margin-bottom:16px">Users</h2><table style="width:100%"><thead style="background:var(--bg-tertiary)"><tr><th style="padding:12px;text-align:left">User</th><th style="padding:12px;text-align:left">Role</th></tr></thead><tbody>${f.map(u=>`<tr><td style="padding:12px">${esc(u.username)}</td><td style="padding:12px"><span class="badge badge-${u.role==='admin'?'purple':'green'}">${u.role}</span></td></tr>`).join('')}</tbody></table></div>`};
+async function saveNote(e, id) {
+    e.preventDefault();
+    const form = e.target;
+    const updates = {
+        title: form.elements.title.value,
+        category: form.elements.category.value,
+        color: form.elements.color.value,
+        content: form.elements.content.value,
+        tags: form.elements.tags.value.split(',').map(t => t.trim()).filter(t => t)
+    };
+    
+    showLoading(true);
+    try {
+        await db.ref(`notes/${id}`).update(updates);
+        await logActivity('update', `${currentUser.name} updated note`);
+        showToast('✅ Note saved');
+        closeModal();
+    } catch (e) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
 
-const openModal=()=>{const m=document.getElementById('modalBody'),t=document.getElementById('modalTitle');if(currentTab==='projects'){t.textContent='Add Project';m.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required></div><div class="form-group"><label>Description *</label><textarea name="description" required></textarea></div><div class="form-group"><label>Status</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){t.textContent='Add Task';m.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Priority</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status</label><select name="status"><option>To Do</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){t.textContent='Upload Document';m.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Files *</label><input type="file" id="fileInput" multiple required></div><div class="modal-buttons"><button type="submit" class="btn-submit">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='urls'){t.textContent='Add URLs';m.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><input type="url" placeholder="https://example.com" required style="margin-bottom:8px"></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){t.textContent='Add Note';m.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required></div><div class="form-group"><label>Category</label><input type="text" name="category"></div><div class="form-group"><label>Tags</label><input type="text" name="tags" placeholder="tag1, tag2"></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px"></textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
+async function addNote(e) {
+    e.preventDefault();
+    const form = e.target;
+    const newNote = {
+        id: 'note_' + Date.now(),
+        title: form.elements.title.value,
+        category: form.elements.category.value,
+        color: form.elements.color.value,
+        content: form.elements.content.value,
+        tags: form.elements.tags.value.split(',').map(t => t.trim()).filter(t => t),
+        createdBy: currentUser.name,
+        createdAt: getDateTime(),
+        pinned: false
+    };
+    
+    showLoading(true);
+    try {
+        await db.ref(`notes/${newNote.id}`).set(newNote);
+        await logActivity('create', `${currentUser.name} created note`);
+        showToast('✅ Note created');
+        closeModal();
+    } catch (e) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
 
-const closeModal=()=>{document.getElementById('modalOverlay').classList.add('hidden');currentViewingFile=null;currentViewingDoc=null};
+// Main Render Functions
+function renderHome() {
+    const container = document.getElementById('contentContainer');
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    
+    if (search) {
+        // Search results
+        let html = `<h2 style="margin-bottom:16px">Search: "${esc(search)}"</h2>`;
+        const results = {
+            '📁 Projects': data.projects.filter(p => (p.name || '').toLowerCase().includes(search)),
+            '✅ Tasks': data.tasks.filter(t => (t.title || '').toLowerCase().includes(search)),
+            '📄 Documents': data.documents.filter(d => (d.name || '').toLowerCase().includes(search)),
+            '👥 Contacts': data.contacts.filter(c => (c.name || '').toLowerCase().includes(search)),
+            '🔗 URLs': data.urls.filter(u => (u.title || '').toLowerCase().includes(search)),
+            '📝 Notes': data.notes.filter(n => (n.title || '').toLowerCase().includes(search))
+        };
+        
+        for (const [label, items] of Object.entries(results)) {
+            if (items.length) {
+                html += `<h3 style="margin:20px 0 12px">${label} (${items.length})</h3><div class="grid">` +
+                    items.map(i => `<div class="card"><div class="card-title">${esc(i.name || i.title)}</div></div>`).join('') + '</div>';
+            }
+        }
+        
+        if (!html.includes('grid')) {
+            html += '<p style="text-align:center;padding:40px">No results</p>';
+        }
+        container.innerHTML = html;
+        return;
+    }
+    
+    // Dashboard
+    container.innerHTML = `
+        <div class="stats-grid">
+            <div class="stat-card blue" onclick="switchTab('projects')">
+                <div class="stat-number blue">${data.projects.length}</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card green" onclick="switchTab('tasks')">
+                <div class="stat-number green">${data.tasks.length}</div>
+                <div class="stat-label">Tasks</div>
+            </div>
+            <div class="stat-card purple" onclick="switchTab('documents')">
+                <div class="stat-number purple">${data.documents.length}</div>
+                <div class="stat-label">Documents</div>
+            </div>
+            <div class="stat-card orange" onclick="switchTab('contacts')">
+                <div class="stat-number orange">${data.contacts.length}</div>
+                <div class="stat-label">Contacts</div>
+            </div>
+        </div>
+        <h2 style="margin:24px 0">Welcome, ${esc(currentUser.name)}!</h2>
+        <h3>📁 Recent Projects</h3>
+        <div class="grid">${data.projects.slice(-5).reverse().map(p => `
+            <div class="card">
+                <div class="card-title">${esc(p.name)}</div>
+                <p class="card-meta">${p.status} • ${p.createdAt}</p>
+            </div>`).join('') || '<p style="color:var(--text-secondary)">No projects yet</p>'}</div>`;
+}
 
-const addProject=async e=>{e.preventDefault();const fd=new FormData(e.target);const d=Object.fromEntries(fd);showLoading(true);try{const id='project_'+Date.now();await db.ref(`projects/${id}`).set({...d,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created project`);showToast('✅ Created');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function renderProjects() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.projects.filter(p => (p.name || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `<div class="grid">${filtered.map(p => `
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">${esc(p.name)}</div>
+                <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewProject('${p.id}')">👁️</button>
+                    ${canDelete(p) ? `<button class="btn-icon delete" onclick="deleteItem('project', '${p.id}')">🗑️</button>` : ''}
+                </div>
+            </div>
+            <p class="card-description">${(p.description || '').substring(0, 100)}...</p>
+            <div class="card-footer">
+                <span class="badge badge-${p.status === 'Active' ? 'green' : 'purple'}">${p.status}</span>
+            </div>
+        </div>`).join('') || '<p style="text-align:center;padding:40px">No projects</p>'}</div>`;
+}
 
-const addTask=async e=>{e.preventDefault();const fd=new FormData(e.target);const d=Object.fromEntries(fd);showLoading(true);try{const id='task_'+Date.now();await db.ref(`tasks/${id}`).set({...d,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created task`);showToast('✅ Created');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function viewProject(id) {
+    const p = data.projects.find(x => x.id === id);
+    if (!p) return;
+    
+    document.getElementById('modalBody').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${esc(p.name)}</div></div>
+        <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(p.description)}</div></div>
+        <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${p.status === 'Active' ? 'green' : 'purple'}">${p.status}</span></div></div>
+        <button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`;
+    document.getElementById('modalTitle').textContent = '📁 Project';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const addDocument=async e=>{e.preventDefault();const name=e.target.elements.name.value;const desc=e.target.elements.description.value;const files=Array.from(document.getElementById('fileInput').files);if(!files.length){showToast('❌ Select files','error');return}showLoading(true);try{const fd=[];for(let f of files){const r=await readFileAsBase64(f);fd.push(r)}const id='doc_'+Date.now();await db.ref(`documents/${id}`).set({id,name,description:desc,files:fd,uploadedBy:currentUser.name,uploadedAt:getDateTime()});await logActivity('create',`${currentUser.name} uploaded doc`);showToast(`✅ Uploaded ${files.length} files`);closeModal()}catch(e){showToast('❌ Upload failed','error')}finally{showLoading(false)}};
+function renderTasks() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.tasks.filter(t => (t.title || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `<div class="grid">${filtered.map(t => `
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">${esc(t.title)}</div>
+                <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewTask('${t.id}')">👁️</button>
+                    ${canDelete(t) ? `<button class="btn-icon delete" onclick="deleteItem('task', '${t.id}')">🗑️</button>` : ''}
+                </div>
+            </div>
+            <p class="card-description">${(t.description || '').substring(0, 100)}...</p>
+            <div class="card-footer">
+                <span class="badge badge-${t.priority === 'Urgent' ? 'red' : 'orange'}">${t.priority}</span>
+                <span class="badge badge-${t.status === 'Completed' ? 'purple' : 'blue'}">${t.status}</span>
+            </div>
+        </div>`).join('') || '<p style="text-align:center;padding:40px">No tasks</p>'}</div>`;
+}
 
-const addUrlField=()=>{const d=document.createElement('div');d.innerHTML=`<input type="url" placeholder="https://example.com" required style="margin-bottom:8px;width:100%">`;document.getElementById('urlsContainer').appendChild(d)};
+function viewTask(id) {
+    const t = data.tasks.find(x => x.id === id);
+    if (!t) return;
+    
+    document.getElementById('modalBody').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(t.title)}</div></div>
+        <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(t.description) || 'N/A'}</div></div>
+        <div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${t.priority === 'Urgent' ? 'red' : 'orange'}">${t.priority}</span></div></div>
+        <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${t.status === 'Completed' ? 'purple' : 'blue'}">${t.status}</span></div></div>
+        <button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`;
+    document.getElementById('modalTitle').textContent = '✅ Task';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
 
-const addUrl=async e=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.querySelectorAll('#urlsContainer input')).map(i=>i.value).filter(Boolean);if(!links.length){showToast('❌ Add URL','error');return}showLoading(true);try{const id='url_'+Date.now();await db.ref(`urls/${id}`).set({id,title,links,addedBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} added URLs`);showToast('✅ Added');closeModal()}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function renderDocuments() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.documents.filter(d => (d.name || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `<div class="grid">${filtered.map(d => `
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">${esc(d.name)}</div>
+                <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewDoc('${d.id}')">👁️</button>
+                    ${canDelete(d) ? `<button class="btn-icon delete" onclick="deleteItem('document', '${d.id}')">🗑️</button>` : ''}
+                </div>
+            </div>
+            <p class="card-meta">📄 ${d.files ? d.files.length : 0} files • ${esc(d.uploadedBy)}</p>
+        </div>`).join('') || '<p style="text-align:center;padding:40px">No documents</p>'}</div>`;
+}
 
-const deleteItem=async(type,id)=>{if(!confirm('Delete?'))return;showLoading(true);try{await db.ref(`${type}s/${id}`).remove();await logActivity('delete',`${currentUser.name} deleted ${type}`);showToast('✅ Deleted')}catch(e){showToast('❌ Error','error')}finally{showLoading(false)}};
+function viewDoc(id) {
+    const d = data.documents.find(x => x.id === id);
+    if (d) viewDocument(d);
+}
 
-const canDelete=item=>currentUser.role==='admin'||item.createdBy===currentUser.name||item.uploadedBy===currentUser.name||item.addedBy===currentUser.name;
+function renderContacts() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.contacts.filter(c => (c.name || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `<div class="grid">${filtered.map(c => `
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">${esc(c.name)}</div>
+                    <p style="color:var(--text-secondary);font-size:13px">${esc(c.company)}</p>
+                </div>
+            </div>
+            <p class="card-meta">✉️ ${esc(c.email)}</p>
+        </div>`).join('') || '<p style="text-align:center;padding:40px">No contacts</p>'}</div>`;
+}
 
-const logActivity=async(action,desc)=>{try{await db.ref(`activities/activity_${Date.now()}`).set({action,description:desc,user:currentUser.name,timestamp:getDateTime()})}catch(e){console.error(e)}};
+function renderUrls() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.urls.filter(u => (u.title || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `<div class="grid">${filtered.map(u => `
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">${esc(u.title)}</div>
+                <div class="card-actions">
+                    <button class="btn-icon view" onclick="viewUrl('${u.id}')">👁️</button>
+                    ${canDelete(u) ? `<button class="btn-icon delete" onclick="deleteItem('url', '${u.id}')">🗑️</button>` : ''}
+                </div>
+            </div>
+            <p class="card-meta">🔗 ${u.links ? u.links.length : 0} links</p>
+        </div>`).join('') || '<p style="text-align:center;padding:40px">No URLs</p>'}</div>`;
+}
 
-window.addEventListener('load',initFirebase);
+function viewUrl(id) {
+    const u = data.urls.find(x => x.id === id);
+    if (!u) return;
+    
+    const links = (u.links || []).map(l => `
+        <div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px">
+            <a href="${esc(l)}" target="_blank" style="color:var(--primary);word-break:break-all">${esc(l)}</a>
+        </div>`).join('');
+    
+    document.getElementById('modalBody').innerHTML = `
+        <div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(u.title)}</div></div>
+        <div class="detail-label" style="margin-bottom:8px">Links</div>${links}
+        <button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px">Close</button>`;
+    document.getElementById('modalTitle').textContent = '🔗 URLs';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function renderAdmin() {
+    if (currentUser.role !== 'admin') return;
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = data.users.filter(u => (u.username || '').toLowerCase().includes(search));
+    
+    document.getElementById('contentContainer').innerHTML = `
+        <div style="background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border-color)">
+            <h2 style="font-size:18px;margin-bottom:16px">User Management</h2>
+            <table style="width:100%">
+                <thead style="background:var(--bg-tertiary)">
+                    <tr><th style="padding:12px;text-align:left">Username</th><th style="padding:12px;text-align:left">Role</th></tr>
+                </thead>
+                <tbody>${filtered.map(u => `
+                    <tr>
+                        <td style="padding:12px">${esc(u.username)}</td>
+                        <td style="padding:12px"><span class="badge badge-${u.role === 'admin' ? 'purple' : 'green'}">${u.role}</span></td>
+                    </tr>`).join('')}</tbody>
+            </table>
+        </div>`;
+}
+
+// Modal & Form Functions
+function openModal() {
+    const modal = document.getElementById('modalBody');
+    const title = document.getElementById('modalTitle');
+    
+    if (currentTab === 'projects') {
+        title.textContent = 'Add Project';
+        modal.innerHTML = `
+            <form id="addForm" onsubmit="addProject(event)">
+                <div class="form-group"><label>Name *</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Description *</label><textarea name="description" required></textarea></div>
+                <div class="form-group"><label>Status</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div>
+                <div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+            </form>`;
+    } else if (currentTab === 'tasks') {
+        title.textContent = 'Add Task';
+        modal.innerHTML = `
+            <form id="addForm" onsubmit="addTask(event)">
+                <div class="form-group"><label>Title *</label><input type="text" name="title" required></div>
+                <div class="form-group"><label>Description</label><textarea name="description"></textarea></div>
+                <div class="form-group"><label>Priority</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div>
+                <div class="form-group"><label>Status</label><select name="status"><option>To Do</option><option>In Progress</option><option>Completed</option></select></div>
+                <div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+            </form>`;
+    } else if (currentTab === 'documents') {
+        title.textContent = 'Upload Document';
+        modal.innerHTML = `
+            <form id="addForm" onsubmit="addDocument(event)">
+                <div class="form-group"><label>Name *</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Description</label><textarea name="description"></textarea></div>
+                <div class="form-group"><label>Files *</label><input type="file" id="docFiles" multiple required></div>
+                <div class="modal-buttons"><button type="submit" class="btn-submit">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+            </form>`;
+    } else if (currentTab === 'urls') {
+        title.textContent = 'Add URLs';
+        modal.innerHTML = `
+            <form id="addForm" onsubmit="addUrl(event)">
+                <div class="form-group"><label>Title *</label><input type="text" name="title" required></div>
+                <div class="form-group"><label>URLs</label><div id="urlInputs"><input type="url" placeholder="https://example.com" required style="margin-bottom:8px;width:100%"></div><button type="button" onclick="addUrlInput()" class="btn-primary" style="margin-top:10px">+ Add URL</button></div>
+                <div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+            </form>`;
+    } else if (currentTab === 'notes') {
+        title.textContent = 'Add Note';
+        const colors = ['#ffffff', '#fef3c7', '#dbeafe', '#d1fae5', '#e9d5ff', '#fed7aa', '#fee2e2'];
+        modal.innerHTML = `
+            <form id="addForm" onsubmit="addNote(event)">
+                <div class="form-group"><label>Title *</label><input type="text" name="title" required></div>
+                <div class="form-group"><label>Category</label><input type="text" name="category"></div>
+                <div class="form-group"><label>Tags</label><input type="text" name="tags" placeholder="tag1, tag2"></div>
+                <div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c => `<div class="color-option" style="background:${c}" onclick="selectNoteColor(this, '${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="noteColor" value="#ffffff"></div>
+                <div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px"></textarea></div>
+                <div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+            </form>`;
+    }
+    document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.add('hidden');
+    currentViewingFile = null;
+    currentViewingDoc = null;
+}
+
+function addUrlInput() {
+    const div = document.createElement('div');
+    div.innerHTML = `<input type="url" placeholder="https://example.com" required style="margin-bottom:8px;width:100%">`;
+    document.getElementById('urlInputs').appendChild(div);
+}
+
+// CRUD Operations
+async function addProject(e) {
+    e.preventDefault();
+    const form = e.target;
+    showLoading(true);
+    try {
+        const id = 'project_' + Date.now();
+        await db.ref(`projects/${id}`).set({
+            id: id,
+            name: form.elements.name.value,
+            description: form.elements.description.value,
+            status: form.elements.status.value,
+            createdBy: currentUser.name,
+            createdAt: getDateTime()
+        });
+        await logActivity('create', `${currentUser.name} created project`);
+        showToast('✅ Project created');
+        closeModal();
+    } catch (err) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function addTask(e) {
+    e.preventDefault();
+    const form = e.target;
+    showLoading(true);
+    try {
+        const id = 'task_' + Date.now();
+        await db.ref(`tasks/${id}`).set({
+            id: id,
+            title: form.elements.title.value,
+            description: form.elements.description.value,
+            priority: form.elements.priority.value,
+            status: form.elements.status.value,
+            createdBy: currentUser.name,
+            createdAt: getDateTime()
+        });
+        await logActivity('create', `${currentUser.name} created task`);
+        showToast('✅ Task created');
+        closeModal();
+    } catch (err) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function addDocument(e) {
+    e.preventDefault();
+    const form = e.target;
+    const files = Array.from(document.getElementById('docFiles').files);
+    if (!files.length) {
+        showToast('❌ Select files', 'error');
+        return;
+    }
+    
+    showLoading(true, 'Uploading...');
+    try {
+        const fileData = [];
+        for (let file of files) {
+            const data = await readFileAsBase64(file);
+            fileData.push(data);
+        }
+        
+        const id = 'doc_' + Date.now();
+        await db.ref(`documents/${id}`).set({
+            id: id,
+            name: form.elements.name.value,
+            description: form.elements.description.value,
+            files: fileData,
+            uploadedBy: currentUser.name,
+            uploadedAt: getDateTime()
+        });
+        await logActivity('create', `${currentUser.name} uploaded document`);
+        showToast(`✅ Uploaded ${files.length} files`);
+        closeModal();
+    } catch (err) {
+        showToast('❌ Upload failed', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function addUrl(e) {
+    e.preventDefault();
+    const form = e.target;
+    const inputs = document.querySelectorAll('#urlInputs input');
+    const links = Array.from(inputs).map(i => i.value).filter(v => v);
+    
+    if (!links.length) {
+        showToast('❌ Add at least one URL', 'error');
+        return;
+    }
+    
+    showLoading(true);
+    try {
+        const id = 'url_' + Date.now();
+        await db.ref(`urls/${id}`).set({
+            id: id,
+            title: form.elements.title.value,
+            links: links,
+            addedBy: currentUser.name,
+            createdAt: getDateTime()
+        });
+        await logActivity('create', `${currentUser.name} added URLs`);
+        showToast('✅ URLs added');
+        closeModal();
+    } catch (err) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function deleteItem(type, id) {
+    if (!confirm(`Delete this ${type}?`)) return;
+    showLoading(true);
+    try {
+        await db.ref(`${type}s/${id}`).remove();
+        await logActivity('delete', `${currentUser.name} deleted ${type}`);
+        showToast('✅ Deleted');
+    } catch (err) {
+        showToast('❌ Error', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+function canDelete(item) {
+    if (currentUser.role === 'admin') return true;
+    return item.createdBy === currentUser.name || 
+           item.uploadedBy === currentUser.name || 
+           item.addedBy === currentUser.name;
+}
+
+async function logActivity(action, description) {
+    try {
+        await db.ref(`activities/activity_${Date.now()}`).set({
+            action: action,
+            description: description,
+            user: currentUser.name,
+            timestamp: getDateTime()
+        });
+    } catch (e) {
+        console.error('Activity log error:', e);
+    }
+}
+
+// Initialization
+async function initFirebase() {
+    try {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.database();
+        
+        // Check if users exist
+        const usersSnap = await db.ref('users').once('value');
+        if (!usersSnap.exists()) {
+            await db.ref('users').set({
+                admin: {
+                    username: 'admin',
+                    password: 'admin123',
+                    email: 'admin@team.com',
+                    role: 'admin',
+                    createdAt: getDateTime()
+                },
+                user1: {
+                    username: 'user1',
+                    password: 'user123',
+                    email: 'user@team.com',
+                    role: 'user',
+                    createdAt: getDateTime()
+                }
+            });
+        }
+        
+        setupListeners();
+        
+        // Apply theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Check session
+        if (loadSession()) {
+            showDashboard();
+            showToast('✅ Welcome back!');
+        } else {
+            showLoading(false);
+            document.getElementById('loginPage').classList.remove('hidden');
+        }
+    } catch (err) {
+        console.error('Init error:', err);
+        showLoading(false);
+        showToast('❌ Failed to initialize', 'error');
+        document.getElementById('loginPage').classList.remove('hidden');
+    }
+}
+
+function setupListeners() {
+    ['projects', 'tasks', 'documents', 'contacts', 'urls', 'notes', 'users', 'activities'].forEach(type => {
+        listeners[type] = db.ref(type).on('value', snap => {
+            const val = snap.val();
+            data[type] = val ? Object.values(val) : [];
+            if (currentUser) renderContent();
+        });
+    });
+}
+
+function removeListeners() {
+    Object.keys(listeners).forEach(key => {
+        if (listeners[key]) db.ref(key).off('value', listeners[key]);
+    });
+    listeners = {};
+}
+
+// Event Listeners
+document.getElementById('loginForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const btn = document.getElementById('loginBtn');
+    
+    if (!username || !password) {
+        showToast('❌ Enter credentials', 'error');
+        return;
+    }
+    
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+    
+    try {
+        const snap = await db.ref('users').once('value');
+        const users = snap.val() ? Object.values(snap.val()) : [];
+        const user = users.find(u => u.username === username && u.password === password);
+        
+        if (user) {
+            currentUser = {
+                name: user.username,
+                role: user.role,
+                email: user.email
+            };
+            await db.ref(`users/${username}/lastLogin`).set(getDateTime());
+            await logActivity('login', `${username} logged in`);
+            saveSession();
+            showDashboard();
+            showToast(`✅ Welcome ${username}!`);
+        } else {
+            showToast('❌ Invalid credentials', 'error');
+        }
+    } catch (err) {
+        showToast('❌ Login failed', 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+    }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+    if (!confirm('Logout?')) return;
+    await logActivity('logout', `${currentUser.name} logged out`);
+    removeListeners();
+    clearSession();
+    showToast('✅ Logged out');
+    setTimeout(() => {
+        document.getElementById('loginPage').classList.remove('hidden');
+        document.getElementById('dashboardPage').classList.add('hidden');
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        currentTab = 'home';
+    }, 800);
+});
+
+function showDashboard() {
+    showLoading(false);
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('dashboardPage').classList.remove('hidden');
+    document.getElementById('currentUserName').textContent = currentUser.name;
+    document.getElementById('currentUserRole').textContent = currentUser.role;
+    initSidebar();
+    switchTab('home');
+}
+
+function initSidebar() {
+    const tabs = [
+        {id: 'home', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', label: 'Home'},
+        {id: 'projects', icon: 'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z', label: 'Projects'},
+        {id: 'tasks', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4', label: 'Tasks'},
+        {id: 'documents', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', label: 'Documents'},
+        {id: 'contacts', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Contacts'},
+        {id: 'urls', icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1', label: 'URLs'},
+        {id: 'notes', icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z', label: 'Notes'},
+        {id: 'admin', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z', label: 'Admin', adminOnly: true}
+    ];
+    
+    document.getElementById('sidebar').innerHTML = tabs
+        .filter(t => !t.adminOnly || currentUser.role === 'admin')
+        .map(t => `<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id === 'home' ? 'active' : ''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`)
+        .join('');
+}
+
+function switchTab(tab) {
+    currentTab = tab;
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-tab="${tab}"]`)?.classList.add('active');
+    
+    const hideAdd = ['home', 'admin', 'contacts'];
+    document.getElementById('addNewBtn').classList.toggle('hidden', hideAdd.includes(tab));
+    
+    const labels = {projects: 'Project', tasks: 'Task', documents: 'Document', urls: 'URL', notes: 'Note'};
+    document.getElementById('addBtnText').textContent = labels[tab] ? 'Add ' + labels[tab] : 'Add';
+    
+    renderContent();
+}
+
+function performSearch() {
+    renderContent();
+}
+
+function renderContent() {
+    if (currentTab === 'home') renderHome();
+    else if (currentTab === 'projects') renderProjects();
+    else if (currentTab === 'tasks') renderTasks();
+    else if (currentTab === 'documents') renderDocuments();
+    else if (currentTab === 'contacts') renderContacts();
+    else if (currentTab === 'urls') renderUrls();
+    else if (currentTab === 'notes') renderNotes();
+    else if (currentTab === 'admin') renderAdmin();
+}
+
+// Start
+window.addEventListener('load', initFirebase);
 </script>
 </body>
 </html>
