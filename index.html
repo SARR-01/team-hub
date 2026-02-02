@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Hub - Complete Platform</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg ' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#667eea;--secondary:#764ba2;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-primary:#fff;--bg-secondary:#f9fafb;--bg-tertiary:#f3f4f6;--text-primary:#1f2937;--text-secondary:#6b7280;--border-color:#e5e7eb;--card-bg:#fff;--input-bg:#fff;--header-bg:#fff;--header-text:#1f2937}[data-theme=dark]{--bg-primary:#1f2937;--bg-secondary:#111827;--bg-tertiary:#374151;--text-primary:#f9fafb;--text-secondary:#d1d5db;--border-color:#374151;--card-bg:#374151;--input-bg:#4b5563;--header-bg:#1f2937;--header-text:#f9fafb}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);transition:all .3s;overflow-x:hidden}.hidden{display:none!important}.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.loading-text{color:#fff;font-size:18px;font-weight:600}.toast{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,var(--success),#059669);color:#fff;padding:16px 24px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);z-index:10001;animation:slideIn .3s;font-weight:600;max-width:90vw}.toast.error{background:linear-gradient(135deg,var(--danger),#dc2626)}.toast.warning{background:linear-gradient(135deg,var(--warning),#d97706)}@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}.login-container{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);display:flex;align-items:center;justify-content:center;padding:16px}.login-box{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);padding:32px;width:100%;max-width:420px}.login-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}h1{font-size:clamp(24px,5vw,32px);font-weight:700;text-align:center;margin-bottom:8px;color:#1f2937}.subtitle{color:#6b7280;text-align:center;margin-bottom:24px;font-size:clamp(13px,3vw,15px)}.cloud-notice{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:2px solid var(--success);border-radius:12px;padding:12px;margin-bottom:20px;text-align:center}.cloud-notice-title{font-size:clamp(11px,2.5vw,13px);font-weight:700;color:#065f46;margin-bottom:6px}.cloud-notice-text{font-size:clamp(10px,2.5vw,12px);color:#047857}.form-group{margin-bottom:16px}label{display:block;font-size:clamp(12px,2.5vw,14px);font-weight:600;margin-bottom:6px;color:var(--text-primary)}input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border-color);border-radius:10px;font-size:clamp(13px,3vw,15px);outline:0;transition:all .3s;background:var(--input-bg);color:var(--text-primary)}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.1)}textarea{resize:vertical;min-height:80px;font-family:inherit}.btn-primary{width:100%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(14px,3vw,16px);transition:transform .2s}.btn-primary:hover{transform:translateY(-2px)}.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}.header{background:var(--header-bg);border-bottom:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:40}.header-content{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.header-left{display:flex;align-items:center;gap:12px}.header-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.header-title h1{font-size:clamp(16px,4vw,22px);margin:0;text-align:left;color:var(--header-text)}.header-title p{font-size:clamp(10px,2.5vw,12px);color:var(--text-secondary)}.header-right{display:flex;align-items:center;gap:8px}.theme-toggle{width:36px;height:36px;border-radius:8px;background:var(--bg-tertiary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-primary);flex-shrink:0}.theme-toggle:hover{background:var(--border-color);transform:scale(1.1)}.user-info{text-align:right;display:none}.user-name{font-weight:600;font-size:clamp(12px,3vw,14px);color:var(--header-text)}.user-role{font-size:clamp(9px,2vw,11px);color:var(--text-secondary);text-transform:uppercase}.btn-logout{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fef2f2;color:var(--danger);border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all .3s;font-size:clamp(11px,2.5vw,13px)}.btn-logout:hover{background:#fee2e2}.main-container{display:flex;flex-direction:column}.sidebar{width:100%;background:var(--bg-primary);border-bottom:1px solid var(--border-color);padding:12px 8px;display:flex;overflow-x:auto;gap:8px}.tab-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:600;color:var(--text-secondary);background:0 0;border:none;cursor:pointer;transition:all .3s;font-size:clamp(12px,3vw,14px);white-space:nowrap;flex-shrink:0}.tab-btn svg{width:18px;height:18px;flex-shrink:0}.tab-btn:hover{background:var(--bg-tertiary);color:var(--text-primary)}.tab-btn.active{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.4)}.content-area{flex:1;padding:16px;width:100%;max-width:100%;overflow-x:hidden}.toolbar{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap}.search-wrapper{flex:1;position:relative;min-width:150px}.search-wrapper svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none;width:18px;height:18px}.search-input{width:100%;padding-left:40px!important}.btn-add{display:flex;align-items:center;gap:6px;padding:12px 16px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:clamp(12px,3vw,14px);white-space:nowrap;transition:transform .2s}.btn-add svg{width:18px;height:18px}.btn-add:hover{transform:translateY(-2px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:var(--card-bg);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--border-color);padding:16px;transition:all .3s}.card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-2px)}.card-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.card-title{font-size:clamp(16px,4vw,18px);font-weight:700;margin-bottom:4px;word-break:break-word}.card-actions{display:flex;gap:6px;flex-wrap:wrap}.btn-icon{width:30px;height:30px;border:none;background:var(--bg-tertiary);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-size:16px}.btn-icon:hover{background:var(--border-color)}.btn-icon.delete:hover{background:#fee2e2;color:var(--danger)}.btn-icon.view{background:#dbeafe;color:#1e40af}.btn-icon.view:hover{background:#bfdbfe}.btn-icon.edit{background:#fef3c7;color:#92400e}.btn-icon.edit:hover{background:#fde68a}.card-description{color:var(--text-secondary);font-size:clamp(12px,3vw,13px);margin-bottom:12px;line-height:1.5;word-break:break-word}.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-color);flex-wrap:wrap;gap:8px}.badge{padding:5px 10px;border-radius:16px;font-size:clamp(10px,2.5vw,11px);font-weight:700}.badge-green{background:#d1fae5;color:#065f46}.badge-blue{background:#dbeafe;color:#1e40af}.badge-purple{background:#e9d5ff;color:#6b21a8}.badge-orange{background:#fed7aa;color:#9a3412}.badge-red{background:#fee2e2;color:#991b1b}.badge-yellow{background:#fef3c7;color:#92400e}.card-meta{font-size:clamp(10px,2.5vw,11px);color:var(--text-secondary)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;animation:fadeIn .2s;overflow-y:auto}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-primary);border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.3);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;animation:slideUp .3s;margin:auto}.modal.large{max-width:800px}@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.modal-header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:20px 24px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center}.modal-title{font-size:clamp(18px,4vw,22px);font-weight:700;color:#fff}.modal-close{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;flex-shrink:0}.modal-close:hover{background:rgba(255,255,255,.3)}.modal-body{padding:24px}.modal-buttons{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.btn-submit{flex:1;min-width:120px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.btn-cancel{flex:1;min-width:120px;background:var(--bg-tertiary);color:var(--text-primary);font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.progress-bar{width:100%;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .3s;border-radius:4px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px}.stat-card{background:#fff;border-radius:14px;padding:20px;text-align:center;border:2px solid;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .3s}.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.stat-card.blue{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%)}.stat-card.green{border-color:#86efac;background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)}.stat-card.purple{border-color:#c4b5fd;background:linear-gradient(135deg,#e9d5ff 0%,#ddd6fe 100%)}.stat-card.orange{border-color:#fdba74;background:linear-gradient(135deg,#fed7aa 0%,#fdba74 100%)}.stat-number{font-size:clamp(28px,8vw,38px);font-weight:800;margin-bottom:6px}.stat-number.blue{color:#1e40af}.stat-number.green{color:#15803d}.stat-number.purple{color:#6b21a8}.stat-number.orange{color:#9a3412}.stat-label{font-size:clamp(11px,3vw,13px);color:#374151;font-weight:600}.detail-row{padding:12px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:12px}.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;font-weight:700;margin-bottom:4px}.detail-value{font-size:14px;color:var(--text-primary);font-weight:500;word-break:break-word}.tag{display:inline-block;padding:4px 10px;background:var(--primary);color:#fff;border-radius:12px;font-size:11px;margin:2px;cursor:pointer;transition:all .2s}.tag:hover{opacity:.8;transform:scale(1.05)}.tag-container{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.file-preview{max-width:100%;max-height:500px;overflow:auto;background:var(--bg-tertiary);border-radius:8px;padding:16px;margin:16px 0}.file-preview pre{white-space:pre-wrap;font-family:monospace;font-size:13px;line-height:1.6}.code-highlight{background:var(--bg-tertiary);padding:20px;border-radius:8px;overflow-x:auto;max-height:500px}.code-highlight code{font-family:'Courier New',monospace;font-size:13px}.file-item{display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg-tertiary);border-radius:6px;margin-bottom:6px}.note-card{position:relative}.note-card.pinned{border:2px solid var(--warning);background:linear-gradient(135deg,#fef3c7,#fde68a)}.note-card.pinned::before{content:'📌';position:absolute;top:12px;right:12px;font-size:16px}.note-preview{max-height:80px;overflow:hidden;position:relative}.note-preview::after{content:'';position:absolute;bottom:0;left:0;right:0;height:20px;background:linear-gradient(transparent,var(--card-bg))}.color-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.color-option{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s}.color-option:hover{transform:scale(1.1)}.color-option.selected{border-color:var(--primary);box-shadow:0 0 0 2px var(--bg-primary)}@media (min-width:768px){.header-content{padding:16px 24px}.user-info{display:block}.main-container{flex-direction:row}.sidebar{width:240px;min-height:calc(100vh - 82px);border-right:1px solid var(--border-color);border-bottom:none;padding:20px 12px;flex-direction:column;overflow-x:visible}.tab-btn{width:100%;margin-bottom:6px}.content-area{padding:24px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.login-box{padding:48px}}@media (max-width:480px){.grid{grid-template-columns:1fr}.btn-logout span{display:none}}
     </style>
@@ -52,13 +52,15 @@
 <div id="modalOverlay" class="modal-overlay hidden">
     <div class="modal"><div class="modal-header"><h2 class="modal-title" id="modalTitle">Modal</h2><button class="modal-close" onclick="closeModal()"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="modal-body" id="modalBody"></div></div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js "></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js "></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",authDomain:"team-hub-666f4.firebaseapp.com",databaseURL:"https://team-hub-666f4-default-rtdb.firebaseio.com",projectId:"team-hub-666f4",storageBucket:"team-hub-666f4.firebasestorage.app",messagingSenderId:"201156915923",appId:"1:201156915923:web:ba3b8f4420832a414e9a26"};
+const firebaseConfig={apiKey:"AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",authDomain:"team-hub-666f4.firebaseapp.com",databaseURL:"https://team-hub-666f4-default-rtdb.firebaseio.com ",projectId:"team-hub-666f4",storageBucket:"team-hub-666f4.firebasestorage.app",messagingSenderId:"201156915923",appId:"1:201156915923:web:ba3b8f4420832a414e9a26"};
 let db,currentUser,currentTab='home';
 let data={projects:[],tasks:[],documents:[],contacts:[],urls:[],notes:[],users:[],activities:[]};
 let listeners={};
+let currentViewingFile=null;
+let currentViewingDoc=null;
 
 const showLoading=(s=true,t='Loading...')=>{const o=document.getElementById('loadingOverlay');o.querySelector('.loading-text').textContent=t;o.classList.toggle('hidden',!s)};
 const showToast=(m,t='success')=>{const toast=document.getElementById('toast');toast.textContent=m;toast.classList.remove('error','warning');if(t==='error')toast.classList.add('error');if(t==='warning')toast.classList.add('warning');toast.classList.remove('hidden');setTimeout(()=>toast.classList.add('hidden'),5000)};
@@ -70,102 +72,804 @@ const toggleTheme=()=>{const theme=document.documentElement.getAttribute('data-t
 
 const esc=t=>{if(!t)return '';const d=document.createElement('div');d.textContent=t;return d.innerHTML};
 
-function dataURItoBlob(dataURI){const arr=dataURI.split(',');const mime=arr[0].match(/:(.*?);/)[1];const bstr=atob(arr[1]);let n=bstr.length;const u8arr=new Uint8Array(n);while(n--){u8arr[n]=bstr.charCodeAt(n)}return new Blob([u8arr],{type:mime})}
+function dataURItoBlob(dataURI){
+    if(!dataURI||typeof dataURI!=='string')return null;
+    try{
+        const split=dataURI.split(',');
+        if(split.length<2)return null;
+        const byteString=atob(split[1]);
+        const mimeMatch=split[0].match(/:(.*?);/);
+        const mimeString=mimeMatch?mimeMatch[1]:'application/octet-stream';
+        const ab=new ArrayBuffer(byteString.length);
+        const ia=new Uint8Array(ab);
+        for(let i=0;i<byteString.length;i++){ia[i]=byteString.charCodeAt(i)}
+        return new Blob([ab],{type:mimeString});
+    }catch(e){console.error('Blob conversion error:',e);return null}
+}
 
-const downloadFile=(filename,dataURI)=>{try{const blob=dataURItoBlob(dataURI);const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);showToast('✅ Download started')}catch(error){console.error('Download error:',error);showToast('❌ Download failed','error')}};
+const downloadFile=(filename,dataURI)=>{
+    try{
+        const blob=dataURItoBlob(dataURI);
+        if(!blob){showToast('❌ Invalid file data','error');return}
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement('a');
+        a.href=url;
+        a.download=filename||'download';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('✅ Download started');
+    }catch(error){console.error('Download error:',error);showToast('❌ Download failed','error')}
+};
 
-const copyToClipboard=text=>{navigator.clipboard.writeText(text).then(()=>showToast('✅ Copied')).catch(()=>showToast('❌ Failed','error'))};
+const copyToClipboard=text=>{
+    if(!text)return;
+    navigator.clipboard.writeText(text).then(()=>showToast('✅ Copied')).catch(()=>showToast('❌ Failed','error'))
+};
 
-const highlightCode=(code,lang)=>{if(!code)return '';const keywords={'js':['function','const','let','var','if','else','return','for','while','class','async','await'],'py':['def','class','if','else','elif','return','import','from','for','while'],'java':['public','private','class','void','int','String','return'],'html':['<!DOCTYPE','<html','<head','<body','<div']};let h=esc(code);if(keywords[lang]){keywords[lang].forEach(kw=>{const regex=new RegExp(`\\b${kw}\\b`,'g');h=h.replace(regex,`<span style="color:#667eea;font-weight:bold;">${kw}</span>`)})}h=h.replace(/(['"])(.+?)\1/g,'<span style="color:#10b981;">$1$2$1</span>');h=h.replace(/(\/\/.*$)/gm,'<span style="color:#6b7280;font-style:italic;">$1</span>');return h};
+const highlightCode=(code,lang)=>{
+    if(!code)return '';
+    const keywords={'js':['function','const','let','var','if','else','return','for','while','class','async','await'],'py':['def','class','if','else','elif','return','import','from','for','while'],'java':['public','private','class','void','int','String','return'],'html':['<!DOCTYPE','<html','<head','<body','<div']};
+    let h=esc(code);
+    if(keywords[lang]){keywords[lang].forEach(kw=>{const regex=new RegExp(`\\b${kw}\\b`,'g');h=h.replace(regex,`<span style="color:#667eea;font-weight:bold;">${kw}</span>`)})}
+    h=h.replace(/(['"])(.+?)\1/g,'<span style="color:#10b981;">$1$2$1</span>');
+    h=h.replace(/(\/\/.*$)/gm,'<span style="color:#6b7280;font-style:italic;">$1</span>');
+    return h
+};
 
-const viewFileContent=file=>{const ext=(file.name.split('.').pop()||'').toLowerCase();const modal=document.getElementById('modalBody');if(!file.content){modal.innerHTML='<div style="text-align:center;padding:40px;"><p style="font-size:48px;">❌</p><p>No content available</p></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>';document.getElementById('modalTitle').textContent=`📄 ${file.name}`;document.getElementById('modalOverlay').classList.remove('hidden');return}let content='';if(['jpg','jpeg','png','gif','webp','bmp','svg'].includes(ext)){content=`<div style="text-align:center;padding:20px;"><img src="${file.content}" alt="${file.name}" style="max-width:100%;max-height:60vh;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" /><div style="display:none;color:var(--danger);padding:20px;"><p>❌ Image failed to load</p></div></div><div class="modal-buttons"><button class="btn-submit" onclick="downloadFile('${file.name}','${file.content.replace(/'/g,"\\'")}')">⬇️ Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else if(['txt','md','csv','log','xml'].includes(ext)){let text=file.content;if(file.content.startsWith('data:')){try{text=atob(file.content.split(',')[1])}catch(e){text=file.content}}content=`<div class="file-preview"><pre style="max-height:400px;overflow-y:auto;">${esc(text)}</pre></div><div class="modal-buttons"><button class="btn-submit" onclick="copyToClipboard(\`${text.replace(/`/g,'\\`').replace(/\$/g,'\\$')}\`)">📋 Copy</button><button class="btn-submit" onclick="downloadFile('${file.name}','${file.content.replace(/'/g,"\\'")}')">⬇️ Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else if(['js','py','java','cpp','html','css','json','php'].includes(ext)){let code=file.content;if(file.content.startsWith('data:')){try{code=atob(file.content.split(',')[1])}catch(e){code=file.content}}const highlighted=highlightCode(code,ext);content=`<div class="code-highlight"><pre><code>${highlighted}</code></pre></div><div class="modal-buttons"><button class="btn-submit" onclick="copyToClipboard(\`${code.replace(/`/g,'\\`').replace(/\$/g,'\\$')}\`)">📋 Copy</button><button class="btn-submit" onclick="downloadFile('${file.name}','${file.content.replace(/'/g,"\\'")}')">⬇️ Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else if(ext==='pdf'){content=`<div style="text-align:center;padding:20px;"><p style="font-size:48px;">📄</p><p style="font-size:18px;font-weight:600;margin-bottom:8px;">${file.name}</p><p style="color:var(--text-secondary);margin-bottom:20px;">PDF files can be downloaded and viewed in your PDF reader</p><button class="btn-submit" onclick="downloadFile('${file.name}','${file.content.replace(/'/g,"\\'")}')">⬇️ Download PDF</button></div><div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}else{const sizeKB=(file.size/1024).toFixed(1);content=`<div style="text-align:center;padding:40px;"><p style="font-size:48px;">📄</p><p style="font-size:18px;font-weight:600;margin-bottom:8px;">${file.name}</p><p style="color:var(--text-secondary);margin-bottom:8px;">Type: ${file.type||'Unknown'}</p><p style="color:var(--text-secondary);margin-bottom:20px;">Size: ${sizeKB} KB</p><button class="btn-submit" onclick="downloadFile('${file.name}','${file.content.replace(/'/g,"\\'")}')">⬇️ Download</button></div><div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`}modal.innerHTML=content;document.getElementById('modalTitle').textContent=`📄 ${file.name}`;document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewFileContent=file=>{
+    currentViewingFile=file;
+    const ext=(file.name.split('.').pop()||'').toLowerCase();
+    const modal=document.getElementById('modalBody');
+    if(!file.content){
+        modal.innerHTML='<div style="text-align:center;padding:40px;"><p style="font-size:48px;">❌</p><p>No content available</p></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>';
+        document.getElementById('modalTitle').textContent=`📄 ${file.name}`;
+        document.getElementById('modalOverlay').classList.remove('hidden');
+        return
+    }
+    let content='';
+    const isImage=['jpg','jpeg','png','gif','webp','bmp','svg'].includes(ext);
+    const isText=['txt','md','csv','log','xml'].includes(ext);
+    const isCode=['js','py','java','cpp','html','css','json','php'].includes(ext);
+    
+    if(isImage){
+        content=`<div style="text-align:center;padding:20px;"><img src="${file.content}" alt="${esc(file.name)}" style="max-width:100%;max-height:60vh;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" /><div style="display:none;color:var(--danger);padding:20px;"><p>❌ Image failed to load</p></div></div><div class="modal-buttons"><button class="btn-submit" onclick="downloadCurrentFile()">⬇️ Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`;
+    }else if(isText||isCode){
+        let text=file.content;
+        if(file.content.startsWith('data:')){
+            try{text=atob(file.content.split(',')[1])}catch(e){text=file.content}
+        }
+        const displayContent=isCode?highlightCode(text,ext):esc(text);
+        content=`<div class="code-highlight"><pre style="max-height:400px;overflow-y:auto;"><code>${displayContent}</code></pre></div><div class="modal-buttons"><button class="btn-submit" onclick="copyCurrentFileContent()">📋 Copy</button><button class="btn-submit" onclick="downloadCurrentFile()">⬇️ Download</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`;
+    }else if(ext==='pdf'){
+        content=`<div style="text-align:center;padding:20px;"><p style="font-size:48px;">📄</p><p style="font-size:18px;font-weight:600;margin-bottom:8px;">${esc(file.name)}</p><p style="color:var(--text-secondary);margin-bottom:20px;">PDF files can be downloaded and viewed in your PDF reader</p><button class="btn-submit" onclick="downloadCurrentFile()">⬇️ Download PDF</button></div><div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`;
+    }else{
+        const sizeKB=((file.size||0)/1024).toFixed(1);
+        content=`<div style="text-align:center;padding:40px;"><p style="font-size:48px;">📄</p><p style="font-size:18px;font-weight:600;margin-bottom:8px;">${esc(file.name)}</p><p style="color:var(--text-secondary);margin-bottom:8px;">Type: ${file.type||'Unknown'}</p><p style="color:var(--text-secondary);margin-bottom:20px;">Size: ${sizeKB} KB</p><button class="btn-submit" onclick="downloadCurrentFile()">⬇️ Download</button></div><div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`;
+    }
+    modal.innerHTML=content;
+    document.getElementById('modalTitle').textContent=`📄 ${file.name}`;
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
+
+const downloadCurrentFile=()=>{
+    if(currentViewingFile&&currentViewingFile.content){
+        downloadFile(currentViewingFile.name,currentViewingFile.content);
+    }
+};
+
+const copyCurrentFileContent=()=>{
+    if(currentViewingFile&&currentViewingFile.content){
+        let text=currentViewingFile.content;
+        if(text.startsWith('data:')){
+            try{text=atob(text.split(',')[1])}catch(e){}
+        }
+        copyToClipboard(text);
+    }
+};
 
 const getFileIcon=fn=>{const ext=(fn.split('.').pop()||'').toLowerCase();const icons={'jpg':'🖼️','jpeg':'🖼️','png':'🖼️','gif':'🖼️','webp':'🖼️','svg':'🖼️','pdf':'📑','doc':'📝','docx':'📝','txt':'📄','md':'📄','js':'💻','py':'💻','java':'💻','html':'💻','css':'💻','json':'💻','zip':'📦','mp3':'🎵','mp4':'🎬','csv':'📊','xlsx':'📊'};return icons[ext]||'📄'};
 
-const viewDocument=doc=>{const modal=document.getElementById('modalBody');const filesTable=(doc.files||[]).map((f,i)=>{const fstr=JSON.stringify(f).replace(/'/g,"&apos;").replace(/"/g,"&quot;");return `<tr style="border-bottom:1px solid var(--border-color);"><td style="padding:12px;font-weight:600;"><span style="font-size:18px;margin-right:8px;">${getFileIcon(f.name)}</span>${f.name}</td><td style="padding:12px;color:var(--text-secondary);">${f.type||'Unknown'}</td><td style="padding:12px;color:var(--text-secondary);">${(f.size/1024).toFixed(1)} KB</td><td style="padding:12px;"><div style="display:flex;gap:6px;"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewFileContent(${fstr})' title="View">👁️</button><button class="btn-icon" style="background:#d1fae5;color:#065f46;" onclick='downloadFile("${f.name}","${f.content.replace(/"/g,'&quot;')}")' title="Download">⬇️</button></div></td></tr>`}).join('');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Document Name</div><div class="detail-value">${doc.name}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${doc.description||'No description'}</div></div><div class="detail-row"><div class="detail-label">Uploaded By</div><div class="detail-value">${doc.uploadedBy}</div></div><div class="detail-row"><div class="detail-label">Uploaded At</div><div class="detail-value">${doc.uploadedAt}</div></div><div style="margin-top:20px;"><div class="detail-label" style="margin-bottom:12px;">Files (${doc.files.length})</div><div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;background:var(--bg-tertiary);border-radius:8px;"><thead><tr style="background:var(--bg-secondary);"><th style="padding:12px;text-align:left;font-weight:600;">Name</th><th style="padding:12px;text-align:left;font-weight:600;">Type</th><th style="padding:12px;text-align:left;font-weight:600;">Size</th><th style="padding:12px;text-align:left;font-weight:600;">Actions</th></tr></thead><tbody>${filesTable}</tbody></table></div></div>${canDelete(doc)?`<div class="modal-buttons"><button class="btn-submit" onclick='editDocument(${JSON.stringify(doc).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<div style="margin-top:20px;padding:12px;background:var(--bg-tertiary);border-radius:8px;text-align:center;"><span style="color:var(--text-secondary);font-size:12px;">👁️ View Only</span></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>'}`;document.getElementById('modalTitle').textContent='📄 Document';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewDocument=doc=>{
+    currentViewingDoc=doc;
+    const modal=document.getElementById('modalBody');
+    const files=(doc.files||[]);
+    
+    let filesTableHtml='';
+    files.forEach((f,idx)=>{
+        const safeIdx=idx;
+        filesTableHtml+=`<tr style="border-bottom:1px solid var(--border-color);">
+            <td style="padding:12px;font-weight:600;"><span style="font-size:18px;margin-right:8px;">${getFileIcon(f.name)}</span>${esc(f.name)}</td>
+            <td style="padding:12px;color:var(--text-secondary);">${f.type||'Unknown'}</td>
+            <td style="padding:12px;color:var(--text-secondary);">${((f.size||0)/1024).toFixed(1)} KB</td>
+            <td style="padding:12px;">
+                <div style="display:flex;gap:6px;">
+                    <button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewDocFile(${safeIdx})" title="View">👁️</button>
+                    <button class="btn-icon" style="background:#d1fae5;color:#065f46;" onclick="downloadDocFile(${safeIdx})" title="Download">⬇️</button>
+                </div>
+            </td>
+        </tr>`;
+    });
+    
+    const filesSection=files.length?`<div style="margin-top:20px;">
+        <div class="detail-label" style="margin-bottom:12px;">Files (${files.length})</div>
+        <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;background:var(--bg-tertiary);border-radius:8px;">
+                <thead><tr style="background:var(--bg-secondary);">
+                    <th style="padding:12px;text-align:left;font-weight:600;">Name</th>
+                    <th style="padding:12px;text-align:left;font-weight:600;">Type</th>
+                    <th style="padding:12px;text-align:left;font-weight:600;">Size</th>
+                    <th style="padding:12px;text-align:left;font-weight:600;">Actions</th>
+                </tr></thead>
+                <tbody>${filesTableHtml}</tbody>
+            </table>
+        </div>
+    </div>`:'<p style="color:var(--text-secondary);margin-top:16px;">No files attached</p>';
+    
+    const adminButtons=canDelete(doc)?`<div class="modal-buttons">
+        <button class="btn-submit" onclick="editCurrentDocument()">✏️ Edit</button>
+        <button class="btn-cancel" onclick="closeModal()">Close</button>
+    </div>`:'<div style="margin-top:20px;padding:12px;background:var(--bg-tertiary);border-radius:8px;text-align:center;"><span style="color:var(--text-secondary);font-size:12px;">👁️ View Only</span></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>';
+    
+    modal.innerHTML=`<div class="detail-row"><div class="detail-label">Document Name</div><div class="detail-value">${esc(doc.name)}</div></div>
+    <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(doc.description)||'No description'}</div></div>
+    <div class="detail-row"><div class="detail-label">Uploaded By</div><div class="detail-value">${esc(doc.uploadedBy)}</div></div>
+    <div class="detail-row"><div class="detail-label">Uploaded At</div><div class="detail-value">${doc.uploadedAt}</div></div>
+    ${filesSection}${adminButtons}`;
+    
+    document.getElementById('modalTitle').textContent='📄 Document';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const editDocument=doc=>{const modal=document.getElementById('modalBody');const filesHtml=doc.files.map((f,idx)=>`<div class="file-item" id="file-${idx}"><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">${getFileIcon(f.name)}</span><div><div style="font-weight:600;">${f.name}</div><div style="font-size:11px;color:var(--text-secondary);">${(f.size/1024).toFixed(1)} KB • ${f.type||'Unknown'}</div></div></div><button type="button" class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="removeFileFromEdit(${idx})">🗑️</button></div>`).join('');modal.innerHTML=`<form id="editDocForm" onsubmit="saveDocumentEdits(event,'${doc.id}')"><div class="form-group"><label>Name *</label><input type="text" name="name" value="${doc.name}" required/></div><div class="form-group"><label>Description</label><textarea name="description">${doc.description||''}</textarea></div><div class="form-group"><label>Current Files (${doc.files.length})</label><div id="currentFilesList">${filesHtml}</div></div><div class="form-group"><label>Add Files (Optional)</label><input type="file" id="newFilesInput" multiple/></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;window.currentDocFiles=[...doc.files];document.getElementById('modalTitle').textContent='✏️ Edit Document';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewDocFile=(idx)=>{
+    if(currentViewingDoc&&currentViewingDoc.files&&currentViewingDoc.files[idx]){
+        viewFileContent(currentViewingDoc.files[idx]);
+    }
+};
 
-const removeFileFromEdit=index=>{if(confirm('Remove this file?')){window.currentDocFiles.splice(index,1);document.getElementById(`file-${index}`).remove();showToast('✅ File will be removed when saved')}};
+const downloadDocFile=(idx)=>{
+    if(currentViewingDoc&&currentViewingDoc.files&&currentViewingDoc.files[idx]){
+        const f=currentViewingDoc.files[idx];
+        downloadFile(f.name,f.content);
+    }
+};
 
-const readFileAsBase64=file=>{return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=e=>{resolve({name:file.name,type:file.type,size:file.size,content:e.target.result})};reader.onerror=reject;reader.readAsDataURL(file)})};
+const editCurrentDocument=()=>{
+    if(currentViewingDoc)editDocument(currentViewingDoc);
+};
 
-const saveDocumentEdits=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const docData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const doc=data.documents.find(d=>d.id===id);const newFiles=document.getElementById('newFilesInput').files;let allFiles=[...window.currentDocFiles];if(newFiles.length>0){showLoading(true,'Processing files...');for(let i=0;i<newFiles.length;i++){const fileData=await readFileAsBase64(newFiles[i]);allFiles.push(fileData)}}await db.ref(`documents/${id}`).set({...doc,name:docData.name,description:docData.description,files:allFiles});await logActivity('update',`${currentUser.name} updated document: ${docData.name}`);showToast('✅ Document updated');closeModal()}catch(error){console.error('Error:',error);showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const editDocument=doc=>{
+    const modal=document.getElementById('modalBody');
+    const filesHtml=doc.files.map((f,idx)=>`<div class="file-item" id="file-${idx}">
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:18px;">${getFileIcon(f.name)}</span>
+            <div><div style="font-weight:600;">${esc(f.name)}</div><div style="font-size:11px;color:var(--text-secondary);">${((f.size||0)/1024).toFixed(1)} KB • ${f.type||'Unknown'}</div></div>
+        </div>
+        <button type="button" class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="removeFileFromEdit(${idx})">🗑️</button>
+    </div>`).join('');
+    
+    modal.innerHTML=`<form id="editDocForm" onsubmit="saveDocumentEdits(event,'${doc.id}')">
+        <div class="form-group"><label>Name *</label><input type="text" name="name" value="${esc(doc.name)}" required/></div>
+        <div class="form-group"><label>Description</label><textarea name="description">${esc(doc.description)||''}</textarea></div>
+        <div class="form-group"><label>Current Files (${doc.files.length})</label><div id="currentFilesList">${filesHtml}</div></div>
+        <div class="form-group"><label>Add Files (Optional)</label><input type="file" id="newFilesInput" multiple/></div>
+        <div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+    </form>`;
+    
+    window.currentDocFiles=[...doc.files];
+    document.getElementById('modalTitle').textContent='✏️ Edit Document';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const renderNotes=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search)||n.tags?.some(t=>t.includes(search)));const pinned=filtered.filter(n=>n.pinned);const regular=filtered.filter(n=>!n.pinned);let html='';if(pinned.length>0){html+=`<h3 style="margin-bottom:12px;">📌 Pinned Notes</h3><div class="grid">`;html+=pinned.map(n=>renderNoteCard(n)).join('');html+='</div>'}if(regular.length>0){html+=`<h3 style="margin:20px 0 12px;">📝 All Notes</h3><div class="grid">`;html+=regular.map(n=>renderNoteCard(n)).join('');html+='</div>'}if(filtered.length===0){html='<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}document.getElementById('contentContainer').innerHTML=html};
+const removeFileFromEdit=index=>{
+    if(confirm('Remove this file?')){
+        window.currentDocFiles.splice(index,1);
+        const el=document.getElementById(`file-${index}`);
+        if(el)el.remove();
+        showToast('✅ File will be removed when saved');
+    }
+};
 
-const renderNoteCard=n=>{const color=n.color||'#ffffff';return `<div class="card note-card ${n.pinned?'pinned':''}" style="background:${color};"><div class="card-header"><div class="card-title">${n.title}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewNote(${JSON.stringify(n).replace(/'/g,"&apos;")})'>👁️</button>${canDelete(n)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('note','${n.id}')">🗑️</button>`:''}</div></div><div class="note-preview"><p class="card-description">${(n.content||'').substring(0,120)}...</p></div>${n.tags&&n.tags.length?`<div class="tag-container">${n.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}</div>`:''}<p class="card-meta">${n.category||'General'} • ${n.createdBy} • ${n.createdAt}</p></div>`};
+const readFileAsBase64=file=>{
+    return new Promise((resolve,reject)=>{
+        const reader=new FileReader();
+        reader.onload=e=>{
+            resolve({name:file.name,type:file.type,size:file.size,content:e.target.result});
+        };
+        reader.onerror=reject;
+        reader.readAsDataURL(file);
+    });
+};
 
-const viewNote=note=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${note.title}</div></div><div class="detail-row"><div class="detail-label">Category</div><div class="detail-value"><span class="badge badge-blue">${note.category||'General'}</span></div></div>${note.tags&&note.tags.length?`<div class="detail-row"><div class="detail-label">Tags</div><div class="tag-container">${note.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}</div></div>`:''}<div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap;">${note.content}</div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${note.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${note.createdAt}</div></div>${canDelete(note)?`<div class="modal-buttons"><button class="btn-submit" onclick='editNote(${JSON.stringify(note).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-submit" onclick='togglePinNote("${note.id}",${!note.pinned})'>${note.pinned?'📌 Unpin':'📌 Pin'}</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='📝 Note';document.getElementById('modalOverlay').classList.remove('hidden')};
+const saveDocumentEdits=async(e,id)=>{
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const docData={name:formData.get('name'),description:formData.get('description')};
+    showLoading(true,'Saving...');
+    try{
+        const doc=data.documents.find(d=>d.id===id);
+        const newFiles=document.getElementById('newFilesInput').files;
+        let allFiles=[...(window.currentDocFiles||[])];
+        if(newFiles.length>0){
+            showLoading(true,'Processing files...');
+            for(let i=0;i<newFiles.length;i++){
+                const fileData=await readFileAsBase64(newFiles[i]);
+                allFiles.push(fileData);
+            }
+        }
+        await db.ref(`documents/${id}`).set({
+            ...doc,
+            name:docData.name,
+            description:docData.description,
+            files:allFiles
+        });
+        await logActivity('update',`${currentUser.name} updated document: ${docData.name}`);
+        showToast('✅ Document updated');
+        closeModal();
+    }catch(error){
+        console.error('Error:',error);
+        showToast('❌ Error: '+error.message,'error');
+    }finally{showLoading(false)}
+};
 
-const editNote=note=>{const colors=['#ffffff','#fef3c7','#dbeafe','#d1fae5','#e9d5ff','#fed7aa','#fee2e2'];modal.innerHTML=`<form id="editNoteForm" onsubmit="saveNote(event,'${note.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${note.title}" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" value="${note.category||''}" placeholder="Personal, Work..."/></div><div class="form-group"><label>Tags (comma-separated)</label><input type="text" name="tags" value="${note.tags?note.tags.join(', '):''}" placeholder="#important, #urgent"/></div><div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c=>`<div class="color-option ${note.color===c?'selected':''}" style="background:${c};" onclick="selectColor(this,'${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="selectedColor" value="${note.color||'#ffffff'}"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;">${note.content}</textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Note'};
+const renderNotes=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.notes.filter(n=>(n.title||'').toLowerCase().includes(search)||(n.content||'').toLowerCase().includes(search)||(n.tags||[]).some(t=>t.includes(search)));
+    const pinned=filtered.filter(n=>n.pinned);
+    const regular=filtered.filter(n=>!n.pinned);
+    let html='';
+    if(pinned.length>0){
+        html+=`<h3 style="margin-bottom:12px;">📌 Pinned Notes</h3><div class="grid">`;
+        html+=pinned.map(n=>renderNoteCard(n)).join('');
+        html+='</div>';
+    }
+    if(regular.length>0){
+        html+=`<h3 style="margin:20px 0 12px;">📝 All Notes</h3><div class="grid">`;
+        html+=regular.map(n=>renderNoteCard(n)).join('');
+        html+='</div>';
+    }
+    if(filtered.length===0){html='<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}
+    document.getElementById('contentContainer').innerHTML=html;
+};
 
-const selectColor=(el,color)=>{document.querySelectorAll('.color-option').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');document.getElementById('selectedColor').value=color};
+const renderNoteCard=n=>{
+    const color=n.color||'#ffffff';
+    return `<div class="card note-card ${n.pinned?'pinned':''}" style="background:${color};">
+        <div class="card-header">
+            <div class="card-title">${esc(n.title)}</div>
+            <div class="card-actions">
+                <button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewNoteById('${n.id}')">👁️</button>
+                ${canDelete(n)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('note','${n.id}')">🗑️</button>`:''}
+            </div>
+        </div>
+        <div class="note-preview"><p class="card-description">${(n.content||'').substring(0,120)}...</p></div>
+        ${n.tags&&n.tags.length?`<div class="tag-container">${n.tags.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div>`:''}
+        <p class="card-meta">${n.category||'General'} • ${esc(n.createdBy)} • ${n.createdAt}</p>
+    </div>`;
+};
 
-const togglePinNote=async(id,pin)=>{showLoading(true);try{const note=data.notes.find(n=>n.id===id);await db.ref(`notes/${id}`).set({...note,pinned:pin});showToast(pin?'📌 Pinned':'📌 Unpinned');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const viewNoteById=id=>{
+    const note=data.notes.find(n=>n.id===id);
+    if(note)viewNote(note);
+};
 
-const saveNote=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const noteData=Object.fromEntries(formData);noteData.tags=noteData.tags?noteData.tags.split(',').map(t=>t.trim()).filter(t=>t):[];showLoading(true);try{const note=data.notes.find(n=>n.id===id);await db.ref(`notes/${id}`).set({...note,...noteData});await logActivity('update',`${currentUser.name} updated note`);showToast('✅ Note updated');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const viewNote=note=>{
+    const modal=document.getElementById('modalBody');
+    modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(note.title)}</div></div>
+    <div class="detail-row"><div class="detail-label">Category</div><div class="detail-value"><span class="badge badge-blue">${note.category||'General'}</span></div></div>
+    ${note.tags&&note.tags.length?`<div class="detail-row"><div class="detail-label">Tags</div><div class="tag-container">${note.tags.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div></div>`:''}
+    <div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap;">${esc(note.content)}</div></div>
+    <div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${esc(note.createdBy)}</div></div>
+    <div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${note.createdAt}</div></div>
+    ${canDelete(note)?`<div class="modal-buttons">
+        <button class="btn-submit" onclick="editNoteById('${note.id}')">✏️ Edit</button>
+        <button class="btn-submit" onclick="togglePinNote('${note.id}',${!note.pinned})">${note.pinned?'📌 Unpin':'📌 Pin'}</button>
+        <button class="btn-cancel" onclick="closeModal()">Close</button>
+    </div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;
+    document.getElementById('modalTitle').textContent='📝 Note';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const addNote=async e=>{e.preventDefault();const formData=new FormData(e.target);const noteData=Object.fromEntries(formData);noteData.tags=noteData.tags?noteData.tags.split(',').map(t=>t.trim()).filter(t=>t):[];showLoading(true);try{const id='note_'+Date.now();await db.ref(`notes/${id}`).set({...noteData,id,createdBy:currentUser.name,createdAt:getDateTime(),pinned:false});await logActivity('create',`${currentUser.name} created note`);showToast('✅ Note created');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const editNoteById=id=>{
+    const note=data.notes.find(n=>n.id===id);
+    if(note)editNote(note);
+};
 
-const renderHome=()=>{const container=document.getElementById('contentContainer');const search=document.getElementById('searchInput').value.toLowerCase();if(search){const results={projects:data.projects.filter(p=>p.name?.toLowerCase().includes(search)||p.description?.toLowerCase().includes(search)),tasks:data.tasks.filter(t=>t.title?.toLowerCase().includes(search)||t.description?.toLowerCase().includes(search)),documents:data.documents.filter(d=>d.name?.toLowerCase().includes(search)),contacts:data.contacts.filter(c=>c.name?.toLowerCase().includes(search)||c.email?.toLowerCase().includes(search)),urls:data.urls.filter(u=>u.title?.toLowerCase().includes(search)),notes:data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search))};let html=`<h2 style="margin-bottom:16px;">Search Results for "${search}"</h2>`;const sections=[{key:'projects',label:'📁 Projects'},{key:'tasks',label:'✅ Tasks'},{key:'documents',label:'📄 Documents'},{key:'contacts',label:'👥 Contacts'},{key:'urls',label:'🔗 URLs'},{key:'notes',label:'📝 Notes'}];sections.forEach(s=>{if(results[s.key].length>0){html+=`<h3 style="margin:20px 0 12px;">${s.label} (${results[s.key].length})</h3><div class="grid">`;results[s.key].forEach(item=>{const title=item.name||item.title||'Untitled';html+=`<div class="card"><div class="card-title">${title}</div></div>`});html+='</div>'}});if(!html.includes('grid')){html+='<p style="text-align:center;padding:40px;color:var(--text-secondary);">No results found</p>'}container.innerHTML=html;return}const recentProjects=data.projects.slice(-5).reverse();const recentTasks=data.tasks.slice(-5).reverse();const recentDocs=data.documents.slice(-5).reverse();const recentContacts=data.contacts.slice(-5).reverse();const recentUrls=data.urls.slice(-5).reverse();const recentNotes=data.notes.slice(-5).reverse();container.innerHTML=`<div class="stats-grid"><div class="stat-card blue" onclick="switchTab('projects')"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green" onclick="switchTab('tasks')"><div class="stat-number green">${data.tasks.length}</div><div class="stat-label">Tasks</div></div><div class="stat-card purple" onclick="switchTab('documents')"><div class="stat-number purple">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card orange" onclick="switchTab('contacts')"><div class="stat-number orange">${data.contacts.length}</div><div class="stat-label">Contacts</div></div></div><h2 style="margin:24px 0 16px;">Welcome, ${currentUser.name}!</h2><h3 style="margin:24px 0 12px;">📁 Recent Projects</h3><div class="grid">${recentProjects.length?recentProjects.map(p=>`<div class="card"><div class="card-title">${p.name}</div><p class="card-meta">${p.status} • ${p.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No projects yet</p>'}</div><h3 style="margin:24px 0 12px;">✅ Recent Tasks</h3><div class="grid">${recentTasks.length?recentTasks.map(t=>`<div class="card"><div class="card-title">${t.title}</div><p class="card-meta">${t.priority} • ${t.status}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No tasks yet</p>'}</div><h3 style="margin:24px 0 12px;">📄 Recent Documents</h3><div class="grid">${recentDocs.length?recentDocs.map(d=>`<div class="card"><div class="card-title">${d.name}</div><p class="card-meta">📄 ${d.files?.length||0} files • ${d.uploadedAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No documents yet</p>'}</div><h3 style="margin:24px 0 12px;">👥 Recent Contacts</h3><div class="grid">${recentContacts.length?recentContacts.map(c=>`<div class="card"><div class="card-title">${c.name}</div><p class="card-meta">${c.company} • ${c.email}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No contacts yet</p>'}</div><h3 style="margin:24px 0 12px;">🔗 Recent URLs</h3><div class="grid">${recentUrls.length?recentUrls.map(u=>`<div class="card"><div class="card-title">${u.title}</div><p class="card-meta">🔗 ${u.links?.length||0} links • ${u.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No URLs yet</p>'}</div><h3 style="margin:24px 0 12px;">📝 Recent Notes</h3><div class="grid">${recentNotes.length?recentNotes.map(n=>`<div class="card"><div class="card-title">${n.title}</div><p class="card-meta">${n.category||'General'} • ${n.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No notes yet</p>'}</div>`};
+const editNote=note=>{
+    const modal=document.getElementById('modalBody');
+    const colors=['#ffffff','#fef3c7','#dbeafe','#d1fae5','#e9d5ff','#fed7aa','#fee2e2'];
+    modal.innerHTML=`<form id="editNoteForm" onsubmit="saveNote(event,'${note.id}')">
+        <div class="form-group"><label>Title *</label><input type="text" name="title" value="${esc(note.title)}" required/></div>
+        <div class="form-group"><label>Category</label><input type="text" name="category" value="${esc(note.category)||''}" placeholder="Personal, Work..."/></div>
+        <div class="form-group"><label>Tags (comma-separated)</label><input type="text" name="tags" value="${(note.tags||[]).join(', ')}" placeholder="#important, #urgent"/></div>
+        <div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c=>`<div class="color-option ${note.color===c?'selected':''}" style="background:${c};" onclick="selectColor(this,'${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="selectedColor" value="${note.color||'#ffffff'}"/></div>
+        <div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;">${esc(note.content)}</textarea></div>
+        <div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div>
+    </form>`;
+    document.getElementById('modalTitle').textContent='✏️ Edit Note';
+};
 
-const initFirebase=async()=>{showLoading(true);try{firebase.initializeApp(firebaseConfig);db=firebase.database();const usersSnap=await db.ref('users').once('value');if(!usersSnap.exists()){await db.ref('users').set({'admin':{username:'admin',password:'admin123',email:'admin@team.com',role:'admin',createdAt:getDateTime()},'user1':{username:'user1',password:'user123',email:'user@team.com',role:'user',createdAt:getDateTime()}})}setupListeners();const savedTheme=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',savedTheme);if(loadSession()){showDashboard();showToast('✅ Welcome back!')}else{document.getElementById('loginPage').classList.remove('hidden')}showLoading(false)}catch(error){showLoading(false);showToast('❌ Error: '+error.message,'error');document.getElementById('loginPage').classList.remove('hidden')}};
+const selectColor=(el,color)=>{
+    document.querySelectorAll('.color-option').forEach(o=>o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('selectedColor').value=color;
+};
 
-const setupListeners=()=>{['projects','tasks','documents','contacts','urls','notes','users','activities'].forEach(type=>{listeners[type]=db.ref(type).on('value',snap=>{data[type]=snap.val()?Object.values(snap.val()):[];if(currentUser)renderContent()})})};
+const togglePinNote=async(id,pin)=>{
+    showLoading(true);
+    try{
+        const note=data.notes.find(n=>n.id===id);
+        await db.ref(`notes/${id}`).set({...note,pinned:pin});
+        showToast(pin?'📌 Pinned':'📌 Unpinned');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
 
-const removeListeners=()=>{Object.keys(listeners).forEach(key=>{if(listeners[key])db.ref(key).off('value',listeners[key])});listeners={}};
+const saveNote=async(e,id)=>{
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const noteData={
+        title:formData.get('title'),
+        category:formData.get('category'),
+        tags:formData.get('tags')?formData.get('tags').split(',').map(t=>t.trim()).filter(t=>t):[],
+        color:formData.get('color'),
+        content:formData.get('content')
+    };
+    showLoading(true);
+    try{
+        const note=data.notes.find(n=>n.id===id);
+        await db.ref(`notes/${id}`).set({...note,...noteData});
+        await logActivity('update',`${currentUser.name} updated note`);
+        showToast('✅ Note updated');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
 
-document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();const username=document.getElementById('username').value.trim();const password=document.getElementById('password').value.trim();const btn=document.getElementById('loginBtn');if(!username||!password){showToast('❌ Please enter credentials','error');return}btn.disabled=true;btn.textContent='Signing in...';try{const snap=await db.ref('users').once('value');const users=snap.val()?Object.values(snap.val()):[];const user=users.find(u=>u.username===username&&u.password===password);if(user){currentUser={name:user.username,role:user.role,email:user.email};await db.ref(`users/${username}/lastLogin`).set(getDateTime());await logActivity('login',`${username} logged in`);saveSession();showDashboard();showToast(`✅ Welcome ${user.username}!`)}else{showToast('❌ Invalid credentials','error')}}catch(error){showToast('❌ Login failed','error')}finally{btn.disabled=false;btn.textContent='Sign In'}});
+const addNote=async e=>{
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const noteData={
+        title:formData.get('title'),
+        category:formData.get('category'),
+        tags:formData.get('tags')?formData.get('tags').split(',').map(t=>t.trim()).filter(t=>t):[],
+        color:formData.get('color'),
+        content:formData.get('content')
+    };
+    showLoading(true);
+    try{
+        const id='note_'+Date.now();
+        await db.ref(`notes/${id}`).set({
+            ...noteData,
+            id,
+            createdBy:currentUser.name,
+            createdAt:getDateTime(),
+            pinned:false
+        });
+        await logActivity('create',`${currentUser.name} created note`);
+        showToast('✅ Note created');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
 
-const showDashboard=()=>{document.getElementById('loginPage').classList.add('hidden');document.getElementById('dashboardPage').classList.remove('hidden');document.getElementById('currentUserName').textContent=currentUser.name;document.getElementById('currentUserRole').textContent=currentUser.role;initSidebar();switchTab('home')};
+const renderHome=()=>{
+    const container=document.getElementById('contentContainer');
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    if(search){
+        const results={
+            projects:data.projects.filter(p=>(p.name||'').toLowerCase().includes(search)||(p.description||'').toLowerCase().includes(search)),
+            tasks:data.tasks.filter(t=>(t.title||'').toLowerCase().includes(search)||(t.description||'').toLowerCase().includes(search)),
+            documents:data.documents.filter(d=>(d.name||'').toLowerCase().includes(search)),
+            contacts:data.contacts.filter(c=>(c.name||'').toLowerCase().includes(search)||(c.email||'').toLowerCase().includes(search)),
+            urls:data.urls.filter(u=>(u.title||'').toLowerCase().includes(search)),
+            notes:data.notes.filter(n=>(n.title||'').toLowerCase().includes(search)||(n.content||'').toLowerCase().includes(search))
+        };
+        let html=`<h2 style="margin-bottom:16px;">Search Results for "${esc(search)}"</h2>`;
+        const sections=[{key:'projects',label:'📁 Projects'},{key:'tasks',label:'✅ Tasks'},{key:'documents',label:'📄 Documents'},{key:'contacts',label:'👥 Contacts'},{key:'urls',label:'🔗 URLs'},{key:'notes',label:'📝 Notes'}];
+        sections.forEach(s=>{
+            if(results[s.key].length>0){
+                html+=`<h3 style="margin:20px 0 12px;">${s.label} (${results[s.key].length})</h3><div class="grid">`;
+                results[s.key].forEach(item=>{
+                    const title=item.name||item.title||'Untitled';
+                    html+=`<div class="card"><div class="card-title">${esc(title)}</div></div>`;
+                });
+                html+='</div>';
+            }
+        });
+        if(!html.includes('grid')){html+='<p style="text-align:center;padding:40px;color:var(--text-secondary);">No results found</p>'}
+        container.innerHTML=html;
+        return;
+    }
+    const recentProjects=data.projects.slice(-5).reverse();
+    const recentTasks=data.tasks.slice(-5).reverse();
+    const recentDocs=data.documents.slice(-5).reverse();
+    const recentContacts=data.contacts.slice(-5).reverse();
+    const recentUrls=data.urls.slice(-5).reverse();
+    const recentNotes=data.notes.slice(-5).reverse();
+    
+    container.innerHTML=`<div class="stats-grid">
+        <div class="stat-card blue" onclick="switchTab('projects')"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div>
+        <div class="stat-card green" onclick="switchTab('tasks')"><div class="stat-number green">${data.tasks.length}</div><div class="stat-label">Tasks</div></div>
+        <div class="stat-card purple" onclick="switchTab('documents')"><div class="stat-number purple">${data.documents.length}</div><div class="stat-label">Documents</div></div>
+        <div class="stat-card orange" onclick="switchTab('contacts')"><div class="stat-number orange">${data.contacts.length}</div><div class="stat-label">Contacts</div></div>
+    </div>
+    <h2 style="margin:24px 0 16px;">Welcome, ${esc(currentUser.name)}!</h2>
+    <h3 style="margin:24px 0 12px;">📁 Recent Projects</h3>
+    <div class="grid">${recentProjects.length?recentProjects.map(p=>`<div class="card"><div class="card-title">${esc(p.name)}</div><p class="card-meta">${p.status} • ${p.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No projects yet</p>'}</div>
+    <h3 style="margin:24px 0 12px;">✅ Recent Tasks</h3>
+    <div class="grid">${recentTasks.length?recentTasks.map(t=>`<div class="card"><div class="card-title">${esc(t.title)}</div><p class="card-meta">${t.priority} • ${t.status}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No tasks yet</p>'}</div>
+    <h3 style="margin:24px 0 12px;">📄 Recent Documents</h3>
+    <div class="grid">${recentDocs.length?recentDocs.map(d=>`<div class="card"><div class="card-title">${esc(d.name)}</div><p class="card-meta">📄 ${d.files?.length||0} files • ${d.uploadedAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No documents yet</p>'}</div>
+    <h3 style="margin:24px 0 12px;">👥 Recent Contacts</h3>
+    <div class="grid">${recentContacts.length?recentContacts.map(c=>`<div class="card"><div class="card-title">${esc(c.name)}</div><p class="card-meta">${esc(c.company)} • ${esc(c.email)}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No contacts yet</p>'}</div>
+    <h3 style="margin:24px 0 12px;">🔗 Recent URLs</h3>
+    <div class="grid">${recentUrls.length?recentUrls.map(u=>`<div class="card"><div class="card-title">${esc(u.title)}</div><p class="card-meta">🔗 ${u.links?.length||0} links • ${u.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No URLs yet</p>'}</div>
+    <h3 style="margin:24px 0 12px;">📝 Recent Notes</h3>
+    <div class="grid">${recentNotes.length?recentNotes.map(n=>`<div class="card"><div class="card-title">${esc(n.title)}</div><p class="card-meta">${n.category||'General'} • ${n.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No notes yet</p>'}</div>`;
+};
 
-document.getElementById('logoutBtn').addEventListener('click',async()=>{if(confirm('Logout?')){await logActivity('logout',`${currentUser.name} logged out`);removeListeners();clearSession();showToast('✅ Logged out');setTimeout(()=>{document.getElementById('loginPage').classList.remove('hidden');document.getElementById('dashboardPage').classList.add('hidden');document.getElementById('username').value='';document.getElementById('password').value='';currentTab='home'},1000)}});
+const initFirebase=async()=>{
+    showLoading(true);
+    try{
+        firebase.initializeApp(firebaseConfig);
+        db=firebase.database();
+        const usersSnap=await db.ref('users').once('value');
+        if(!usersSnap.exists()){
+            await db.ref('users').set({
+                'admin':{username:'admin',password:'admin123',email:'admin@team.com',role:'admin',createdAt:getDateTime()},
+                'user1':{username:'user1',password:'user123',email:'user@team.com',role:'user',createdAt:getDateTime()}
+            });
+        }
+        setupListeners();
+        const savedTheme=localStorage.getItem('theme')||'light';
+        document.documentElement.setAttribute('data-theme',savedTheme);
+        if(loadSession()){
+            showDashboard();
+            showToast('✅ Welcome back!');
+        }else{
+            document.getElementById('loginPage').classList.remove('hidden');
+        }
+        showLoading(false);
+    }catch(error){
+        showLoading(false);
+        showToast('❌ Error: '+error.message,'error');
+        document.getElementById('loginPage').classList.remove('hidden');
+    }
+};
 
-const initSidebar=()=>{const tabs=[{id:'home',icon:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',label:'Home'},{id:'projects',icon:'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',label:'Projects'},{id:'tasks',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',label:'Tasks'},{id:'documents',icon:'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',label:'Documents'},{id:'contacts',icon:'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',label:'Contacts'},{id:'urls',icon:'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',label:'URLs'},{id:'notes',icon:'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',label:'Notes'},{id:'admin',icon:'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',label:'Admin',adminOnly:true}];const sidebar=document.getElementById('sidebar');sidebar.innerHTML=tabs.filter(t=>!t.adminOnly||currentUser.role==='admin').map(t=>`<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id==='home'?'active':''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`).join('')};
+const setupListeners=()=>{
+    ['projects','tasks','documents','contacts','urls','notes','users','activities'].forEach(type=>{
+        listeners[type]=db.ref(type).on('value',snap=>{
+            data[type]=snap.val()?Object.values(snap.val()):[];
+            if(currentUser)renderContent();
+        });
+    });
+};
 
-const switchTab=tab=>{currentTab=tab;document.getElementById('searchInput').value='';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-tab="${tab}"]`)?.classList.add('active');const hideAdd=['home','admin','contacts'];document.getElementById('addNewBtn').classList.toggle('hidden',hideAdd.includes(tab));const labels={projects:'Project',tasks:'Task',documents:'Document',urls:'URL',notes:'Note'};document.getElementById('addBtnText').textContent=labels[tab]?'Add '+labels[tab]:'Add';renderContent()};
+const removeListeners=()=>{
+    Object.keys(listeners).forEach(key=>{
+        if(listeners[key])db.ref(key).off('value',listeners[key]);
+    });
+    listeners={};
+};
+
+document.getElementById('loginForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const username=document.getElementById('username').value.trim();
+    const password=document.getElementById('password').value.trim();
+    const btn=document.getElementById('loginBtn');
+    if(!username||!password){showToast('❌ Please enter credentials','error');return}
+    btn.disabled=true;
+    btn.textContent='Signing in...';
+    try{
+        const snap=await db.ref('users').once('value');
+        const users=snap.val()?Object.values(snap.val()):[];
+        const user=users.find(u=>u.username===username&&u.password===password);
+        if(user){
+            currentUser={name:user.username,role:user.role,email:user.email};
+            await db.ref(`users/${username}/lastLogin`).set(getDateTime());
+            await logActivity('login',`${username} logged in`);
+            saveSession();
+            showDashboard();
+            showToast(`✅ Welcome ${user.username}!`);
+        }else{showToast('❌ Invalid credentials','error')}
+    }catch(error){showToast('❌ Login failed','error')}
+    finally{btn.disabled=false;btn.textContent='Sign In'}
+});
+
+const showDashboard=()=>{
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('dashboardPage').classList.remove('hidden');
+    document.getElementById('currentUserName').textContent=currentUser.name;
+    document.getElementById('currentUserRole').textContent=currentUser.role;
+    initSidebar();
+    switchTab('home');
+};
+
+document.getElementById('logoutBtn').addEventListener('click',async()=>{
+    if(confirm('Logout?')){
+        await logActivity('logout',`${currentUser.name} logged out`);
+        removeListeners();
+        clearSession();
+        showToast('✅ Logged out');
+        setTimeout(()=>{
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('dashboardPage').classList.add('hidden');
+            document.getElementById('username').value='';
+            document.getElementById('password').value='';
+            currentTab='home';
+        },1000);
+    }
+});
+
+const initSidebar=()=>{
+    const tabs=[
+        {id:'home',icon:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',label:'Home'},
+        {id:'projects',icon:'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',label:'Projects'},
+        {id:'tasks',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',label:'Tasks'},
+        {id:'documents',icon:'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',label:'Documents'},
+        {id:'contacts',icon:'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',label:'Contacts'},
+        {id:'urls',icon:'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',label:'URLs'},
+        {id:'notes',icon:'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',label:'Notes'},
+        {id:'admin',icon:'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',label:'Admin',adminOnly:true}
+    ];
+    const sidebar=document.getElementById('sidebar');
+    sidebar.innerHTML=tabs.filter(t=>!t.adminOnly||currentUser.role==='admin').map(t=>`<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id==='home'?'active':''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`).join('');
+};
+
+const switchTab=tab=>{
+    currentTab=tab;
+    document.getElementById('searchInput').value='';
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelector(`[data-tab="${tab}"]`)?.classList.add('active');
+    const hideAdd=['home','admin','contacts'];
+    document.getElementById('addNewBtn').classList.toggle('hidden',hideAdd.includes(tab));
+    const labels={projects:'Project',tasks:'Task',documents:'Document',urls:'URL',notes:'Note'};
+    document.getElementById('addBtnText').textContent=labels[tab]?'Add '+labels[tab]:'Add';
+    renderContent();
+};
 
 const performSearch=()=>renderContent();
-const renderContent=()=>{if(currentTab==='home')renderHome();else if(currentTab==='projects')renderProjects();else if(currentTab==='tasks')renderTasks();else if(currentTab==='documents')renderDocuments();else if(currentTab==='contacts')renderContacts();else if(currentTab==='urls')renderUrls();else if(currentTab==='notes')renderNotes();else if(currentTab==='admin')renderAdmin()};
+const renderContent=()=>{
+    if(currentTab==='home')renderHome();
+    else if(currentTab==='projects')renderProjects();
+    else if(currentTab==='tasks')renderTasks();
+    else if(currentTab==='documents')renderDocuments();
+    else if(currentTab==='contacts')renderContacts();
+    else if(currentTab==='urls')renderUrls();
+    else if(currentTab==='notes')renderNotes();
+    else if(currentTab==='admin')renderAdmin();
+};
 
-const renderProjects=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.projects.filter(p=>p.name?.toLowerCase().includes(search)||p.description?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(p=>`<div class="card"><div class="card-header"><div class="card-title">${p.name}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewProject(${JSON.stringify(p).replace(/'/g,"&apos;")})'>👁️</button>${canDelete(p)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('project','${p.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(p.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span><span class="card-meta">${p.createdAt}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No projects found</p>'}</div>`};
+const renderProjects=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.projects.filter(p=>(p.name||'').toLowerCase().includes(search)||(p.description||'').toLowerCase().includes(search));
+    document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(p=>`<div class="card"><div class="card-header"><div class="card-title">${esc(p.name)}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewProjectById('${p.id}')">👁️</button>${canDelete(p)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('project','${p.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(p.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span><span class="card-meta">${p.createdAt}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No projects found</p>'}</div>`;
+};
 
-const viewProject=p=>{document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${p.name}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${p.description}</div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span></div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${p.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${p.createdAt}</div></div>${canDelete(p)?`<div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='📁 Project';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewProjectById=id=>{
+    const p=data.projects.find(x=>x.id===id);
+    if(p)viewProject(p);
+};
 
-const renderTasks=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.tasks.filter(t=>t.title?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(t=>`<div class="card"><div class="card-header"><div class="card-title">${t.title}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewTask(${JSON.stringify(t).replace(/'/g,"&apos;")})'>👁️</button>${canDelete(t)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('task','${t.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(t.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span><span class="card-meta">Due: ${t.dueDate||'N/A'}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No tasks found</p>'}</div>`};
+const viewProject=p=>{
+    document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${esc(p.name)}</div></div>
+    <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(p.description)}</div></div>
+    <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${p.status==='Active'?'green':'purple'}">${p.status}</span></div></div>
+    <div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${esc(p.createdBy)}</div></div>
+    <div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${p.createdAt}</div></div>
+    ${canDelete(p)?`<div class="modal-buttons"><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;
+    document.getElementById('modalTitle').textContent='📁 Project';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const viewTask=t=>{document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${t.title}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${t.description||'N/A'}</div></div><div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span></div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span></div></div><div class="detail-row"><div class="detail-label">Due Date</div><div class="detail-value">${t.dueDate||'N/A'}</div></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>`;document.getElementById('modalTitle').textContent='✅ Task';document.getElementById('modalOverlay').classList.remove('hidden')};
+const renderTasks=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.tasks.filter(t=>(t.title||'').toLowerCase().includes(search));
+    document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(t=>`<div class="card"><div class="card-header"><div class="card-title">${esc(t.title)}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewTaskById('${t.id}')">👁️</button>${canDelete(t)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('task','${t.id}')">🗑️</button>`:''}</div></div><p class="card-description">${(t.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span><span class="card-meta">Due: ${t.dueDate||'N/A'}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No tasks found</p>'}</div>`;
+};
 
-const renderDocuments=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.documents.filter(d=>d.name?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${d.name}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})'>👁️</button>${canDelete(d)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('document','${d.id}')">🗑️</button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${d.uploadedBy} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`};
+const viewTaskById=id=>{
+    const t=data.tasks.find(x=>x.id===id);
+    if(t)viewTask(t);
+};
 
-const renderContacts=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.contacts.filter(c=>c.name?.toLowerCase().includes(search)||c.email?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(c=>`<div class="card"><div class="card-header"><div><div class="card-title">${c.name}</div><p style="color:var(--text-secondary);font-size:13px;">${c.company}</p></div></div><p class="card-meta">✉️ ${c.email} • 📞 ${c.phone}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No contacts found</p>'}</div>`};
+const viewTask=t=>{
+    document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(t.title)}</div></div>
+    <div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${esc(t.description)||'N/A'}</div></div>
+    <div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${t.priority==='Urgent'?'red':'orange'}">${t.priority}</span></div></div>
+    <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${t.status==='Completed'?'purple':'blue'}">${t.status}</span></div></div>
+    <div class="detail-row"><div class="detail-label">Due Date</div><div class="detail-value">${t.dueDate||'N/A'}</div></div>
+    <button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>`;
+    document.getElementById('modalTitle').textContent='✅ Task';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const renderUrls=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.urls.filter(u=>u.title?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(u=>`<div class="card"><div class="card-header"><div class="card-title">${u.title}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick='viewUrl(${JSON.stringify(u).replace(/'/g,"&apos;")})'>👁️</button>${canDelete(u)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('url','${u.id}')">🗑️</button>`:''}</div></div><p class="card-meta">🔗 ${u.links?.length||0} link(s) • ${u.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No URLs found</p>'}</div>`};
+const renderDocuments=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.documents.filter(d=>(d.name||'').toLowerCase().includes(search));
+    document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${esc(d.name)}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewDocumentById('${d.id}')">👁️</button>${canDelete(d)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('document','${d.id}')">🗑️</button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${esc(d.uploadedBy)} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`;
+};
 
-const viewUrl=u=>{const linksList=(u.links||[]).map(link=>`<div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px;"><a href="${link}" target="_blank" style="color:var(--primary);text-decoration:none;word-break:break-all;">${link}</a></div>`).join('');document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${u.title}</div></div><div style="margin-top:16px;"><div class="detail-label">Links</div>${linksList}</div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>`;document.getElementById('modalTitle').textContent='🔗 URLs';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewDocumentById=id=>{
+    const d=data.documents.find(x=>x.id===id);
+    if(d)viewDocument(d);
+};
 
-const renderAdmin=()=>{if(currentUser.role!=='admin')return;const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.users.filter(u=>u.username?.toLowerCase().includes(search));const usersTable=filtered.map(u=>`<tr><td style="padding:12px;font-weight:600;">${u.username}</td><td style="padding:12px;">${u.email}</td><td style="padding:12px;"><span class="badge badge-${u.role==='admin'?'purple':'green'}">${u.role}</span></td><td style="padding:12px;">${u.createdAt}</td></tr>`).join('');document.getElementById('contentContainer').innerHTML=`<div style="background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border-color);"><h2 style="font-size:18px;margin-bottom:16px;">User Management</h2><table style="width:100%;border-collapse:collapse;"><thead style="background:var(--bg-tertiary);"><tr><th style="padding:12px;text-align:left;">Username</th><th style="padding:12px;text-align:left;">Email</th><th style="padding:12px;text-align:left;">Role</th><th style="padding:12px;text-align:left;">Created</th></tr></thead><tbody>${usersTable}</tbody></table></div><div class="stats-grid"><div class="stat-card blue"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green"><div class="stat-number green">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card purple"><div class="stat-number purple">${data.contacts.length}</div><div class="stat-label">Contacts</div></div><div class="stat-card orange"><div class="stat-number orange">${data.users.length}</div><div class="stat-label">Users</div></div></div>`};
+const renderContacts=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.contacts.filter(c=>(c.name||'').toLowerCase().includes(search)||(c.email||'').toLowerCase().includes(search));
+    document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(c=>`<div class="card"><div class="card-header"><div><div class="card-title">${esc(c.name)}</div><p style="color:var(--text-secondary);font-size:13px;">${esc(c.company)}</p></div></div><p class="card-meta">✉️ ${esc(c.email)} • 📞 ${esc(c.phone)}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No contacts found</p>'}</div>`;
+};
 
-const openModal=()=>{const modal=document.getElementById('modalBody');const title=document.getElementById('modalTitle');if(currentTab==='projects'){title.textContent='Add Project';modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description *</label><textarea name="description" required></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){title.textContent='Add Task';modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option selected>To Do</option><option>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><input type="date" name="dueDate"/></div><div class="form-group"><label>Assigned To</label><input type="text" name="assignedTo"/></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){title.textContent='Upload Document';modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required/><div id="filePreview" style="margin-top:12px;"></div></div><div id="uploadProgress" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div><p id="progressText" style="margin-top:8px;font-size:13px;color:var(--text-secondary);text-align:center;">Uploading...</p></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('fileInput').addEventListener('change',e=>{const preview=document.getElementById('filePreview');preview.innerHTML=Array.from(e.target.files).map(f=>`<p style="font-size:12px;padding:4px;">📄 ${f.name} (${(f.size/1024).toFixed(1)} KB)</p>`).join('')})}else if(currentTab==='urls'){title.textContent='Add URLs';modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;"><input type="url" placeholder="https://example.com" required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){title.textContent='Add Note';const colors=['#ffffff','#fef3c7','#dbeafe','#d1fae5','#e9d5ff','#fed7aa','#fee2e2'];modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="Personal, Work..."/></div><div class="form-group"><label>Tags (comma-separated)</label><input type="text" name="tags" placeholder="#important, #urgent"/></div><div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c=>`<div class="color-option" style="background:${c};" onclick="selectColor(this,'${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="selectedColor" value="#ffffff"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;"></textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
+const renderUrls=()=>{
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.urls.filter(u=>(u.title||'').toLowerCase().includes(search));
+    document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(u=>`<div class="card"><div class="card-header"><div class="card-title">${esc(u.title)}</div><div class="card-actions"><button class="btn-icon" style="background:#dbeafe;color:#1e40af;" onclick="viewUrlById('${u.id}')">👁️</button>${canDelete(u)?`<button class="btn-icon" style="background:#fee2e2;color:var(--danger);" onclick="deleteItem('url','${u.id}')">🗑️</button>`:''}</div></div><p class="card-meta">🔗 ${u.links?.length||0} link(s) • ${u.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No URLs found</p>'}</div>`;
+};
 
-const closeModal=()=>{document.getElementById('modalOverlay').classList.add('hidden')};
+const viewUrlById=id=>{
+    const u=data.urls.find(x=>x.id===id);
+    if(u)viewUrl(u);
+};
 
-const addProject=async e=>{e.preventDefault();const formData=new FormData(e.target);const projectData=Object.fromEntries(formData);showLoading(true);try{const id='project_'+Date.now();await db.ref(`projects/${id}`).set({...projectData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created project`);showToast('✅ Project created');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const viewUrl=u=>{
+    const linksList=(u.links||[]).map(link=>`<div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px;"><a href="${esc(link)}" target="_blank" style="color:var(--primary);text-decoration:none;word-break:break-all;">${esc(link)}</a></div>`).join('');
+    document.getElementById('modalBody').innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${esc(u.title)}</div></div>
+    <div style="margin-top:16px;"><div class="detail-label">Links</div>${linksList}</div>
+    <button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>`;
+    document.getElementById('modalTitle').textContent='🔗 URLs';
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const addTask=async e=>{e.preventDefault();const formData=new FormData(e.target);const taskData=Object.fromEntries(formData);showLoading(true);try{const id='task_'+Date.now();await db.ref(`tasks/${id}`).set({...taskData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created task`);showToast('✅ Task created');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const renderAdmin=()=>{
+    if(currentUser.role!=='admin')return;
+    const search=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=data.users.filter(u=>(u.username||'').toLowerCase().includes(search));
+    const usersTable=filtered.map(u=>`<tr><td style="padding:12px;font-weight:600;">${esc(u.username)}</td><td style="padding:12px;">${esc(u.email)}</td><td style="padding:12px;"><span class="badge badge-${u.role==='admin'?'purple':'green'}">${u.role}</span></td><td style="padding:12px;">${u.createdAt}</td></tr>`).join('');
+    document.getElementById('contentContainer').innerHTML=`<div style="background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border-color);"><h2 style="font-size:18px;margin-bottom:16px;">User Management</h2><table style="width:100%;border-collapse:collapse;"><thead style="background:var(--bg-tertiary);"><tr><th style="padding:12px;text-align:left;">Username</th><th style="padding:12px;text-align:left;">Email</th><th style="padding:12px;text-align:left;">Role</th><th style="padding:12px;text-align:left;">Created</th></tr></thead><tbody>${usersTable}</tbody></table></div><div class="stats-grid"><div class="stat-card blue"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green"><div class="stat-number green">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card purple"><div class="stat-number purple">${data.contacts.length}</div><div class="stat-label">Contacts</div></div><div class="stat-card orange"><div class="stat-number orange">${data.users.length}</div><div class="stat-label">Users</div></div></div>`;
+};
 
-const addDocument=async e=>{e.preventDefault();const name=e.target.elements.name.value;const description=e.target.elements.description.value;const files=Array.from(document.getElementById('fileInput').files);if(files.length===0){showToast('❌ Please select files','error');return}document.getElementById('uploadProgress').classList.remove('hidden');document.getElementById('uploadBtn').disabled=true;try{const totalFiles=files.length;let processedFiles=0;const fileData=[];for(let i=0;i<files.length;i++){const data=await readFileAsBase64(files[i]);fileData.push(data);processedFiles++;const progress=processedFiles/totalFiles*100;document.getElementById('progressFill').style.width=progress+'%';document.getElementById('progressText').textContent=`Uploading ${processedFiles}/${totalFiles} files...`}const id='doc_'+Date.now();await db.ref(`documents/${id}`).set({id,name,description,files:fileData,uploadedBy:currentUser.name,uploadedAt:getDateTime()});await logActivity('create',`${currentUser.name} uploaded document`);showToast(`✅ Uploaded ${files.length} file(s)`);closeModal()}catch(error){console.error('Error:',error);showToast('❌ Upload failed','error')}finally{document.getElementById('uploadProgress').classList.add('hidden');document.getElementById('uploadBtn').disabled=false}};
+const openModal=()=>{
+    const modal=document.getElementById('modalBody');
+    const title=document.getElementById('modalTitle');
+    if(currentTab==='projects'){
+        title.textContent='Add Project';
+        modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description *</label><textarea name="description" required></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;
+    }else if(currentTab==='tasks'){
+        title.textContent='Add Task';
+        modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option selected>To Do</option><option>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><input type="date" name="dueDate"/></div><div class="form-group"><label>Assigned To</label><input type="text" name="assignedTo"/></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;
+    }else if(currentTab==='documents'){
+        title.textContent='Upload Document';
+        modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required/><div id="filePreview" style="margin-top:12px;"></div></div><div id="uploadProgress" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div><p id="progressText" style="margin-top:8px;font-size:13px;color:var(--text-secondary);text-align:center;">Uploading...</p></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;
+        document.getElementById('fileInput').addEventListener('change',e=>{
+            const preview=document.getElementById('filePreview');
+            preview.innerHTML=Array.from(e.target.files).map(f=>`<p style="font-size:12px;padding:4px;">📄 ${esc(f.name)} (${(f.size/1024).toFixed(1)} KB)</p>`).join('');
+        });
+    }else if(currentTab==='urls'){
+        title.textContent='Add URLs';
+        modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;"><input type="url" placeholder="https://example.com " required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;
+    }else if(currentTab==='notes'){
+        title.textContent='Add Note';
+        const colors=['#ffffff','#fef3c7','#dbeafe','#d1fae5','#e9d5ff','#fed7aa','#fee2e2'];
+        modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="Personal, Work..."/></div><div class="form-group"><label>Tags (comma-separated)</label><input type="text" name="tags" placeholder="#important, #urgent"/></div><div class="form-group"><label>Color</label><div class="color-picker">${colors.map(c=>`<div class="color-option" style="background:${c};" onclick="selectColor(this,'${c}')"></div>`).join('')}</div><input type="hidden" name="color" id="selectedColor" value="#ffffff"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;"></textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;
+    }
+    document.getElementById('modalOverlay').classList.remove('hidden');
+};
 
-const addUrlField=()=>{const container=document.getElementById('urlsContainer');const div=document.createElement('div');div.style.cssText='margin-bottom:8px;';div.innerHTML=`<input type="url" placeholder="https://example.com" required/>`;container.appendChild(div)};
+const closeModal=()=>{
+    document.getElementById('modalOverlay').classList.add('hidden');
+    currentViewingFile=null;
+    currentViewingDoc=null;
+};
 
-const addUrl=async e=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);if(links.length===0){showToast('❌ Add at least one URL','error');return}showLoading(true);try{const id='url_'+Date.now();await db.ref(`urls/${id}`).set({id,title,links,addedBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} added URLs`);showToast('✅ URLs added');closeModal()}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const addProject=async e=>{
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const projectData=Object.fromEntries(formData);
+    showLoading(true);
+    try{
+        const id='project_'+Date.now();
+        await db.ref(`projects/${id}`).set({...projectData,id,createdBy:currentUser.name,createdAt:getDateTime()});
+        await logActivity('create',`${currentUser.name} created project`);
+        showToast('✅ Project created');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
 
-const deleteItem=async(type,id)=>{if(!confirm(`Delete this ${type}?`))return;showLoading(true);try{const path=type==='user'?`users/${id}`:`${type}s/${id}`;await db.ref(path).remove();await logActivity('delete',`${currentUser.name} deleted ${type}`);showToast('✅ Deleted')}catch(error){showToast('❌ Error','error')}finally{showLoading(false)}};
+const addTask=async e=>{
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const taskData=Object.fromEntries(formData);
+    showLoading(true);
+    try{
+        const id='task_'+Date.now();
+        await db.ref(`tasks/${id}`).set({...taskData,id,createdBy:currentUser.name,createdAt:getDateTime()});
+        await logActivity('create',`${currentUser.name} created task`);
+        showToast('✅ Task created');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
 
-const canDelete=item=>{if(currentUser.role==='admin')return true;return item.createdBy===currentUser.name||item.uploadedBy===currentUser.name||item.addedBy===currentUser.name};
+const addDocument=async e=>{
+    e.preventDefault();
+    const name=e.target.elements.name.value;
+    const description=e.target.elements.description.value;
+    const files=Array.from(document.getElementById('fileInput').files);
+    if(files.length===0){showToast('❌ Please select files','error');return}
+    document.getElementById('uploadProgress').classList.remove('hidden');
+    document.getElementById('uploadBtn').disabled=true;
+    try{
+        const totalFiles=files.length;
+        let processedFiles=0;
+        const fileData=[];
+        for(let i=0;i<files.length;i++){
+            const data=await readFileAsBase64(files[i]);
+            fileData.push(data);
+            processedFiles++;
+            const progress=processedFiles/totalFiles*100;
+            document.getElementById('progressFill').style.width=progress+'%';
+            document.getElementById('progressText').textContent=`Uploading ${processedFiles}/${totalFiles} files...`;
+        }
+        const id='doc_'+Date.now();
+        await db.ref(`documents/${id}`).set({id,name,description,files:fileData,uploadedBy:currentUser.name,uploadedAt:getDateTime()});
+        await logActivity('create',`${currentUser.name} uploaded document`);
+        showToast(`✅ Uploaded ${files.length} file(s)`);
+        closeModal();
+    }catch(error){
+        console.error('Error:',error);
+        showToast('❌ Upload failed','error');
+    }finally{
+        document.getElementById('uploadProgress').classList.add('hidden');
+        document.getElementById('uploadBtn').disabled=false;
+    }
+};
 
-const logActivity=async(action,description)=>{try{const id='activity_'+Date.now();await db.ref(`activities/${id}`).set({id,action,description,user:currentUser.name,timestamp:getDateTime()})}catch(error){console.error('Log error:',error)}};
+const addUrlField=()=>{
+    const container=document.getElementById('urlsContainer');
+    const div=document.createElement('div');
+    div.style.cssText='margin-bottom:8px;';
+    div.innerHTML=`<input type="url" placeholder="https://example.com " required/>`;
+    container.appendChild(div);
+};
+
+const addUrl=async e=>{
+    e.preventDefault();
+    const title=e.target.elements.title.value;
+    const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);
+    if(links.length===0){showToast('❌ Add at least one URL','error');return}
+    showLoading(true);
+    try{
+        const id='url_'+Date.now();
+        await db.ref(`urls/${id}`).set({id,title,links,addedBy:currentUser.name,createdAt:getDateTime()});
+        await logActivity('create',`${currentUser.name} added URLs`);
+        showToast('✅ URLs added');
+        closeModal();
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
+
+const deleteItem=async(type,id)=>{
+    if(!confirm(`Delete this ${type}?`))return;
+    showLoading(true);
+    try{
+        const path=type==='user'?`users/${id}`:`${type}s/${id}`;
+        await db.ref(path).remove();
+        await logActivity('delete',`${currentUser.name} deleted ${type}`);
+        showToast('✅ Deleted');
+    }catch(error){showToast('❌ Error','error')}finally{showLoading(false)}
+};
+
+const canDelete=item=>{
+    if(currentUser.role==='admin')return true;
+    return item.createdBy===currentUser.name||item.uploadedBy===currentUser.name||item.addedBy===currentUser.name;
+};
+
+const logActivity=async(action,description)=>{
+    try{
+        const id='activity_'+Date.now();
+        await db.ref(`activities/${id}`).set({id,action,description,user:currentUser.name,timestamp:getDateTime()});
+    }catch(error){console.error('Log error:',error)}
+};
 
 window.addEventListener('load',initFirebase);
 </script>
