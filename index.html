@@ -3,96 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Hub - Complete Platform</title>
+    <title>Team Hub - Enhanced Platform</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#667eea;--secondary:#764ba2;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-primary:#fff;--bg-secondary:#f9fafb;--bg-tertiary:#f3f4f6;--text-primary:#1f2937;--text-secondary:#6b7280;--border-color:#e5e7eb;--card-bg:#fff;--input-bg:#fff;--header-bg:#fff;--header-text:#1f2937}[data-theme=dark]{--bg-primary:#1f2937;--bg-secondary:#111827;--bg-tertiary:#374151;--text-primary:#f9fafb;--text-secondary:#d1d5db;--border-color:#374151;--card-bg:#374151;--input-bg:#4b5563;--header-bg:#1f2937;--header-text:#f9fafb}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);transition:all .3s;overflow-x:hidden}.hidden{display:none!important}.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.loading-text{color:#fff;font-size:18px;font-weight:600}.toast{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,var(--success),#059669);color:#fff;padding:16px 24px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);z-index:10001;animation:slideIn .3s;font-weight:600;max-width:90vw}.toast.error{background:linear-gradient(135deg,var(--danger),#dc2626)}.toast.warning{background:linear-gradient(135deg,var(--warning),#d97706)}@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}.login-container{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);display:flex;align-items:center;justify-content:center;padding:16px}.login-box{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);padding:32px;width:100%;max-width:420px}.login-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}h1{font-size:clamp(24px,5vw,32px);font-weight:700;text-align:center;margin-bottom:8px;color:#1f2937}.subtitle{color:#6b7280;text-align:center;margin-bottom:24px;font-size:clamp(13px,3vw,15px)}.cloud-notice{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:2px solid var(--success);border-radius:12px;padding:12px;margin-bottom:20px;text-align:center}.cloud-notice-title{font-size:clamp(11px,2.5vw,13px);font-weight:700;color:#065f46;margin-bottom:6px}.cloud-notice-text{font-size:clamp(10px,2.5vw,12px);color:#047857}.form-group{margin-bottom:16px}label{display:block;font-size:clamp(12px,2.5vw,14px);font-weight:600;margin-bottom:6px;color:var(--text-primary)}input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border-color);border-radius:10px;font-size:clamp(13px,3vw,15px);outline:0;transition:all .3s;background:var(--input-bg);color:var(--text-primary)}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.1)}textarea{resize:vertical;min-height:80px;font-family:inherit}.btn-primary{width:100%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(14px,3vw,16px);transition:transform .2s}.btn-primary:hover{transform:translateY(-2px)}.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}.header{background:var(--header-bg);border-bottom:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:40}.header-content{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.header-left{display:flex;align-items:center;gap:12px}.header-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.header-title h1{font-size:clamp(16px,4vw,22px);margin:0;text-align:left;color:var(--header-text)}.header-title p{font-size:clamp(10px,2.5vw,12px);color:var(--text-secondary)}.header-right{display:flex;align-items:center;gap:8px}.theme-toggle{width:36px;height:36px;border-radius:8px;background:var(--bg-tertiary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-primary);flex-shrink:0}.theme-toggle:hover{background:var(--border-color);transform:scale(1.1)}.user-info{text-align:right;display:none}.user-name{font-weight:600;font-size:clamp(12px,3vw,14px);color:var(--header-text)}.user-role{font-size:clamp(9px,2vw,11px);color:var(--text-secondary);text-transform:uppercase}.btn-logout{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fef2f2;color:var(--danger);border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all .3s;font-size:clamp(11px,2.5vw,13px)}.btn-logout:hover{background:#fee2e2}.main-container{display:flex;flex-direction:column}.sidebar{width:100%;background:var(--bg-primary);border-bottom:1px solid var(--border-color);padding:12px 8px;display:flex;overflow-x:auto;gap:8px}.tab-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:600;color:var(--text-secondary);background:0 0;border:none;cursor:pointer;transition:all .3s;font-size:clamp(12px,3vw,14px);white-space:nowrap;flex-shrink:0}.tab-btn svg{width:18px;height:18px;flex-shrink:0}.tab-btn:hover{background:var(--bg-tertiary);color:var(--text-primary)}.tab-btn.active{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.4)}.content-area{flex:1;padding:16px;width:100%;max-width:100%;overflow-x:hidden}.toolbar{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap}.search-wrapper{flex:1;position:relative;min-width:150px}.search-wrapper svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none;width:18px;height:18px}.search-input{width:100%;padding-left:40px!important}.btn-add{display:flex;align-items:center;gap:6px;padding:12px 16px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:clamp(12px,3vw,14px);white-space:nowrap;transition:transform .2s}.btn-add svg{width:18px;height:18px}.btn-add:hover{transform:translateY(-2px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:var(--card-bg);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--border-color);padding:16px;transition:all .3s}.card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-2px)}.card-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.card-title{font-size:clamp(16px,4vw,18px);font-weight:700;margin-bottom:4px;word-break:break-word}.card-actions{display:flex;gap:6px;flex-wrap:wrap}.btn-icon{width:30px;height:30px;border:none;background:var(--bg-tertiary);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}.btn-icon svg{width:14px;height:14px}.btn-icon:hover{background:var(--border-color)}.btn-icon.delete:hover{background:#fee2e2;color:var(--danger)}.btn-icon.view{background:#dbeafe;color:#1e40af}.btn-icon.view:hover{background:#bfdbfe}.btn-icon.edit{background:#fef3c7;color:#92400e}.btn-icon.edit:hover{background:#fde68a}.card-description{color:var(--text-secondary);font-size:clamp(12px,3vw,13px);margin-bottom:12px;line-height:1.5;word-break:break-word}.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-color);flex-wrap:wrap;gap:8px}.badge{padding:5px 10px;border-radius:16px;font-size:clamp(10px,2.5vw,11px);font-weight:700}.badge-green{background:#d1fae5;color:#065f46}.badge-blue{background:#dbeafe;color:#1e40af}.badge-purple{background:#e9d5ff;color:#6b21a8}.badge-orange{background:#fed7aa;color:#9a3412}.badge-red{background:#fee2e2;color:#991b1b}.badge-yellow{background:#fef3c7;color:#92400e}.card-meta{font-size:clamp(10px,2.5vw,11px);color:var(--text-secondary)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;animation:fadeIn .2s;overflow-y:auto}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-primary);border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.3);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;animation:slideUp .3s;margin:auto}.modal.large{max-width:800px}@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.modal-header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:20px 24px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center}.modal-title{font-size:clamp(18px,4vw,22px);font-weight:700;color:#fff}.modal-close{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;flex-shrink:0}.modal-close:hover{background:rgba(255,255,255,.3)}.modal-body{padding:24px}.modal-buttons{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.btn-submit{flex:1;min-width:120px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.btn-cancel{flex:1;min-width:120px;background:var(--bg-tertiary);color:var(--text-primary);font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.progress-bar{width:100%;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .3s;border-radius:4px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px}.stat-card{background:#fff;border-radius:14px;padding:20px;text-align:center;border:2px solid;box-shadow:0 1px 3px rgba(0,0,0,.1)}.stat-card.blue{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%)}.stat-card.green{border-color:#86efac;background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)}.stat-card.purple{border-color:#c4b5fd;background:linear-gradient(135deg,#e9d5ff 0%,#ddd6fe 100%)}.stat-card.orange{border-color:#fdba74;background:linear-gradient(135deg,#fed7aa 0%,#fdba74 100%)}.stat-number{font-size:clamp(28px,8vw,38px);font-weight:800;margin-bottom:6px}.stat-number.blue{color:#1e40af}.stat-number.green{color:#15803d}.stat-number.purple{color:#6b21a8}.stat-number.orange{color:#9a3412}.stat-label{font-size:clamp(11px,3vw,13px);color:#374151;font-weight:600}.detail-row{padding:12px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:12px}.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;font-weight:700;margin-bottom:4px}.detail-value{font-size:14px;color:var(--text-primary);font-weight:500;word-break:break-word}@media (min-width:768px){.header-content{padding:16px 24px}.user-info{display:block}.main-container{flex-direction:row}.sidebar{width:240px;min-height:calc(100vh - 82px);border-right:1px solid var(--border-color);border-bottom:none;padding:20px 12px;flex-direction:column;overflow-x:visible}.tab-btn{width:100%;margin-bottom:6px}.content-area{padding:24px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.login-box{padding:48px}}@media (max-width:480px){.grid{grid-template-columns:1fr}.btn-logout span{display:none}}
-
-/* Add these NEW styles to your existing CSS */
-
-/* Clickable stats cards */
-.stat-card {
-    cursor: pointer;
-    transition: all .3s;
-}
-.stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.2);
-}
-
-/* Tag styling */
-.tag {
-    display: inline-block;
-    padding: 4px 10px;
-    background: var(--primary);
-    color: #fff;
-    border-radius: 12px;
-    font-size: 11px;
-    margin: 2px;
-    cursor: pointer;
-    transition: all .2s;
-}
-.tag:hover {
-    opacity: .8;
-    transform: scale(1.05);
-}
-.tag-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-}
-
-/* File preview modal */
-.file-preview {
-    max-width: 100%;
-    max-height: 500px;
-    overflow: auto;
-    background: var(--bg-tertiary);
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px 0;
-}
-.file-preview pre {
-    white-space: pre-wrap;
-    font-family: monospace;
-    font-size: 13px;
-    line-height: 1.6;
-}
-.code-highlight {
-    background: var(--bg-tertiary);
-    padding: 20px;
-    border-radius: 8px;
-    overflow-x: auto;
-}
-.code-highlight code {
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-}
-
-/* Date input group */
-.date-input-group {
-    display: flex;
-    gap: 8px;
-}
-.date-input-group input {
-    flex: 1;
-}
-
-/* File management in edit */
-.file-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    background: var(--bg-tertiary);
-    border-radius: 6px;
-    margin-bottom: 6px;
-}
-.file-item-actions {
-    display: flex;
-    gap: 6px;
-}
+        *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#667eea;--secondary:#764ba2;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-primary:#fff;--bg-secondary:#f9fafb;--bg-tertiary:#f3f4f6;--text-primary:#1f2937;--text-secondary:#6b7280;--border-color:#e5e7eb;--card-bg:#fff;--input-bg:#fff;--header-bg:#fff;--header-text:#1f2937}[data-theme=dark]{--bg-primary:#1f2937;--bg-secondary:#111827;--bg-tertiary:#374151;--text-primary:#f9fafb;--text-secondary:#d1d5db;--border-color:#374151;--card-bg:#374151;--input-bg:#4b5563;--header-bg:#1f2937;--header-text:#f9fafb}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);transition:all .3s;overflow-x:hidden}.hidden{display:none!important}.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.loading-text{color:#fff;font-size:18px;font-weight:600}.toast{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,var(--success),#059669);color:#fff;padding:16px 24px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);z-index:10001;animation:slideIn .3s;font-weight:600;max-width:90vw}.toast.error{background:linear-gradient(135deg,var(--danger),#dc2626)}.toast.warning{background:linear-gradient(135deg,var(--warning),#d97706)}@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}.login-container{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);display:flex;align-items:center;justify-content:center;padding:16px}.login-box{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);padding:32px;width:100%;max-width:420px}.login-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}h1{font-size:clamp(24px,5vw,32px);font-weight:700;text-align:center;margin-bottom:8px;color:#1f2937}.subtitle{color:#6b7280;text-align:center;margin-bottom:24px;font-size:clamp(13px,3vw,15px)}.cloud-notice{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:2px solid var(--success);border-radius:12px;padding:12px;margin-bottom:20px;text-align:center}.cloud-notice-title{font-size:clamp(11px,2.5vw,13px);font-weight:700;color:#065f46;margin-bottom:6px}.cloud-notice-text{font-size:clamp(10px,2.5vw,12px);color:#047857}.form-group{margin-bottom:16px}label{display:block;font-size:clamp(12px,2.5vw,14px);font-weight:600;margin-bottom:6px;color:var(--text-primary)}input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border-color);border-radius:10px;font-size:clamp(13px,3vw,15px);outline:0;transition:all .3s;background:var(--input-bg);color:var(--text-primary)}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.1)}textarea{resize:vertical;min-height:80px;font-family:inherit}.btn-primary{width:100%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(14px,3vw,16px);transition:transform .2s}.btn-primary:hover{transform:translateY(-2px)}.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}.header{background:var(--header-bg);border-bottom:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:40}.header-content{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.header-left{display:flex;align-items:center;gap:12px}.header-logo{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.header-title h1{font-size:clamp(16px,4vw,22px);margin:0;text-align:left;color:var(--header-text)}.header-title p{font-size:clamp(10px,2.5vw,12px);color:var(--text-secondary)}.header-right{display:flex;align-items:center;gap:8px}.theme-toggle{width:36px;height:36px;border-radius:8px;background:var(--bg-tertiary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-primary);flex-shrink:0;position:relative}.theme-toggle:hover{background:var(--border-color);transform:scale(1.1)}.theme-picker{position:absolute;top:50px;right:0;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);width:280px;z-index:1000}.theme-picker h3{font-size:14px;margin-bottom:12px;color:var(--text-primary)}.preset-themes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.preset-theme{height:40px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:all .2s}.preset-theme:hover{transform:scale(1.05);border-color:var(--primary)}.preset-theme.active{border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.2)}.color-picker-group{margin-top:12px}.color-picker-group label{font-size:12px;display:block;margin-bottom:6px}.color-input{width:100%;height:40px;border-radius:8px;border:2px solid var(--border-color);cursor:pointer}.user-info{text-align:right;display:none}.user-name{font-weight:600;font-size:clamp(12px,3vw,14px);color:var(--header-text)}.user-role{font-size:clamp(9px,2vw,11px);color:var(--text-secondary);text-transform:uppercase}.btn-logout{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fef2f2;color:var(--danger);border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all .3s;font-size:clamp(11px,2.5vw,13px)}.btn-logout:hover{background:#fee2e2}.main-container{display:flex;flex-direction:column}.sidebar{width:100%;background:var(--bg-primary);border-bottom:1px solid var(--border-color);padding:12px 8px;display:flex;overflow-x:auto;gap:8px}.tab-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:600;color:var(--text-secondary);background:0 0;border:none;cursor:pointer;transition:all .3s;font-size:clamp(12px,3vw,14px);white-space:nowrap;flex-shrink:0}.tab-btn svg{width:18px;height:18px;flex-shrink:0}.tab-btn:hover{background:var(--bg-tertiary);color:var(--text-primary)}.tab-btn.active{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.4)}.content-area{flex:1;padding:16px;width:100%;max-width:100%;overflow-x:hidden}.toolbar{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap}.search-wrapper{flex:1;position:relative;min-width:150px}.search-wrapper svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none;width:18px;height:18px}.search-input{width:100%;padding-left:40px!important}.btn-add{display:flex;align-items:center;gap:6px;padding:12px 16px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:clamp(12px,3vw,14px);white-space:nowrap;transition:transform .2s}.btn-add svg{width:18px;height:18px}.btn-add:hover{transform:translateY(-2px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:var(--card-bg);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--border-color);padding:16px;transition:all .3s;cursor:pointer}.card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-2px)}.card-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.card-title{font-size:clamp(16px,4vw,18px);font-weight:700;margin-bottom:4px;word-break:break-word}.card-actions{display:flex;gap:6px;flex-wrap:wrap}.btn-icon{width:30px;height:30px;border:none;background:var(--bg-tertiary);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}.btn-icon svg{width:14px;height:14px}.btn-icon:hover{background:var(--border-color)}.btn-icon.delete:hover{background:#fee2e2;color:var(--danger)}.btn-icon.view{background:#dbeafe;color:#1e40af}.btn-icon.view:hover{background:#bfdbfe}.btn-icon.edit{background:#fef3c7;color:#92400e}.btn-icon.edit:hover{background:#fde68a}.card-description{color:var(--text-secondary);font-size:clamp(12px,3vw,13px);margin-bottom:12px;line-height:1.5;word-break:break-word}.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-color);flex-wrap:wrap;gap:8px}.badge{padding:5px 10px;border-radius:16px;font-size:clamp(10px,2.5vw,11px);font-weight:700}.badge-green{background:#d1fae5;color:#065f46}.badge-blue{background:#dbeafe;color:#1e40af}.badge-purple{background:#e9d5ff;color:#6b21a8}.badge-orange{background:#fed7aa;color:#9a3412}.badge-red{background:#fee2e2;color:#991b1b}.badge-yellow{background:#fef3c7;color:#92400e}.card-meta{font-size:clamp(10px,2.5vw,11px);color:var(--text-secondary)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;animation:fadeIn .2s;overflow-y:auto}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-primary);border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.3);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;animation:slideUp .3s;margin:auto}.modal.large{max-width:900px}@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.modal-header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:20px 24px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center}.modal-title{font-size:clamp(18px,4vw,22px);font-weight:700;color:#fff}.modal-close{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;flex-shrink:0}.modal-close:hover{background:rgba(255,255,255,.3)}.modal-body{padding:24px}.modal-buttons{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.btn-submit{flex:1;min-width:120px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.btn-cancel{flex:1;min-width:120px;background:var(--bg-tertiary);color:var(--text-primary);font-weight:700;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:clamp(13px,3vw,14px)}.progress-bar{width:100%;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .3s;border-radius:4px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px}.stat-card{background:#fff;border-radius:14px;padding:20px;text-align:center;border:2px solid;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .3s}.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.stat-card.blue{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%)}.stat-card.green{border-color:#86efac;background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)}.stat-card.purple{border-color:#c4b5fd;background:linear-gradient(135deg,#e9d5ff 0%,#ddd6fe 100%)}.stat-card.orange{border-color:#fdba74;background:linear-gradient(135deg,#fed7aa 0%,#fdba74 100%)}.stat-number{font-size:clamp(28px,8vw,38px);font-weight:800;margin-bottom:6px}.stat-number.blue{color:#1e40af}.stat-number.green{color:#15803d}.stat-number.purple{color:#6b21a8}.stat-number.orange{color:#9a3412}.stat-label{font-size:clamp(11px,3vw,13px);color:#374151;font-weight:600}.detail-row{padding:12px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:12px}.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;font-weight:700;margin-bottom:4px}.detail-value{font-size:14px;color:var(--text-primary);font-weight:500;word-break:break-word}.tag{display:inline-block;padding:4px 10px;background:var(--primary);color:#fff;border-radius:12px;font-size:11px;margin:2px;cursor:pointer;transition:all .2s}.tag:hover{opacity:.8;transform:scale(1.05)}.tag-container{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.note-card{position:relative;border-left:4px solid var(--primary);padding:16px;background:var(--card-bg);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:16px;transition:all .3s}.note-card:hover{box-shadow:0 8px 20px rgba(0,0,0,.15);transform:translateY(-2px)}.note-card.pinned{border-left-color:var(--warning);background:linear-gradient(135deg,#fef3c7 0%,var(--card-bg) 100%)}.note-card.pinned::before{content:'📌';position:absolute;top:12px;right:12px;font-size:18px}.note-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.note-title{font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px}.note-content{color:var(--text-secondary);line-height:1.6;margin-bottom:12px;white-space:pre-wrap}.note-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--border-color)}.note-category{padding:4px 12px;background:var(--bg-tertiary);border-radius:16px;font-size:11px;font-weight:600}.color-options{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.color-btn{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s}.color-btn:hover{transform:scale(1.1)}.color-btn.selected{border-color:var(--primary);box-shadow:0 0 0 2px var(--bg-primary)}.note-yellow{border-left-color:#fbbf24;background:linear-gradient(135deg,#fef3c7 0%,var(--card-bg) 100%)}.note-green{border-left-color:#10b981;background:linear-gradient(135deg,#d1fae5 0%,var(--card-bg) 100%)}.note-blue{border-left-color:#3b82f6;background:linear-gradient(135deg,#dbeafe 0%,var(--card-bg) 100%)}.note-purple{border-left-color:#a855f7;background:linear-gradient(135deg,#e9d5ff 0%,var(--card-bg) 100%)}.note-pink{border-left-color:#ec4899;background:linear-gradient(135deg,#fce7f3 0%,var(--card-bg) 100%)}.note-red{border-left-color:#ef4444;background:linear-gradient(135deg,#fee2e2 0%,var(--card-bg) 100%)}.note-gray{border-left-color:#6b7280;background:linear-gradient(135deg,#f3f4f6 0%,var(--card-bg) 100%)}.admin-table{width:100%;border-collapse:collapse}.admin-table th{padding:12px;text-align:left;background:var(--bg-tertiary);font-size:11px;text-transform:uppercase;color:var(--text-secondary);font-weight:700}.admin-table td{padding:12px;border-bottom:1px solid var(--border-color)}.admin-actions{display:flex;flex-direction:column;gap:6px}.admin-actions .btn-icon{width:100%;justify-content:center}@media (min-width:768px){.header-content{padding:16px 24px}.user-info{display:block}.main-container{flex-direction:row}.sidebar{width:240px;min-height:calc(100vh - 82px);border-right:1px solid var(--border-color);border-bottom:none;padding:20px 12px;flex-direction:column;overflow-x:visible}.tab-btn{width:100%;margin-bottom:6px}.content-area{padding:24px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.login-box{padding:48px}.admin-actions{flex-direction:row}}@media (max-width:480px){.grid{grid-template-columns:1fr}.btn-logout span{display:none}}
     </style>
 </head>
 <body>
@@ -101,11 +15,11 @@
 <div id="loginPage" class="login-container hidden">
     <div class="login-box">
         <div class="login-logo"><svg width="35" height="35" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-        <h1>Team Hub</h1><p class="subtitle">Complete Team Platform</p>
-        <div class="cloud-notice"><div class="cloud-notice-title">☁️ CLOUD POWERED</div><div class="cloud-notice-text">Real-time collaboration</div></div>
+        <h1>Team Hub</h1><p class="subtitle">Enhanced Platform v4.0</p>
+        <div class="cloud-notice"><div class="cloud-notice-title">🎨 NEW FEATURES</div><div class="cloud-notice-text">Tags • Theme Selector • Notion-Style Notes</div></div>
         <form id="loginForm">
-            <div class="form-group"><label>Username</label><input type="text" id="username" required autocomplete="username"/></div>
-            <div class="form-group"><label>Password</label><input type="password" id="password" required autocomplete="current-password"/></div>
+            <div class="form-group"><label>Username</label><input type="text" id="username" required autocomplete="username" value="admin"/></div>
+            <div class="form-group"><label>Password</label><input type="password" id="password" required autocomplete="current-password" value="admin123"/></div>
             <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
         </form>
     </div>
@@ -115,10 +29,32 @@
         <div class="header-content">
             <div class="header-left">
                 <div class="header-logo"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                <div class="header-title"><h1>Team Hub</h1><p>Professional Platform</p></div>
+                <div class="header-title"><h1>Team Hub</h1><p>Enhanced Platform</p></div>
             </div>
             <div class="header-right">
-                <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme"><svg id="themeIcon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></button>
+                <button id="themeToggle" class="theme-toggle" onclick="toggleThemePicker()" title="Theme Selector">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    <div id="themePicker" class="theme-picker hidden">
+                        <h3>🎨 Choose Theme</h3>
+                        <div class="preset-themes">
+                            <div class="preset-theme" onclick="applyPresetTheme('default')" style="background:linear-gradient(135deg,#667eea,#764ba2)" title="Default"></div>
+                            <div class="preset-theme" onclick="applyPresetTheme('ocean')" style="background:linear-gradient(135deg,#2E3192,#1BFFFF)" title="Ocean"></div>
+                            <div class="preset-theme" onclick="applyPresetTheme('sunset')" style="background:linear-gradient(135deg,#FF512F,#F09819)" title="Sunset"></div>
+                            <div class="preset-theme" onclick="applyPresetTheme('forest')" style="background:linear-gradient(135deg,#134E5E,#71B280)" title="Forest"></div>
+                            <div class="preset-theme" onclick="applyPresetTheme('rose')" style="background:linear-gradient(135deg,#ec4899,#f43f5e)" title="Rose"></div>
+                            <div class="preset-theme" onclick="applyPresetTheme('night')" style="background:linear-gradient(135deg,#2c3e50,#3498db)" title="Night"></div>
+                        </div>
+                        <div class="color-picker-group">
+                            <label>Custom Primary Color</label>
+                            <input type="color" id="customPrimary" class="color-input" value="#667eea" onchange="applyCustomTheme()">
+                        </div>
+                        <div class="color-picker-group">
+                            <label>Custom Secondary Color</label>
+                            <input type="color" id="customSecondary" class="color-input" value="#764ba2" onchange="applyCustomTheme()">
+                        </div>
+                    </div>
+                </button>
+                <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode"><svg id="themeIcon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></button>
                 <div class="user-info"><p class="user-name" id="currentUserName"></p><p class="user-role" id="currentUserRole"></p></div>
                 <button id="logoutBtn" class="btn-logout"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg><span>Logout</span></button>
             </div>
@@ -128,7 +64,7 @@
         <div class="sidebar" id="sidebar"></div>
         <div class="content-area">
             <div class="toolbar">
-                <div class="search-wrapper"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" id="searchInput" class="search-input" placeholder="Search everything... Try #tags" oninput="performSearch()"/></div>
+                <div class="search-wrapper"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" id="searchInput" class="search-input" placeholder="Search by name or #tags..." oninput="performSearch()"/></div>
                 <button id="addNewBtn" onclick="openModal('add')" class="btn-add"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg><span id="addBtnText">Add Item</span></button>
             </div>
             <div id="contentContainer"></div>
@@ -144,694 +80,136 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",authDomain:"team-hub-666f4.firebaseapp.com",databaseURL:"https://team-hub-666f4-default-rtdb.firebaseio.com",projectId:"team-hub-666f4",storageBucket:"team-hub-666f4.firebasestorage.app",messagingSenderId:"201156915923",appId:"1:201156915923:web:ba3b8f4420832a414e9a26"};let db,currentUser,currentTab='home';let data={projects:[],tasks:[],documents:[],contacts:[],urls:[],notes:[],users:[],activities:[]};let listeners={};const showLoading=(show=true,text='Loading...')=>{const overlay=document.getElementById('loadingOverlay');overlay.querySelector('.loading-text').textContent=text;overlay.classList.toggle('hidden',!show)};const showToast=(message,type='success')=>{const toast=document.getElementById('toast');toast.textContent=message;toast.classList.remove('error','warning');if(type==='error')toast.classList.add('error');if(type==='warning')toast.classList.add('warning');toast.classList.remove('hidden');setTimeout(()=>toast.classList.add('hidden'),5000)};const getDateTime=()=>new Date().toLocaleString('en-US',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:true});const saveSession=()=>currentUser&&sessionStorage.setItem('teamhub_user',JSON.stringify(currentUser));const loadSession=()=>{const saved=sessionStorage.getItem('teamhub_user');if(saved){try{currentUser=JSON.parse(saved);return true}catch(e){sessionStorage.removeItem('teamhub_user');return false}}return false};const clearSession=()=>{sessionStorage.removeItem('teamhub_user');currentUser=null};const toggleTheme=()=>{const theme=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('theme',theme);document.getElementById('themeIcon').innerHTML=theme==='dark'?'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>':'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';showToast(`${theme==='dark'?'🌙':'☀️'} ${theme.charAt(0).toUpperCase()+theme.slice(1)} mode`)};const initFirebase=async()=>{showLoading(true,'Initializing...');try{firebase.initializeApp(firebaseConfig);db=firebase.database();const usersSnap=await db.ref('users').once('value');if(!usersSnap.exists()){await db.ref('users').set({'admin':{username:'admin',password:'admin123',email:'admin@team.com',role:'admin',createdAt:getDateTime()},'user1':{username:'user1',password:'user123',email:'user@team.com',role:'user',createdAt:getDateTime()}})}setupListeners();const savedTheme=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',savedTheme);if(savedTheme==='dark')toggleTheme();if(loadSession()){showDashboard();showToast('✅ Welcome back!')}else{document.getElementById('loginPage').classList.remove('hidden')}showLoading(false)}catch(error){showLoading(false);showToast('❌ Error: '+error.message,'error');document.getElementById('loginPage').classList.remove('hidden')}};const setupListeners=()=>{['projects','tasks','documents','contacts','urls','notes','users','activities'].forEach(type=>{listeners[type]=db.ref(type).on('value',snap=>{data[type]=snap.val()?Object.values(snap.val()):[];if(currentUser&&currentTab===type)renderContent();if(type==='users'&&currentUser&&currentUser.role==='admin'&&currentTab==='admin')renderContent();if(currentTab==='home')renderHome()})})};const removeListeners=()=>{Object.keys(listeners).forEach(key=>{if(listeners[key])db.ref(key).off('value',listeners[key])});listeners={}};document.getElementById('loginForm').addEventListener('submit',async(e)=>{e.preventDefault();const username=document.getElementById('username').value.trim();const password=document.getElementById('password').value.trim();const btn=document.getElementById('loginBtn');if(!username||!password){showToast('❌ Please enter credentials','error');return}btn.disabled=true;btn.textContent='Signing in...';try{const snap=await db.ref('users').once('value');const users=snap.val()?Object.values(snap.val()):[];const user=users.find(u=>u.username===username&&u.password===password);if(user){currentUser={name:user.username,role:user.role,email:user.email};await db.ref(`users/${username}/lastLogin`).set(getDateTime());await logActivity('login',`${username} logged in`);saveSession();showDashboard();showToast(`✅ Welcome ${user.username}!`)}else{showToast('❌ Invalid credentials','error')}}catch(error){showToast('❌ Login failed','error')}finally{btn.disabled=false;btn.textContent='Sign In'}});const showDashboard=()=>{document.getElementById('loginPage').classList.add('hidden');document.getElementById('dashboardPage').classList.remove('hidden');document.getElementById('currentUserName').textContent=currentUser.name;document.getElementById('currentUserRole').textContent=currentUser.role;initSidebar();switchTab('home')};document.getElementById('logoutBtn').addEventListener('click',async()=>{if(confirm('Logout?')){await logActivity('logout',`${currentUser.name} logged out`);removeListeners();clearSession();showToast('✅ Logged out');setTimeout(()=>{document.getElementById('loginPage').classList.remove('hidden');document.getElementById('dashboardPage').classList.add('hidden');document.getElementById('username').value='';document.getElementById('password').value='';currentTab='home'},1000)}});const initSidebar=()=>{const tabs=[{id:'home',icon:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',label:'Home'},{id:'projects',icon:'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',label:'Projects'},{id:'tasks',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',label:'Tasks'},{id:'documents',icon:'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',label:'Documents'},{id:'contacts',icon:'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',label:'Contacts'},{id:'urls',icon:'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',label:'URLs'},{id:'notes',icon:'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',label:'Notes'},{id:'admin',icon:'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',label:'Admin',adminOnly:true}];const sidebar=document.getElementById('sidebar');sidebar.innerHTML=tabs.filter(t=>!t.adminOnly||currentUser.role==='admin').map(t=>`<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id==='home'?'active':''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`).join('')};
+const firebaseConfig={apiKey:"AIzaSyDXO6H0y9DrsQCBhEozd3D3EZhlVbv9VWw",authDomain:"team-hub-666f4.firebaseapp.com",databaseURL:"https://team-hub-666f4-default-rtdb.firebaseio.com",projectId:"team-hub-666f4",storageBucket:"team-hub-666f4.firebasestorage.app",messagingSenderId:"201156915923",appId:"1:201156915923:web:ba3b8f4420832a414e9a26"};
+let db,currentUser,currentTab='home';
+let data={projects:[],tasks:[],documents:[],contacts:[],urls:[],notes:[],users:[],activities:[]};
+let listeners={};
 
-// Date input synchronization
-const syncDateInputs = (source) => {
-    if (source === 'calendar') {
-        const calVal = document.getElementById('dateCalendar').value;
-        if (calVal) {
-            const [y, m, d] = calVal.split('-');
-            document.getElementById('dateManual').value = `${d}/${m}/${y}`;
-        }
-    } else {
-        const manVal = document.getElementById('dateManual').value;
-        if (manVal && /^\d{2}\/\d{2}\/\d{4}$/.test(manVal)) {
-            const [d, m, y] = manVal.split('/');
-            document.getElementById('dateCalendar').value = `${y}-${m}-${d}`;
-        }
-    }
-};
+const showLoading=(show=true,text='Loading...')=>{const overlay=document.getElementById('loadingOverlay');overlay.querySelector('.loading-text').textContent=text;overlay.classList.toggle('hidden',!show)};
+const showToast=(message,type='success')=>{const toast=document.getElementById('toast');toast.textContent=message;toast.classList.remove('error','warning');if(type==='error')toast.classList.add('error');if(type==='warning')toast.classList.add('warning');toast.classList.remove('hidden');setTimeout(()=>toast.classList.add('hidden'),5000)};
+const getDateTime=()=>new Date().toLocaleString('en-US',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:true});
+const saveSession=()=>currentUser&&sessionStorage.setItem('teamhub_user',JSON.stringify(currentUser));
+const loadSession=()=>{const saved=sessionStorage.getItem('teamhub_user');if(saved){try{currentUser=JSON.parse(saved);return true}catch(e){sessionStorage.removeItem('teamhub_user');return false}}return false};
+const clearSession=()=>{sessionStorage.removeItem('teamhub_user');currentUser=null};
 
-// Helper: Escape HTML
-const escapeHtml = (text) => {
-    if (!text) return '';
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-};
+// Theme Management
+const toggleThemePicker=()=>{document.getElementById('themePicker').classList.toggle('hidden')};
+const toggleDarkMode=()=>{const theme=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('darkMode',theme);document.getElementById('themeIcon').innerHTML=theme==='dark'?'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>':'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';showToast(`${theme==='dark'?'🌙':'☀️'} ${theme} mode`)};
 
-// Helper: Copy to clipboard
-const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text).then(() => {
-        showToast('✅ Copied to clipboard');
-    }).catch(() => {
-        showToast('❌ Failed to copy', 'error');
-    });
-};
+const applyPresetTheme=(theme)=>{const themes={default:{primary:'#667eea',secondary:'#764ba2'},ocean:{primary:'#2E3192',secondary:'#1BFFFF'},sunset:{primary:'#FF512F',secondary:'#F09819'},forest:{primary:'#134E5E',secondary:'#71B280'},rose:{primary:'#ec4899',secondary:'#f43f5e'},night:{primary:'#2c3e50',secondary:'#3498db'}};if(themes[theme]){document.documentElement.style.setProperty('--primary',themes[theme].primary);document.documentElement.style.setProperty('--secondary',themes[theme].secondary);localStorage.setItem('customTheme',JSON.stringify(themes[theme]));showToast(`🎨 ${theme.charAt(0).toUpperCase()+theme.slice(1)} theme applied`)}};
 
-// Helper: Download file
-const downloadFile = (filename, content) => {
-    const blob = new Blob([content], {type: 'application/octet-stream'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('✅ Download started');
-};
+const applyCustomTheme=()=>{const primary=document.getElementById('customPrimary').value;const secondary=document.getElementById('customSecondary').value;document.documentElement.style.setProperty('--primary',primary);document.documentElement.style.setProperty('--secondary',secondary);localStorage.setItem('customTheme',JSON.stringify({primary,secondary}));showToast('🎨 Custom theme applied')};
 
-// Simple syntax highlighter
-const highlightCode = (code, lang) => {
-    if (!code) return '';
-    
-    const keywords = {
-        'js': ['function', 'const', 'let', 'var', 'if', 'else', 'return', 'for', 'while', 'class', 'async', 'await'],
-        'py': ['def', 'class', 'if', 'else', 'elif', 'return', 'import', 'from', 'for', 'while', 'try', 'except'],
-        'java': ['public', 'private', 'class', 'void', 'int', 'String', 'return', 'if', 'else', 'for', 'while'],
-        'html': ['<!DOCTYPE', '<html', '<head', '<body', '<div', '<span', '<p', '<a', '<img']
-    };
-    
-    let highlighted = escapeHtml(code);
-    
-    if (keywords[lang]) {
-        keywords[lang].forEach(kw => {
-            const regex = new RegExp(`\\b${kw}\\b`, 'g');
-            highlighted = highlighted.replace(regex, 
-                `<span style="color:#667eea;font-weight:bold;">${kw}</span>`);
-        });
-    }
-    
-    // Highlight strings
-    highlighted = highlighted.replace(/(['"])(.+?)\1/g, 
-        '<span style="color:#10b981;">$1$2$1</span>');
-    
-    // Highlight comments
-    highlighted = highlighted.replace(/(\/\/.*$)/gm, 
-        '<span style="color:#6b7280;font-style:italic;">$1</span>');
-    
-    return highlighted;
-};
+// Tag Generation
+const generateTags=(text)=>{const stopWords=['the','a','an','and','or','but','in','on','at','to','for','of','with','is','it'];const words=text.toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/).filter(w=>w.length>2&&!stopWords.includes(w));return[...new Set(words)].slice(0,5).map(w=>'#'+w)};
 
-// View file content based on type
-const viewFileContent = (file) => {
-    const ext = (file.name.split('.').pop() || '').toLowerCase();
-    const modal = document.getElementById('modalBody');
-    
-    let content = '';
-    
-    // Text files
-    if (['txt', 'md', 'csv', 'log', 'xml'].includes(ext)) {
-        content = `
-            <div class="file-preview">
-                <pre>${escapeHtml(file.content || 'No content available')}</pre>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-submit" onclick="copyToClipboard('${escapeHtml(file.content).replace(/'/g, "\\'")}')">📋 Copy</button>
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        `;
-    }
-    // Code files
-    else if (['js', 'py', 'java', 'cpp', 'html', 'css', 'json', 'php'].includes(ext)) {
-        const highlighted = highlightCode(file.content, ext);
-        content = `
-            <div class="code-highlight">
-                <pre><code>${highlighted}</code></pre>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-submit" onclick="copyToClipboard('${escapeHtml(file.content).replace(/'/g, "\\'")}')">📋 Copy Code</button>
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        `;
-    }
-    // Images
-    else if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'].includes(ext)) {
-        content = `
-            <div style="text-align:center;">
-                <img src="${file.content}" alt="${file.name}" 
-                     style="max-width:100%; max-height:70vh; border-radius:8px;" />
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        `;
-    }
-    // PDF (basic support)
-    else if (ext === 'pdf') {
-        content = `
-            <div style="text-align:center; padding:20px;">
-                <p style="margin-bottom:16px;">📄 ${file.name}</p>
-                <p style="color:var(--text-secondary); margin-bottom:20px;">
-                    PDF preview requires download
-                </p>
-                <button class="btn-submit" onclick="downloadFile('${file.name}', '${file.content.replace(/'/g, "\\'")}')">
-                    ⬇️ Download PDF
-                </button>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        `;
-    }
-    // Unknown/Other files
-    else {
-        content = `
-            <div style="text-align:center; padding:40px;">
-                <p style="font-size:48px; margin-bottom:16px;">📄</p>
-                <p style="font-size:18px; margin-bottom:8px;">${file.name}</p>
-                <p style="color:var(--text-secondary); margin-bottom:20px;">
-                    Preview not available for this file type
-                </p>
-                <button class="btn-submit" onclick="downloadFile('${file.name}', '${file.content.replace(/'/g, "\\'")}')">
-                    ⬇️ Download File
-                </button>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        `;
-    }
-    
-    modal.innerHTML = content;
-    document.getElementById('modalTitle').textContent = `📄 ${file.name}`;
-    document.getElementById('modalOverlay').classList.remove('hidden');
-};
+const searchByTag=(tag)=>{document.getElementById('searchInput').value=tag;performSearch()};
 
-// Remove file from edit list
-const removeFileFromEdit = (index) => {
-    if (confirm('Remove this file?')) {
-        window.currentDocFiles.splice(index, 1);
-        document.getElementById(`file-${index}`).remove();
-        showToast('✅ File will be removed when you save');
-    }
-};
+const initFirebase=async()=>{showLoading(true,'Initializing...');try{firebase.initializeApp(firebaseConfig);db=firebase.database();const usersSnap=await db.ref('users').once('value');if(!usersSnap.exists()){await db.ref('users').set({'admin':{username:'admin',password:'admin123',email:'admin@team.com',role:'admin',createdAt:getDateTime()},'user1':{username:'user1',password:'user123',email:'user@team.com',role:'user',createdAt:getDateTime()}})}setupListeners();const savedDarkMode=localStorage.getItem('darkMode');if(savedDarkMode){document.documentElement.setAttribute('data-theme',savedDarkMode)}const savedTheme=localStorage.getItem('customTheme');if(savedTheme){const theme=JSON.parse(savedTheme);document.documentElement.style.setProperty('--primary',theme.primary);document.documentElement.style.setProperty('--secondary',theme.secondary)}if(loadSession()){showDashboard();showToast('✅ Welcome back!')}else{document.getElementById('loginPage').classList.remove('hidden')}showLoading(false)}catch(error){showLoading(false);showToast('❌ Error: '+error.message,'error');document.getElementById('loginPage').classList.remove('hidden')}};
 
-// Save document edits
-const saveDocumentEdits = async (e, id) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const docData = Object.fromEntries(formData);
-    
-    showLoading(true, 'Saving...');
-    try {
-        const doc = data.documents.find(d => d.id === id);
-        const newFiles = document.getElementById('newFilesInput').files;
-        
-        // Process new files if any
-        let allFiles = [...window.currentDocFiles];
-        if (newFiles.length > 0) {
-            for (let i = 0; i < newFiles.length; i++) {
-                const file = newFiles[i];
-                const reader = new FileReader();
-                await new Promise((resolve) => {
-                    reader.onload = (e) => {
-                        allFiles.push({
-                            name: file.name,
-                            type: file.type,
-                            size: file.size,
-                            content: e.target.result.substring(0, 100000) // Limit content size
-                        });
-                        resolve();
-                    };
-                    reader.readAsText(file);
-                });
-            }
-        }
-        
-        await db.ref(`documents/${id}`).set({
-            ...doc,
-            name: docData.name,
-            description: docData.description,
-            files: allFiles
-        });
-        
-        await logActivity('update', `${currentUser.name} updated document: ${docData.name}`);
-        showToast('✅ Document updated');
-        closeModal();
-    } catch (error) {
-        showToast('❌ Error: ' + error.message, 'error');
-    } finally {
-        showLoading(false);
-    }
-};
+const setupListeners=()=>{['projects','tasks','documents','contacts','urls','notes','users','activities'].forEach(type=>{listeners[type]=db.ref(type).on('value',snap=>{data[type]=snap.val()?Object.values(snap.val()):[];if(currentUser&&currentTab===type)renderContent();if(type==='users'&&currentUser&&currentUser.role==='admin'&&currentTab==='admin')renderContent();if(currentTab==='home')renderHome()})})};
+
+const removeListeners=()=>{Object.keys(listeners).forEach(key=>{if(listeners[key])db.ref(key).off('value',listeners[key])});listeners={}};
+
+document.getElementById('loginForm').addEventListener('submit',async(e)=>{e.preventDefault();const username=document.getElementById('username').value.trim();const password=document.getElementById('password').value.trim();const btn=document.getElementById('loginBtn');if(!username||!password){showToast('❌ Please enter credentials','error');return}btn.disabled=true;btn.textContent='Signing in...';try{const snap=await db.ref('users').once('value');const users=snap.val()?Object.values(snap.val()):[];const user=users.find(u=>u.username===username&&u.password===password);if(user){currentUser={name:user.username,role:user.role,email:user.email};await db.ref(`users/${username}/lastLogin`).set(getDateTime());await logActivity('login',`${username} logged in`);saveSession();showDashboard();showToast(`✅ Welcome ${user.username}!`)}else{showToast('❌ Invalid credentials','error')}}catch(error){showToast('❌ Login failed','error')}finally{btn.disabled=false;btn.textContent='Sign In'}});
+
+const showDashboard=()=>{document.getElementById('loginPage').classList.add('hidden');document.getElementById('dashboardPage').classList.remove('hidden');document.getElementById('currentUserName').textContent=currentUser.name;document.getElementById('currentUserRole').textContent=currentUser.role;initSidebar();switchTab('home')};
+
+document.getElementById('logoutBtn').addEventListener('click',async()=>{if(confirm('Logout?')){await logActivity('logout',`${currentUser.name} logged out`);removeListeners();clearSession();showToast('✅ Logged out');setTimeout(()=>{document.getElementById('loginPage').classList.remove('hidden');document.getElementById('dashboardPage').classList.add('hidden');document.getElementById('username').value='';document.getElementById('password').value='';currentTab='home'},1000)}});
+
+const initSidebar=()=>{const tabs=[{id:'home',icon:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',label:'Home'},{id:'projects',icon:'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',label:'Projects'},{id:'tasks',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',label:'Tasks'},{id:'documents',icon:'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',label:'Documents'},{id:'contacts',icon:'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',label:'Contacts'},{id:'urls',icon:'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',label:'URLs'},{id:'notes',icon:'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',label:'Notes'},{id:'admin',icon:'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',label:'Admin',adminOnly:true}];const sidebar=document.getElementById('sidebar');sidebar.innerHTML=tabs.filter(t=>!t.adminOnly||currentUser.role==='admin').map(t=>`<button onclick="switchTab('${t.id}')" class="tab-btn ${t.id==='home'?'active':''}" data-tab="${t.id}"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${t.icon}"/></svg>${t.label}</button>`).join('')};
 
 const switchTab=(tab)=>{currentTab=tab;document.getElementById('searchInput').value='';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-tab="${tab}"]`)?.classList.add('active');const hideAdd=['home','admin','contacts'];document.getElementById('addNewBtn').classList.toggle('hidden',hideAdd.includes(tab));const labels={projects:'Project',tasks:'Task',documents:'Document',urls:'URL',notes:'Note'};document.getElementById('addBtnText').textContent='Add '+(labels[tab]||'Item');renderContent()};
 
-// Auto-generate tags from project name
-const generateTags = (name) => {
-    const stopWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with'];
-    const words = name.toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '') // Remove special characters
-        .split(/\s+/)
-        .filter(w => w.length > 2 && !stopWords.includes(w));
-    
-    return [...new Set(words)].map(w => '#' + w); // Remove duplicates
-};
-
-// Function to search by tag
-const searchByTag = (tag) => {
-    document.getElementById('searchInput').value = tag;
-    performSearch();
-};
-
-// Helper function for search results
-const renderSearchResults = (results) => {
-    let html = '';
-    const sections = [
-        {key: 'projects', label: '📁 Projects', items: results.projects},
-        {key: 'tasks', label: '✅ Tasks', items: results.tasks},
-        {key: 'documents', label: '📄 Documents', items: results.documents},
-        {key: 'contacts', label: '👥 Contacts', items: results.contacts},
-        {key: 'urls', label: '🔗 URLs', items: results.urls},
-        {key: 'notes', label: '📝 Notes', items: results.notes}
-    ];
-    
-    sections.forEach(section => {
-        if (section.items.length > 0) {
-            html += `<h3 style="margin:20px 0 12px;">${section.label} (${section.items.length})</h3>`;
-            html += '<div class="grid">';
-            section.items.forEach(item => {
-                const title = item.name || item.title || 'Untitled';
-                html += `<div class="card"><div class="card-title">${title}</div></div>`;
-            });
-            html += '</div>';
-        }
-    });
-    
-    if (!html) {
-        html = '<p style="text-align:center;padding:40px;color:var(--text-secondary);">No results found</p>';
-    }
-    
-    return html;
-};
-
 const performSearch=()=>renderContent();
-const renderContent=()=>{const container=document.getElementById('contentContainer');const search=document.getElementById('searchInput').value.toLowerCase();if(currentTab==='home')renderHome();else if(currentTab==='projects')renderProjects();else if(currentTab==='tasks')renderTasks(search);else if(currentTab==='documents')renderDocuments(search);else if(currentTab==='contacts')renderContacts(search);else if(currentTab==='urls')renderUrls(search);else if(currentTab==='notes')renderNotes(search);else if(currentTab==='admin')renderAdmin(search)};
+const renderContent=()=>{if(currentTab==='home')renderHome();else if(currentTab==='projects')renderProjects();else if(currentTab==='tasks')renderTasks();else if(currentTab==='documents')renderDocuments();else if(currentTab==='contacts')renderContacts();else if(currentTab==='urls')renderUrls();else if(currentTab==='notes')renderNotes();else if(currentTab==='admin')renderAdmin()};
 
-const renderHome = () => {
-    const container = document.getElementById('contentContainer');
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    
-    // If searching, show global results
-    if (search) {
-        const results = {
-            projects: data.projects.filter(p => 
-                p.name.toLowerCase().includes(search) ||
-                p.description?.toLowerCase().includes(search) ||
-                p.tags?.some(t => t.includes(search))
-            ),
-            tasks: data.tasks.filter(t => 
-                t.title?.toLowerCase().includes(search) ||
-                t.description?.toLowerCase().includes(search)
-            ),
-            documents: data.documents.filter(d => 
-                d.name?.toLowerCase().includes(search)
-            ),
-            contacts: data.contacts.filter(c => 
-                c.name?.toLowerCase().includes(search) ||
-                c.email?.toLowerCase().includes(search)
-            ),
-            urls: data.urls.filter(u => 
-                u.title?.toLowerCase().includes(search)
-            ),
-            notes: data.notes.filter(n => 
-                n.title?.toLowerCase().includes(search) ||
-                n.content?.toLowerCase().includes(search)
-            )
-        };
-        
-        container.innerHTML = `
-            <h2 style="margin-bottom:16px;">Search Results for "${search}"</h2>
-            ${renderSearchResults(results)}
-        `;
-        return;
-    }
-    
-    // Stats with clickable cards
-    const activeProjects = data.projects.filter(p => p.status === 'Active').length;
-    const completedProjects = data.projects.filter(p => p.status === 'Completed').length;
-    const pendingTasks = data.tasks.filter(t => t.status !== 'Completed').length;
-    
-    const recentProjects = data.projects.slice(-5).reverse();
-    const recentTasks = data.tasks.slice(-5).reverse();
-    const recentDocs = data.documents.slice(-5).reverse();
-    const recentNotes = data.notes.slice(-5).reverse();
-    const recentUrls = data.urls.slice(-5).reverse();
-    const recentContacts = data.contacts.slice(-5).reverse();
-    
-    container.innerHTML = `
-        <div class="stats-grid">
-            <div class="stat-card blue" onclick="switchTab('projects')" title="Click to view all projects">
-                <div class="stat-number blue">${data.projects.length}</div>
-                <div class="stat-label">Total Projects</div>
-            </div>
-            <div class="stat-card green" onclick="switchTab('tasks')" title="Click to view all tasks">
-                <div class="stat-number green">${pendingTasks}</div>
-                <div class="stat-label">Pending Tasks</div>
-            </div>
-            <div class="stat-card purple" onclick="switchTab('documents')" title="Click to view all documents">
-                <div class="stat-number purple">${data.documents.length}</div>
-                <div class="stat-label">Documents</div>
-            </div>
-            <div class="stat-card orange" onclick="switchTab('contacts')" title="Click to view all contacts">
-                <div class="stat-number orange">${data.contacts.length}</div>
-                <div class="stat-label">Contacts</div>
-            </div>
-        </div>
-        
-        <h2 style="margin:24px 0 16px;font-size:20px;">Welcome, ${currentUser.name}!</h2>
-        <div class="detail-row">
-            <div class="detail-label">Quick Stats</div>
-            <div class="detail-value">Active: ${activeProjects} | Completed: ${completedProjects} | Pending Tasks: ${pendingTasks}</div>
-        </div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">📁 Recent Projects</h3>
-        <div class="grid">${recentProjects.length ? recentProjects.map(p => `
-            <div class="card">
-                <div class="card-title">${p.name}</div>
-                <p class="card-meta">${p.status} • ${p.createdAt}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No projects yet</p>'}</div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">✅ Recent Tasks</h3>
-        <div class="grid">${recentTasks.length ? recentTasks.map(t => `
-            <div class="card">
-                <div class="card-title">${t.title}</div>
-                <p class="card-meta">${t.priority} • ${t.status}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No tasks yet</p>'}</div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">📄 Recent Documents</h3>
-        <div class="grid">${recentDocs.length ? recentDocs.map(d => `
-            <div class="card">
-                <div class="card-title">${d.name}</div>
-                <p class="card-meta">📄 ${d.files?.length || 0} files • ${d.uploadedAt}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No documents yet</p>'}</div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">📝 Recent Notes</h3>
-        <div class="grid">${recentNotes.length ? recentNotes.map(n => `
-            <div class="card">
-                <div class="card-title">${n.title}</div>
-                <p class="card-meta">${n.category || 'General'} • ${n.createdAt}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No notes yet</p>'}</div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">🔗 Recent URLs</h3>
-        <div class="grid">${recentUrls.length ? recentUrls.map(u => `
-            <div class="card">
-                <div class="card-title">${u.title}</div>
-                <p class="card-meta">🔗 ${u.links?.length || 0} links • ${u.createdAt}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No URLs yet</p>'}</div>
-        
-        <h3 style="margin:24px 0 16px;font-size:18px;">👥 Recent Contacts</h3>
-        <div class="grid">${recentContacts.length ? recentContacts.map(c => `
-            <div class="card">
-                <div class="card-title">${c.name}</div>
-                <p class="card-meta">${c.company} • ${c.email}</p>
-            </div>
-        `).join('') : '<p style="color:var(--text-secondary);">No contacts yet</p>'}</div>
-    `;
-};
+// HOME with clickable cards and tag search
+const renderHome=()=>{const container=document.getElementById('contentContainer');const search=document.getElementById('searchInput').value.toLowerCase();if(search){const results={projects:data.projects.filter(p=>p.name.toLowerCase().includes(search)||p.description?.toLowerCase().includes(search)||(p.tags&&p.tags.some(t=>t.includes(search)))),tasks:data.tasks.filter(t=>t.title?.toLowerCase().includes(search)||t.description?.toLowerCase().includes(search)||(t.tags&&t.tags.some(t=>t.includes(search)))),documents:data.documents.filter(d=>d.name?.toLowerCase().includes(search)),contacts:data.contacts.filter(c=>c.name?.toLowerCase().includes(search)||c.email?.toLowerCase().includes(search)),urls:data.urls.filter(u=>u.title?.toLowerCase().includes(search)),notes:data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search))};let html=`<h2 style="margin-bottom:16px;">🔍 Search Results for "${search}"</h2>`;const sections=[{key:'projects',label:'📁 Projects',tab:'projects'},{key:'tasks',label:'✅ Tasks',tab:'tasks'},{key:'documents',label:'📄 Documents',tab:'documents'},{key:'contacts',label:'👥 Contacts',tab:'contacts'},{key:'urls',label:'🔗 URLs',tab:'urls'},{key:'notes',label:'📝 Notes',tab:'notes'}];sections.forEach(section=>{if(results[section.key].length>0){html+=`<h3 style="margin:20px 0 12px;">${section.label} (${results[section.key].length})</h3><div class="grid">`;results[section.key].forEach(item=>{const title=item.name||item.title||'Untitled';html+=`<div class="card" onclick="switchTab('${section.tab}')"><div class="card-title">${title}</div></div>`});html+='</div>'}});if(!html.includes('grid')){html+='<p style="text-align:center;padding:40px;color:var(--text-secondary);">No results found</p>'}container.innerHTML=html;return}const activeProjects=data.projects.filter(p=>p.status==='Active').length;const completedProjects=data.projects.filter(p=>p.status==='Completed').length;const pendingTasks=data.tasks.filter(t=>t.status!=='Completed').length;const recentProjects=data.projects.slice(-5).reverse();const recentTasks=data.tasks.slice(-5).reverse();const recentDocs=data.documents.slice(-5).reverse();const recentNotes=data.notes.slice(-5).reverse();container.innerHTML=`<div class="stats-grid"><div class="stat-card blue" onclick="switchTab('projects')" title="Click to view all projects"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Total Projects</div></div><div class="stat-card green" onclick="switchTab('tasks')" title="Click to view all tasks"><div class="stat-number green">${pendingTasks}</div><div class="stat-label">Pending Tasks</div></div><div class="stat-card purple" onclick="switchTab('documents')" title="Click to view all documents"><div class="stat-number purple">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card orange" onclick="switchTab('contacts')" title="Click to view all contacts"><div class="stat-number orange">${data.contacts.length}</div><div class="stat-label">Contacts</div></div></div><h2 style="margin:24px 0 16px;font-size:20px;">Welcome, ${currentUser.name}! 👋</h2><div class="detail-row"><div class="detail-label">Quick Stats</div><div class="detail-value">Active: ${activeProjects} | Completed: ${completedProjects} | Pending Tasks: ${pendingTasks}</div></div><h3 style="margin:24px 0 16px;font-size:18px;">📁 Recent Projects</h3><div class="grid">${recentProjects.length?recentProjects.map(p=>`<div class="card" onclick="switchTab('projects')"><div class="card-title">${p.name}</div>${p.tags&&p.tags.length?`<div class="tag-container">${p.tags.map(tag=>`<span class="tag" onclick="event.stopPropagation();searchByTag('${tag}')">${tag}</span>`).join('')}</div>`:''}<p class="card-meta">${p.status} • ${p.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No projects yet</p>'}</div><h3 style="margin:24px 0 16px;font-size:18px;">✅ Recent Tasks</h3><div class="grid">${recentTasks.length?recentTasks.map(t=>`<div class="card" onclick="switchTab('tasks')"><div class="card-title">${t.title}</div>${t.tags&&t.tags.length?`<div class="tag-container">${t.tags.map(tag=>`<span class="tag" onclick="event.stopPropagation();searchByTag('${tag}')">${tag}</span>`).join('')}</div>`:''}<p class="card-meta">${t.priority} • ${t.status}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No tasks yet</p>'}</div><h3 style="margin:24px 0 16px;font-size:18px;">📄 Recent Documents</h3><div class="grid">${recentDocs.length?recentDocs.map(d=>`<div class="card" onclick="switchTab('documents')"><div class="card-title">${d.name}</div><p class="card-meta">📄 ${d.files?.length||0} files • ${d.uploadedAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No documents yet</p>'}</div><h3 style="margin:24px 0 16px;font-size:18px;">📝 Recent Notes</h3><div class="grid">${recentNotes.length?recentNotes.map(n=>`<div class="card" onclick="switchTab('notes')"><div class="card-title">${n.title}</div><p class="card-meta">${n.category||'General'} • ${n.createdAt}</p></div>`).join(''):'<p style="color:var(--text-secondary);">No notes yet</p>'}</div>`};
 
-const renderProjects = () => {
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = data.projects.filter(p => 
-        p.name.toLowerCase().includes(search) ||
-        p.description?.toLowerCase().includes(search) ||
-        p.tags?.some(t => t.includes(search))
-    );
-    
-    document.getElementById('contentContainer').innerHTML = `
-        <div class="grid">${filtered.length ? filtered.map(p => `
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">${p.name}</div>
-                    <div class="card-actions">
-                        <button class="btn-icon view" onclick='viewProject(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                            </svg>
-                        </button>
-                        ${canDelete(p) ? `
-                            <button class="btn-icon delete" onclick="deleteItem('project','${p.id}')">
-                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                </svg>
-                            </button>
-                        ` : ''}
-                    </div>
-                </div>
-                <p class="card-description">${(p.description || '').substring(0, 100)}...</p>
-                ${p.tags && p.tags.length ? `
-                    <div class="tag-container">
-                        ${p.tags.map(tag => `<span class="tag" onclick="searchByTag('${tag}')">${tag}</span>`).join('')}
-                    </div>
-                ` : ''}
-                <div class="card-footer">
-                    <span class="badge badge-${p.status === 'Active' ? 'green' : p.status === 'Completed' ? 'purple' : 'blue'}">${p.status}</span>
-                    <span class="card-meta">${p.createdAt}</span>
-                </div>
-            </div>
-        `).join('') : '<p style="text-align:center;padding:40px;color:var(--text-secondary);">No projects found</p>'}</div>
-    `;
-};
+// PROJECTS with tags and edit
+const renderProjects=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.projects.filter(p=>p.name.toLowerCase().includes(search)||p.description?.toLowerCase().includes(search)||(p.tags&&p.tags.some(t=>t.includes(search))));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length?filtered.map(p=>`<div class="card" style="cursor:default;"><div class="card-header"><div class="card-title">${p.name}</div><div class="card-actions"><button class="btn-icon view" onclick='viewProject(${JSON.stringify(p).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canEdit(p)?`<button class="btn-icon edit" onclick='editProject(${JSON.stringify(p).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button><button class="btn-icon delete" onclick="deleteItem('project','${p.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-description">${(p.description||'').substring(0,100)}...</p>${p.tags&&p.tags.length?`<div class="tag-container">${p.tags.map(tag=>`<span class="tag" onclick="searchByTag('${tag}')">${tag}</span>`).join('')}</div>`:''}<div class="card-footer"><span class="badge badge-${p.status==='Active'?'green':p.status==='Completed'?'purple':'blue'}">${p.status}</span><span class="card-meta">${p.createdAt}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No projects found</p>'}</div>`};
 
-const viewProject=(project)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Project Name</div><div class="detail-value">${project.name}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${project.description}</div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${project.status==='Active'?'green':project.status==='Completed'?'purple':'blue'}">${project.status}</span></div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${project.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${project.createdAt}</div></div>${canDelete(project)?`<div class="modal-buttons"><button class="btn-submit" onclick='editProject(${JSON.stringify(project).replace(/'/g,"&apos;")})'>Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='Project Details';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewProject=(project)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Project Name</div><div class="detail-value">${project.name}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${project.description}</div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${project.status==='Active'?'green':project.status==='Completed'?'purple':'blue'}">${project.status}</span></div></div>${project.tags&&project.tags.length?`<div class="detail-row"><div class="detail-label">Tags</div><div class="tag-container">${project.tags.map(tag=>`<span class="tag" onclick="searchByTag('${tag}');closeModal()">${tag}</span>`).join('')}</div></div>`:''}<div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${project.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${project.createdAt}</div></div>${canEdit(project)?`<div class="modal-buttons"><button class="btn-submit" onclick='editProject(${JSON.stringify(project).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='📁 Project Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const editProject=(project)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editProjectForm" onsubmit="saveProject(event,'${project.id}')"><div class="form-group"><label>Project Name *</label><input type="text" name="name" value="${project.name}" required/></div><div class="form-group"><label>Description *</label><textarea name="description" required>${project.description}</textarea></div><div class="form-group"><label>Status *</label><select name="status"><option ${project.status==='Active'?'selected':''}>Active</option><option ${project.status==='In Progress'?'selected':''}>In Progress</option><option ${project.status==='Completed'?'selected':''}>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit Project'};
+const editProject=(project)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editProjectForm" onsubmit="saveProject(event,'${project.id}')"><div class="form-group"><label>Project Name *</label><input type="text" name="name" value="${project.name}" required/></div><div class="form-group"><label>Description *</label><textarea name="description" required>${project.description}</textarea></div><div class="form-group"><label>Status *</label><select name="status"><option ${project.status==='Active'?'selected':''}>Active</option><option ${project.status==='In Progress'?'selected':''}>In Progress</option><option ${project.status==='Completed'?'selected':''}>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Project';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const saveProject=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const projectData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const project=data.projects.find(p=>p.id===id);await db.ref(`projects/${id}`).set({...project,...projectData});await logActivity('update',`${currentUser.name} updated project: ${projectData.name}`);showToast('✅ Project updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const saveProject=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const projectData=Object.fromEntries(formData);projectData.tags=generateTags(projectData.name);showLoading(true,'Saving...');try{const project=data.projects.find(p=>p.id===id);await db.ref(`projects/${id}`).set({...project,...projectData});await logActivity('update',`${currentUser.name} updated project: ${projectData.name}`);showToast('✅ Project updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderTasks=(search='')=>{const filtered=data.tasks.filter(t=>t.title?.toLowerCase().includes(search)||t.description?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(t=>`<div class="card"><div class="card-header"><div class="card-title">${t.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewTask(${JSON.stringify(t).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(t)?`<button class="btn-icon delete" onclick="deleteItem('task','${t.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-description">${(t.description||'').substring(0,100)}...</p><div class="card-footer"><span class="badge badge-${t.priority==='Urgent'?'red':t.priority==='High'?'orange':t.priority==='Medium'?'yellow':'green'}">${t.priority}</span><span class="badge badge-${t.status==='Completed'?'purple':t.status==='In Progress'?'blue':'green'}">${t.status}</span><span class="card-meta">Due: ${t.dueDate||'N/A'}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No tasks found</p>'}</div>`};
+// TASKS with tags and edit
+const renderTasks=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.tasks.filter(t=>t.title?.toLowerCase().includes(search)||t.description?.toLowerCase().includes(search)||(t.tags&&t.tags.some(tag=>tag.includes(search))));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(t=>`<div class="card" style="cursor:default;"><div class="card-header"><div class="card-title">${t.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewTask(${JSON.stringify(t).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canEdit(t)?`<button class="btn-icon edit" onclick='editTask(${JSON.stringify(t).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button><button class="btn-icon delete" onclick="deleteItem('task','${t.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-description">${(t.description||'').substring(0,100)}...</p>${t.tags&&t.tags.length?`<div class="tag-container">${t.tags.map(tag=>`<span class="tag" onclick="searchByTag('${tag}')">${tag}</span>`).join('')}</div>`:''}<div class="card-footer"><span class="badge badge-${t.priority==='Urgent'?'red':t.priority==='High'?'orange':t.priority==='Medium'?'yellow':'green'}">${t.priority}</span><span class="badge badge-${t.status==='Completed'?'purple':t.status==='In Progress'?'blue':'green'}">${t.status}</span><span class="card-meta">Due: ${t.dueDate||'N/A'}</span></div></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No tasks found</p>'}</div>`};
 
-const viewTask=(task)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Task Title</div><div class="detail-value">${task.title}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${task.description}</div></div><div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${task.priority==='Urgent'?'red':task.priority==='High'?'orange':'yellow'}">${task.priority}</span></div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${task.status==='Completed'?'purple':'blue'}">${task.status}</span></div></div><div class="detail-row"><div class="detail-label">Due Date</div><div class="detail-value">${task.dueDate||'N/A'}</div></div><div class="detail-row"><div class="detail-label">Assigned To</div><div class="detail-value">${task.assignedTo||'Unassigned'}</div></div>${canDelete(task)?`<div class="modal-buttons"><button class="btn-submit" onclick='editTask(${JSON.stringify(task).replace(/'/g,"&apos;")})'>Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='Task Details';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewTask=(task)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Task Title</div><div class="detail-value">${task.title}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${task.description}</div></div><div class="detail-row"><div class="detail-label">Priority</div><div class="detail-value"><span class="badge badge-${task.priority==='Urgent'?'red':task.priority==='High'?'orange':'yellow'}">${task.priority}</span></div></div><div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-${task.status==='Completed'?'purple':'blue'}">${task.status}</span></div></div>${task.tags&&task.tags.length?`<div class="detail-row"><div class="detail-label">Tags</div><div class="tag-container">${task.tags.map(tag=>`<span class="tag" onclick="searchByTag('${tag}');closeModal()">${tag}</span>`).join('')}</div></div>`:''}<div class="detail-row"><div class="detail-label">Due Date</div><div class="detail-value">${task.dueDate||'N/A'}</div></div><div class="detail-row"><div class="detail-label">Assigned To</div><div class="detail-value">${task.assignedTo||'Unassigned'}</div></div>${canEdit(task)?`<div class="modal-buttons"><button class="btn-submit" onclick='editTask(${JSON.stringify(task).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='✅ Task Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const editTask=(task)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editTaskForm" onsubmit="saveTask(event,'${task.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${task.title}" required/></div><div class="form-group"><label>Description</label><textarea name="description">${task.description||''}</textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option ${task.priority==='Low'?'selected':''}>Low</option><option ${task.priority==='Medium'?'selected':''}>Medium</option><option ${task.priority==='High'?'selected':''}>High</option><option ${task.priority==='Urgent'?'selected':''}>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option ${task.status==='To Do'?'selected':''}>To Do</option><option ${task.status==='In Progress'?'selected':''}>In Progress</option><option ${task.status==='Completed'?'selected':''}>Completed</option></select></div><div class="form-group"><label>Due Date</label><input type="date" name="dueDate" value="${task.dueDate||''}"/></div><div class="form-group"><label>Assigned To</label><input type="text" name="assignedTo" value="${task.assignedTo||''}"/></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit Task'};
+const editTask=(task)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editTaskForm" onsubmit="saveTask(event,'${task.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${task.title}" required/></div><div class="form-group"><label>Description</label><textarea name="description">${task.description||''}</textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option ${task.priority==='Low'?'selected':''}>Low</option><option ${task.priority==='Medium'?'selected':''}>Medium</option><option ${task.priority==='High'?'selected':''}>High</option><option ${task.priority==='Urgent'?'selected':''}>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option ${task.status==='To Do'?'selected':''}>To Do</option><option ${task.status==='In Progress'?'selected':''}>In Progress</option><option ${task.status==='Completed'?'selected':''}>Completed</option></select></div><div class="form-group"><label>Due Date</label><input type="date" name="dueDate" value="${task.dueDate||''}"/></div><div class="form-group"><label>Assigned To</label><select name="assignedTo"><option value="">Unassigned</option>${data.users.map(u=>`<option value="${u.username}" ${task.assignedTo===u.username?'selected':''}>${u.username}</option>`).join('')}</select></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Task';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const saveTask=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const taskData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const task=data.tasks.find(t=>t.id===id);await db.ref(`tasks/${id}`).set({...task,...taskData});await logActivity('update',`${currentUser.name} updated task: ${taskData.title}`);showToast('✅ Task updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const saveTask=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const taskData=Object.fromEntries(formData);taskData.tags=generateTags(taskData.title);showLoading(true,'Saving...');try{const task=data.tasks.find(t=>t.id===id);await db.ref(`tasks/${id}`).set({...task,...taskData});await logActivity('update',`${currentUser.name} updated task: ${taskData.title}`);showToast('✅ Task updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderDocuments=(search='')=>{const filtered=data.documents.filter(d=>d.name?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(d=>`<div class="card"><div class="card-header"><div class="card-title">${d.name}</div><div class="card-actions"><button class="btn-icon view" onclick='viewDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(d)?`<button class="btn-icon delete" onclick="deleteItem('document','${d.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${d.uploadedBy} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`};
+// DOCUMENTS (no changes needed)
+const renderDocuments=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.documents.filter(d=>d.name?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(d=>`<div class="card" style="cursor:default;"><div class="card-header"><div class="card-title">${d.name}</div><div class="card-actions"><button class="btn-icon view" onclick='viewDocument(${JSON.stringify(d).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canEdit(d)?`<button class="btn-icon delete" onclick="deleteItem('document','${d.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">📄 ${d.files?.length||0} file(s) • ${d.uploadedBy} • ${d.uploadedAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No documents found</p>'}</div>`};
 
-const viewDocument = (doc) => {
-    const modal = document.getElementById('modalBody');
-    const filesTable = (doc.files || []).map((f, i) => `
-        <tr>
-            <td style="padding:8px;font-weight:600;">${f.name}</td>
-            <td style="padding:8px;">${f.type || 'Unknown'}</td>
-            <td style="padding:8px;">
-                <button class="btn-icon view" onclick='viewFileContent(${JSON.stringify(f).replace(/'/g, "&apos;")})' 
-                        title="View file">
-                    👁️
-                </button>
-            </td>
-        </tr>
-    `).join('');
-    
-    modal.innerHTML = `
-        <div class="detail-row">
-            <div class="detail-label">Document Name</div>
-            <div class="detail-value">${doc.name}</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Description</div>
-            <div class="detail-value">${doc.description || 'No description'}</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Uploaded By</div>
-            <div class="detail-value">${doc.uploadedBy}</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Uploaded At</div>
-            <div class="detail-value">${doc.uploadedAt}</div>
-        </div>
-        <div style="margin-top:16px;">
-            <div class="detail-label">Files (${doc.files.length})</div>
-            <table style="width:100%;margin-top:8px;border-collapse:collapse;">
-                <thead style="background:var(--bg-tertiary);">
-                    <tr>
-                        <th style="padding:8px;text-align:left;">Name</th>
-                        <th style="padding:8px;text-align:left;">Type</th>
-                        <th style="padding:8px;text-align:left;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>${filesTable}</tbody>
-            </table>
-        </div>
-        ${canDelete(doc) ? `
-            <div class="modal-buttons">
-                <button class="btn-submit" onclick='editDocument(${JSON.stringify(doc).replace(/'/g, "&apos;")})'>✏️ Edit</button>
-                <button class="btn-cancel" onclick="closeModal()">Close</button>
-            </div>
-        ` : `
-            <div style="margin-top:20px; padding:12px; background:var(--bg-tertiary); border-radius:8px; text-align:center;">
-                <span style="color:var(--text-secondary); font-size:12px;">👁️ View Only</span>
-            </div>
-            <button class="btn-cancel" onclick="closeModal()" style="width:100%; margin-top:16px;">Close</button>
-        `}
-    `;
-    
-    document.getElementById('modalTitle').textContent = '📄 Document Details';
-    document.getElementById('modalOverlay').classList.remove('hidden');
-};
+const viewDocument=(doc)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Document Name</div><div class="detail-value">${doc.name}</div></div><div class="detail-row"><div class="detail-label">Description</div><div class="detail-value">${doc.description||'No description'}</div></div><div class="detail-row"><div class="detail-label">Files</div><div class="detail-value">${doc.files?.length||0} file(s)</div></div><button class="btn-cancel" onclick="closeModal()" style="width:100%;margin-top:16px;">Close</button>`;document.getElementById('modalTitle').textContent='📄 Document Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const editDocument = (doc) => {
-    const modal = document.getElementById('modalBody');
-    
-    const filesHtml = doc.files.map((f, idx) => `
-        <div class="file-item" id="file-${idx}">
-            <div>
-                <span>📄 ${f.name}</span>
-                <span style="font-size:11px; color:var(--text-secondary);"> (${(f.size / 1024).toFixed(1)} KB)</span>
-            </div>
-            <button type="button" class="btn-icon delete" 
-                    onclick="removeFileFromEdit(${idx})" 
-                    title="Remove file">
-                🗑️
-            </button>
-        </div>
-    `).join('');
-    
-    modal.innerHTML = `
-        <form id="editDocForm" onsubmit="saveDocumentEdits(event, '${doc.id}')">
-            <div class="form-group">
-                <label>Document Name *</label>
-                <input type="text" name="name" value="${doc.name}" required 
-                       spellcheck="true" autocorrect="on" />
-            </div>
-            
-            <div class="form-group">
-                <label>Description</label>
-                <textarea name="description" spellcheck="true" autocorrect="on">${doc.description || ''}</textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Current Files (${doc.files.length})</label>
-                <div id="currentFilesList">
-                    ${filesHtml}
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label>Add More Files (Optional)</label>
-                <input type="file" id="newFilesInput" multiple />
-                <p style="font-size:12px; color:var(--text-secondary); margin-top:6px;">
-                    Select files to add to this document (Max 10MB per file)
-                </p>
-            </div>
-            
-            <div class="modal-buttons">
-                <button type="submit" class="btn-submit">💾 Save Changes</button>
-                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-            </div>
-        </form>
-    `;
-    
-    // Store current files in a global variable for editing
-    window.currentDocFiles = [...doc.files];
-    
-    document.getElementById('modalTitle').textContent = '✏️ Edit Document';
-    document.getElementById('modalOverlay').classList.remove('hidden');
-};
+// CONTACTS with edit
+const renderContacts=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.contacts.filter(c=>c.name?.toLowerCase().includes(search)||c.email?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(c=>`<div class="card" style="cursor:default;"><div class="card-header"><div><div class="card-title">${c.name}</div><p style="color:var(--text-secondary);font-size:13px;">${c.company}</p></div><div class="card-actions"><button class="btn-icon view" onclick='viewContact(${JSON.stringify(c).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canEdit(c)?`<button class="btn-icon edit" onclick='editContact(${JSON.stringify(c).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>`:''}</div></div><p class="card-meta">✉️ ${c.email} • 📞 ${c.phone}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No contacts found</p>'}</div>`};
 
-const renderContacts=(search='')=>{const filtered=data.contacts.filter(c=>c.name?.toLowerCase().includes(search)||c.email?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(c=>`<div class="card"><div class="card-header"><div><div class="card-title">${c.name}</div><p style="color:var(--text-secondary);font-size:13px;">${c.company}</p></div><div class="card-actions"><button class="btn-icon view" onclick='viewContact(${JSON.stringify(c).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></div></div><p class="card-meta">✉️ ${c.email} • 📞 ${c.phone}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No contacts found</p>'}</div>`};
+const viewContact=(contact)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${contact.name}</div></div><div class="detail-row"><div class="detail-label">Email</div><div class="detail-value">${contact.email}</div></div><div class="detail-row"><div class="detail-label">Phone</div><div class="detail-value">${contact.phone}</div></div><div class="detail-row"><div class="detail-label">Company</div><div class="detail-value">${contact.company}</div></div>${canEdit(contact)?`<div class="modal-buttons"><button class="btn-submit" onclick='editContact(${JSON.stringify(contact).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='👥 Contact Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const viewContact=(contact)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">${contact.name}</div></div><div class="detail-row"><div class="detail-label">Email</div><div class="detail-value">${contact.email}</div></div><div class="detail-row"><div class="detail-label">Phone</div><div class="detail-value">${contact.phone}</div></div><div class="detail-row"><div class="detail-label">Company</div><div class="detail-value">${contact.company}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${contact.createdAt}</div></div><div class="modal-buttons"><button class="btn-submit" onclick='editContact(${JSON.stringify(contact).replace(/'/g,"&apos;")})'>Edit</button>${canDelete(contact)?`<button class="btn-cancel" onclick="deleteItem('contact','${contact.id}')" style="background:var(--danger);color:white;">Delete</button>`:''}<button class="btn-cancel" onclick="closeModal()">Close</button></div>`;document.getElementById('modalTitle').textContent='Contact Details';document.getElementById('modalOverlay').classList.remove('hidden')};
-
-const editContact=(contact)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editContactForm" onsubmit="saveContact(event,'${contact.id}')"><div class="form-group"><label>Name *</label><input type="text" name="name" value="${contact.name}" required/></div><div class="form-group"><label>Email *</label><input type="email" name="email" value="${contact.email}" required/></div><div class="form-group"><label>Phone *</label><input type="tel" name="phone" value="${contact.phone}" pattern="[0-9]{10}" required/></div><div class="form-group"><label>Company *</label><input type="text" name="company" value="${contact.company}" required/></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit Contact'};
+const editContact=(contact)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editContactForm" onsubmit="saveContact(event,'${contact.id}')"><div class="form-group"><label>Name *</label><input type="text" name="name" value="${contact.name}" required/></div><div class="form-group"><label>Email *</label><input type="email" name="email" value="${contact.email}" required/></div><div class="form-group"><label>Phone *</label><input type="tel" name="phone" value="${contact.phone}" required/></div><div class="form-group"><label>Company *</label><input type="text" name="company" value="${contact.company}" required/></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Contact';document.getElementById('modalOverlay').classList.remove('hidden')};
 
 const saveContact=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const contactData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const contact=data.contacts.find(c=>c.id===id);await db.ref(`contacts/${id}`).set({...contact,...contactData});await logActivity('update',`${currentUser.name} updated contact: ${contactData.name}`);showToast('✅ Contact updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderUrls=(search='')=>{const filtered=data.urls.filter(u=>u.title?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(u=>`<div class="card"><div class="card-header"><div class="card-title">${u.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewUrl(${JSON.stringify(u).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(u)?`<button class="btn-icon delete" onclick="deleteItem('url','${u.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">🔗 ${u.links?.length||0} link(s) • ${u.addedBy} • ${u.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No URLs found</p>'}</div>`};
+// URLS with edit
+const renderUrls=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.urls.filter(u=>u.title?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(u=>`<div class="card" style="cursor:default;"><div class="card-header"><div class="card-title">${u.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewUrl(${JSON.stringify(u).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canEdit(u)?`<button class="btn-icon edit" onclick='editUrl(${JSON.stringify(u).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button><button class="btn-icon delete" onclick="deleteItem('url','${u.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-meta">🔗 ${u.links?.length||0} link(s) • ${u.addedBy} • ${u.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No URLs found</p>'}</div>`};
 
-const viewUrl=(url)=>{const modal=document.getElementById('modalBody');const linksList=(url.links||[]).map(link=>`<div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px;"><a href="${link}" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:none;word-break:break-all;">${link}</a></div>`).join('');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${url.title}</div></div><div class="detail-row"><div class="detail-label">Added By</div><div class="detail-value">${url.addedBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${url.createdAt}</div></div><div style="margin-top:16px;"><div class="detail-label">Links (Click to open in new tab)</div>${linksList}</div>${canDelete(url)?`<div class="modal-buttons"><button class="btn-submit" onclick='editUrl(${JSON.stringify(url).replace(/'/g,"&apos;")})'>Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='URL Details';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewUrl=(url)=>{const modal=document.getElementById('modalBody');const linksList=(url.links||[]).map(link=>`<div style="padding:10px;background:var(--bg-tertiary);border-radius:8px;margin-bottom:8px;"><a href="${link}" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:none;word-break:break-all;">${link}</a></div>`).join('');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${url.title}</div></div><div class="detail-row"><div class="detail-label">Added By</div><div class="detail-value">${url.addedBy}</div></div><div style="margin-top:16px;"><div class="detail-label">Links</div>${linksList}</div>${canEdit(url)?`<div class="modal-buttons"><button class="btn-submit" onclick='editUrl(${JSON.stringify(url).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='🔗 URL Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const editUrl=(url)=>{const modal=document.getElementById('modalBody');const linksHtml=(url.links||[]).map((link,i)=>`<div style="margin-bottom:8px;display:flex;gap:8px;"><input type="url" value="${link}" id="url_${i}" style="flex:1;" required/><button type="button" onclick="this.parentElement.remove()" style="background:var(--danger);color:white;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;">Remove</button></div>`).join('');modal.innerHTML=`<form id="editUrlForm" onsubmit="saveUrl(event,'${url.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${url.title}" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer">${linksHtml}</div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit URLs'};
+const editUrl=(url)=>{const modal=document.getElementById('modalBody');const linksHtml=(url.links||[]).map((link,i)=>`<div style="margin-bottom:8px;display:flex;gap:8px;"><input type="url" value="${link}" id="url_${i}" style="flex:1;" required/><button type="button" onclick="this.parentElement.remove()" style="background:var(--danger);color:white;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;">Remove</button></div>`).join('');modal.innerHTML=`<form id="editUrlForm" onsubmit="saveUrl(event,'${url.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${url.title}" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer">${linksHtml}</div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit URLs';document.getElementById('modalOverlay').classList.remove('hidden')};
 
 const addUrlField=()=>{const container=document.getElementById('urlsContainer');const div=document.createElement('div');div.style.cssText='margin-bottom:8px;display:flex;gap:8px;';div.innerHTML=`<input type="url" placeholder="https://example.com" style="flex:1;" required/><button type="button" onclick="this.parentElement.remove()" style="background:var(--danger);color:white;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;">Remove</button>`;container.appendChild(div)};
 
 const saveUrl=async(e,id)=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);if(links.length===0){showToast('❌ Add at least one URL','error');return}showLoading(true,'Saving...');try{const url=data.urls.find(u=>u.id===id);await db.ref(`urls/${id}`).set({...url,title,links});await logActivity('update',`${currentUser.name} updated URLs: ${title}`);showToast('✅ URLs updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const renderNotes=(search='')=>{const filtered=data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search));document.getElementById('contentContainer').innerHTML=`<div class="grid">${filtered.length>0?filtered.map(n=>`<div class="card"><div class="card-header"><div class="card-title">${n.title}</div><div class="card-actions"><button class="btn-icon view" onclick='viewNote(${JSON.stringify(n).replace(/'/g,"&apos;")})' title="View"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>${canDelete(n)?`<button class="btn-icon delete" onclick="deleteItem('note','${n.id}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:''}</div></div><p class="card-description">${(n.content||'').substring(0,100)}...</p><p class="card-meta">${n.category||'General'} • ${n.createdBy} • ${n.createdAt}</p></div>`).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}</div>`};
+// NOTION-STYLE NOTES
+const renderNotes=()=>{const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.notes.filter(n=>n.title?.toLowerCase().includes(search)||n.content?.toLowerCase().includes(search));const pinnedNotes=filtered.filter(n=>n.pinned);const regularNotes=filtered.filter(n=>!n.pinned);const renderNoteCard=note=>`<div class="note-card ${note.pinned?'pinned':''} note-${note.color||'gray'}" style="cursor:default;"><div class="note-header"><div><div class="note-title">${note.title}</div>${note.category?`<span class="note-category">${note.category}</span>`:''}</div><div class="card-actions"><button class="btn-icon view" onclick='viewNote(${JSON.stringify(note).replace(/'/g,"&apos;")})' title="View">📖</button>${canEdit(note)?`<button class="btn-icon edit" onclick='editNote(${JSON.stringify(note).replace(/'/g,"&apos;")})' title="Edit">✏️</button><button class="btn-icon delete" onclick="deleteItem('note','${note.id}')">🗑️</button>`:''}</div></div><div class="note-content">${(note.content||'').substring(0,150)}${note.content?.length>150?'...':''}</div><div class="note-meta"><span class="card-meta">${note.createdBy} • ${note.createdAt}</span>${note.pinned?'<span class="badge badge-yellow">Pinned</span>':''}</div></div>`;document.getElementById('contentContainer').innerHTML=`${pinnedNotes.length?`<h3 style="margin-bottom:16px;">📌 Pinned Notes</h3><div class="grid">${pinnedNotes.map(renderNoteCard).join('')}</div>`:''}<h3 style="margin:24px 0 16px;">${pinnedNotes.length?'📝 All Notes':'📝 Notes'}</h3><div class="grid">${regularNotes.length?regularNotes.map(renderNoteCard).join(''):'<p style="text-align:center;padding:40px;color:var(--text-secondary);">No notes found</p>'}</div>`};
 
-const viewNote=(note)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${note.title}</div></div><div class="detail-row"><div class="detail-label">Category</div><div class="detail-value"><span class="badge badge-blue">${note.category||'General'}</span></div></div><div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap;">${note.content}</div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${note.createdBy}</div></div><div class="detail-row"><div class="detail-label">Created At</div><div class="detail-value">${note.createdAt}</div></div>${canDelete(note)?`<div class="modal-buttons"><button class="btn-submit" onclick='editNote(${JSON.stringify(note).replace(/'/g,"&apos;")})'>Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='Note Details';document.getElementById('modalOverlay').classList.remove('hidden')};
+const viewNote=(note)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<div class="detail-row"><div class="detail-label">Title</div><div class="detail-value">${note.title}</div></div>${note.category?`<div class="detail-row"><div class="detail-label">Category</div><div class="detail-value"><span class="badge badge-blue">${note.category}</span></div></div>`:''}<div class="detail-row"><div class="detail-label">Content</div><div class="detail-value" style="white-space:pre-wrap;">${note.content}</div></div><div class="detail-row"><div class="detail-label">Color</div><div class="detail-value"><span class="badge badge-${note.color||'gray'}">${note.color||'default'}</span></div></div><div class="detail-row"><div class="detail-label">Pinned</div><div class="detail-value">${note.pinned?'✅ Yes':'❌ No'}</div></div><div class="detail-row"><div class="detail-label">Created By</div><div class="detail-value">${note.createdBy}</div></div>${canEdit(note)?`<div class="modal-buttons"><button class="btn-submit" onclick='editNote(${JSON.stringify(note).replace(/'/g,"&apos;")})'>✏️ Edit</button><button class="btn-cancel" onclick="closeModal()">Close</button></div>`:'<button class="btn-cancel" onclick="closeModal()" style="width:100%;">Close</button>'}`;document.getElementById('modalTitle').textContent='📝 Note Details';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const editNote=(note)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editNoteForm" onsubmit="saveNote(event,'${note.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${note.title}" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" value="${note.category||''}"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:150px;">${note.content}</textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit Note'};
+const editNote=(note)=>{const modal=document.getElementById('modalBody');const colors=['yellow','green','blue','purple','pink','red','gray'];modal.innerHTML=`<form id="editNoteForm" onsubmit="saveNote(event,'${note.id}')"><div class="form-group"><label>Title *</label><input type="text" name="title" value="${note.title}" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" value="${note.category||''}"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;">${note.content}</textarea></div><div class="form-group"><label>Color</label><div class="color-options">${colors.map(c=>`<div class="color-btn note-${c} ${note.color===c?'selected':''}" onclick="selectColor('${c}')" data-color="${c}"></div>`).join('')}</div><input type="hidden" name="color" id="noteColor" value="${note.color||'gray'}"/></div><div class="form-group"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="pinned" ${note.pinned?'checked':''}/>Pin this note</label></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit Note';document.getElementById('modalOverlay').classList.remove('hidden')};
 
-const saveNote=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const noteData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const note=data.notes.find(n=>n.id===id);await db.ref(`notes/${id}`).set({...note,...noteData});await logActivity('update',`${currentUser.name} updated note: ${noteData.title}`);showToast('✅ Note updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const selectColor=(color)=>{document.querySelectorAll('.color-btn').forEach(btn=>btn.classList.remove('selected'));document.querySelector(`[data-color="${color}"]`).classList.add('selected');document.getElementById('noteColor').value=color};
 
-const renderAdmin=(search='')=>{if(currentUser.role!=='admin')return;const filtered=data.users.filter(u=>u.username?.toLowerCase().includes(search)||u.email?.toLowerCase().includes(search));const usersTable=filtered.map(u=>`<tr><td class="bold">${u.username}</td><td>${u.email}</td><td><span class="badge badge-${u.role==='admin'?'purple':'green'}">${u.role}</span></td><td>${u.createdAt}</td><td>${u.username!=='admin'?`<button class="btn-icon edit" onclick='editUser(${JSON.stringify(u).replace(/'/g,"&apos;")})' title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button><button class="btn-icon delete" onclick="deleteItem('user','${u.username}')"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>`:'<span style="color:var(--text-secondary);font-size:11px;">Protected</span>'}</td></tr>`).join('');document.getElementById('contentContainer').innerHTML=`<div style="background:var(--card-bg);border-radius:14px;padding:20px;margin-bottom:20px;border:1px solid var(--border-color);"><h2 style="font-size:18px;margin-bottom:16px;">User Management</h2><table style="width:100%;border-collapse:collapse;"><thead style="background:var(--bg-tertiary);"><tr><th style="padding:12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-secondary);">Username</th><th style="padding:12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-secondary);">Email</th><th style="padding:12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-secondary);">Role</th><th style="padding:12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-secondary);">Created</th><th style="padding:12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-secondary);">Actions</th></tr></thead><tbody>${usersTable}</tbody></table></div><div class="stats-grid"><div class="stat-card blue"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green"><div class="stat-number green">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card purple"><div class="stat-number purple">${data.contacts.length}</div><div class="stat-label">Contacts</div></div><div class="stat-card orange"><div class="stat-number orange">${data.users.length}</div><div class="stat-label">Users</div></div></div>`};
+const saveNote=async(e,id)=>{e.preventDefault();const formData=new FormData(e.target);const noteData={title:formData.get('title'),category:formData.get('category'),content:formData.get('content'),color:formData.get('color'),pinned:formData.get('pinned')==='on'};showLoading(true,'Saving...');try{const note=data.notes.find(n=>n.id===id);await db.ref(`notes/${id}`).set({...note,...noteData});await logActivity('update',`${currentUser.name} updated note: ${noteData.title}`);showToast('✅ Note updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const editUser=(user)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editUserForm" onsubmit="saveUser(event,'${user.username}')"><div class="form-group"><label>Username</label><input type="text" value="${user.username}" readonly style="background:var(--bg-tertiary);"/></div><div class="form-group"><label>Email *</label><input type="email" name="email" value="${user.email}" required/></div><div class="form-group"><label>Password</label><input type="password" name="password" placeholder="Leave blank to keep current" minlength="6"/></div><div class="form-group"><label>Role *</label><select name="role"><option value="user" ${user.role==='user'?'selected':''}>User</option><option value="admin" ${user.role==='admin'?'selected':''}>Admin</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='Edit User';document.getElementById('modalOverlay').classList.remove('hidden')};
+// ADMIN with vertical action buttons
+const renderAdmin=()=>{if(currentUser.role!=='admin')return;const search=document.getElementById('searchInput').value.toLowerCase();const filtered=data.users.filter(u=>u.username?.toLowerCase().includes(search)||u.email?.toLowerCase().includes(search));const usersTable=filtered.map(u=>`<tr><td>${u.username}</td><td>${u.email}</td><td><span class="badge badge-${u.role==='admin'?'purple':'green'}">${u.role}</span></td><td>${u.createdAt}</td><td><div class="admin-actions">${u.username!=='admin'?`<button class="btn-icon edit" onclick='editUser(${JSON.stringify(u).replace(/'/g,"&apos;")})' title="Edit">✏️ Edit</button><button class="btn-icon delete" onclick="deleteItem('user','${u.username}')">🗑️ Delete</button>`:'<span style="color:var(--text-secondary);font-size:11px;">Protected</span>'}</div></td></tr>`).join('');document.getElementById('contentContainer').innerHTML=`<div style="background:var(--card-bg);border-radius:14px;padding:20px;margin-bottom:20px;border:1px solid var(--border-color);"><h2 style="font-size:18px;margin-bottom:16px;">👥 User Management</h2><table class="admin-table"><thead><tr><th>Username</th><th>Email</th><th>Role</th><th>Created</th><th>Actions</th></tr></thead><tbody>${usersTable}</tbody></table></div><div class="stats-grid"><div class="stat-card blue" onclick="switchTab('projects')"><div class="stat-number blue">${data.projects.length}</div><div class="stat-label">Projects</div></div><div class="stat-card green" onclick="switchTab('documents')"><div class="stat-number green">${data.documents.length}</div><div class="stat-label">Documents</div></div><div class="stat-card purple" onclick="switchTab('contacts')"><div class="stat-number purple">${data.contacts.length}</div><div class="stat-label">Contacts</div></div><div class="stat-card orange"><div class="stat-number orange">${data.users.length}</div><div class="stat-label">Users</div></div></div>`};
+
+const editUser=(user)=>{const modal=document.getElementById('modalBody');modal.innerHTML=`<form id="editUserForm" onsubmit="saveUser(event,'${user.username}')"><div class="form-group"><label>Username</label><input type="text" value="${user.username}" readonly style="background:var(--bg-tertiary);"/></div><div class="form-group"><label>Email *</label><input type="email" name="email" value="${user.email}" required/></div><div class="form-group"><label>Password</label><input type="password" name="password" placeholder="Leave blank to keep current" minlength="6"/></div><div class="form-group"><label>Role *</label><select name="role"><option value="user" ${user.role==='user'?'selected':''}>User</option><option value="admin" ${user.role==='admin'?'selected':''}>Admin</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">💾 Save</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('modalTitle').textContent='✏️ Edit User';document.getElementById('modalOverlay').classList.remove('hidden')};
 
 const saveUser=async(e,username)=>{e.preventDefault();const formData=new FormData(e.target);const userData=Object.fromEntries(formData);showLoading(true,'Saving...');try{const user=data.users.find(u=>u.username===username);const updatedUser={...user,email:userData.email,role:userData.role,password:userData.password||user.password};await db.ref(`users/${username}`).set(updatedUser);await logActivity('update',`${currentUser.name} updated user: ${username}`);showToast('✅ User updated');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const openModal=(mode)=>{const modal=document.getElementById('modalBody');const title=document.getElementById('modalTitle');if(currentTab==='projects'){title.textContent='Add Project';modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Project Name *</label><input type="text" name="name" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description *</label><textarea name="description" required spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){title.textContent='Add Task';modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required spellcheck="true" autocorrect="on" /></div><div class="form-group"><label>Description</label><textarea name="description" spellcheck="true" autocorrect="on"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option selected>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><div class="date-input-group"><input type="date" id="dateCalendar" onchange="syncDateInputs('calendar')" title="Select from calendar" /><input type="text" id="dateManual" placeholder="DD/MM/YYYY" pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$" onchange="syncDateInputs('manual')" title="Enter as DD/MM/YYYY" /></div></div><div class="form-group"><label>Assigned To</label><select name="assignedTo"><option value="">Unassigned</option>${data.users.map(u => `<option value="${u.username}">${u.username} ${u.role === 'admin' ? '👑' : '👤'}</option>`).join('')}</select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){title.textContent='Upload Document';modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Document Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required style="margin-top:8px;"/><div id="filePreview" style="margin-top:12px;"></div></div><div id="uploadProgress" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div><p id="progressText" style="margin-top:8px;font-size:13px;color:var(--text-secondary);text-align:center;">Uploading...</p></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`;document.getElementById('fileInput').addEventListener('change',e=>{const preview=document.getElementById('filePreview');preview.innerHTML=Array.from(e.target.files).map(f=>`<p style="font-size:12px;">📄 ${f.name} (${(f.size/1024).toFixed(1)} KB)</p>`).join('')})}else if(currentTab==='urls'){title.textContent='Add URLs';modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;display:flex;gap:8px;"><input type="url" placeholder="https://example.com" style="flex:1;" required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){title.textContent='Add Note';modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="e.g., Personal, Work, Ideas"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:150px;"></textarea></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
+// MODAL MANAGEMENT
+const openModal=(mode)=>{const modal=document.getElementById('modalBody');const title=document.getElementById('modalTitle');if(currentTab==='projects'){title.textContent='➕ Add Project';modal.innerHTML=`<form id="addForm" onsubmit="addProject(event)"><div class="form-group"><label>Project Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description *</label><textarea name="description" required></textarea></div><div class="form-group"><label>Status *</label><select name="status"><option>Active</option><option>In Progress</option><option>Completed</option></select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='tasks'){title.textContent='➕ Add Task';modal.innerHTML=`<form id="addForm" onsubmit="addTask(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Priority *</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div class="form-group"><label>Status *</label><select name="status"><option>To Do</option><option selected>In Progress</option><option>Completed</option></select></div><div class="form-group"><label>Due Date</label><input type="date" name="dueDate"/></div><div class="form-group"><label>Assigned To</label><select name="assignedTo"><option value="">Unassigned</option>${data.users.map(u=>`<option value="${u.username}">${u.username}</option>`).join('')}</select></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='documents'){title.textContent='➕ Upload Document';modal.innerHTML=`<form id="addForm" onsubmit="addDocument(event)"><div class="form-group"><label>Document Name *</label><input type="text" name="name" required/></div><div class="form-group"><label>Description</label><textarea name="description"></textarea></div><div class="form-group"><label>Upload Files *</label><input type="file" id="fileInput" multiple required/></div><div class="modal-buttons"><button type="submit" class="btn-submit" id="uploadBtn">Upload</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='urls'){title.textContent='➕ Add URLs';modal.innerHTML=`<form id="addForm" onsubmit="addUrl(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>URLs</label><div id="urlsContainer"><div style="margin-bottom:8px;"><input type="url" placeholder="https://example.com" required/></div></div><button type="button" onclick="addUrlField()" class="btn-primary" style="margin-top:10px;">+ Add URL</button></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}else if(currentTab==='notes'){title.textContent='➕ Add Note';const colors=['yellow','green','blue','purple','pink','red','gray'];modal.innerHTML=`<form id="addForm" onsubmit="addNote(event)"><div class="form-group"><label>Title *</label><input type="text" name="title" required/></div><div class="form-group"><label>Category</label><input type="text" name="category" placeholder="e.g., Personal, Work, Ideas"/></div><div class="form-group"><label>Content *</label><textarea name="content" required style="min-height:200px;"></textarea></div><div class="form-group"><label>Color</label><div class="color-options">${colors.map(c=>`<div class="color-btn note-${c} ${c==='yellow'?'selected':''}" onclick="selectColor('${c}')" data-color="${c}"></div>`).join('')}</div><input type="hidden" name="color" id="noteColor" value="yellow"/></div><div class="form-group"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="pinned"/>Pin this note</label></div><div class="modal-buttons"><button type="submit" class="btn-submit">Create</button><button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button></div></form>`}document.getElementById('modalOverlay').classList.remove('hidden')};
 
 const closeModal=()=>{document.getElementById('modalOverlay').classList.add('hidden')};
 
-const addProject = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const projectData = Object.fromEntries(formData);
-    
-    // Generate tags from project name
-    projectData.tags = generateTags(projectData.name);
-    
-    showLoading(true, 'Creating...');
-    try {
-        const id = 'project_' + Date.now();
-        await db.ref(`projects/${id}`).set({
-            ...projectData,
-            id,
-            createdBy: currentUser.name,
-            createdAt: getDateTime()
-        });
-        await logActivity('create', `${currentUser.name} created project: ${projectData.name}`);
-        showToast('✅ Project created');
-        closeModal();
-    } catch (error) {
-        showToast('❌ Error: ' + error.message, 'error');
-    } finally {
-        showLoading(false);
-    }
-};
+const addProject=async(e)=>{e.preventDefault();const formData=new FormData(e.target);const projectData=Object.fromEntries(formData);projectData.tags=generateTags(projectData.name);showLoading(true,'Creating...');try{const id='project_'+Date.now();await db.ref(`projects/${id}`).set({...projectData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created project: ${projectData.name}`);showToast('✅ Project created');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-// Update addTask to save the date from manual input
-const addTask = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const taskData = Object.fromEntries(formData);
-    
-    // Get date from manual input if present
-    const manualDate = document.getElementById('dateManual').value;
-    if (manualDate) {
-        taskData.dueDate = manualDate;
-    }
-    
-    showLoading(true, 'Creating...');
-    try {
-        const id = 'task_' + Date.now();
-        await db.ref(`tasks/${id}`).set({
-            ...taskData,
-            id,
-            createdBy: currentUser.name,
-            createdAt: getDateTime()
-        });
-        await logActivity('create', `${currentUser.name} created task: ${taskData.title}`);
-        showToast('✅ Task created');
-        closeModal();
-    } catch (error) {
-        showToast('❌ Error: ' + error.message, 'error');
-    } finally {
-        showLoading(false);
-    }
-};
+const addTask=async(e)=>{e.preventDefault();const formData=new FormData(e.target);const taskData=Object.fromEntries(formData);taskData.tags=generateTags(taskData.title);showLoading(true,'Creating...');try{const id='task_'+Date.now();await db.ref(`tasks/${id}`).set({...taskData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created task: ${taskData.title}`);showToast('✅ Task created');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const addDocument=async e=>{e.preventDefault();const name=e.target.elements.name.value;const description=e.target.elements.description.value;const files=Array.from(document.getElementById('fileInput').files);if(files.length===0){showToast('❌ Please select files','error');return}document.getElementById('uploadProgress').classList.remove('hidden');document.getElementById('uploadBtn').disabled=true;try{const totalFiles=files.length;let processedFiles=0;const fileData=[];for(let i=0;i<files.length;i+=3){const batch=files.slice(i,i+3);const batchData=await Promise.all(batch.map(file=>new Promise(resolve=>{const reader=new FileReader();reader.onload=e=>{processedFiles++;const progress=processedFiles/totalFiles*100;document.getElementById('progressFill').style.width=progress+'%';document.getElementById('progressText').textContent=`Uploading ${processedFiles}/${totalFiles} files...`;resolve({name:file.name,type:file.type,size:file.size,content:e.target.result.substring(0,10000)})};reader.readAsText(file)})));fileData.push(...batchData)}const id='doc_'+Date.now();await db.ref(`documents/${id}`).set({id,name,description,files:fileData,uploadedBy:currentUser.name,uploadedAt:getDateTime()});await logActivity('create',`${currentUser.name} uploaded document: ${name} (${files.length} files)`);showToast(`✅ Uploaded ${files.length} file(s)`);closeModal()}catch(error){showToast('❌ Upload failed: '+error.message,'error')}finally{document.getElementById('uploadProgress').classList.add('hidden');document.getElementById('uploadBtn').disabled=false}};
+const addDocument=async e=>{e.preventDefault();const name=e.target.elements.name.value;const description=e.target.elements.description.value;const files=Array.from(document.getElementById('fileInput').files);if(files.length===0){showToast('❌ Please select files','error');return}showLoading(true,'Uploading...');try{const fileData=files.map(f=>({name:f.name,type:f.type,size:f.size}));const id='doc_'+Date.now();await db.ref(`documents/${id}`).set({id,name,description,files:fileData,uploadedBy:currentUser.name,uploadedAt:getDateTime()});await logActivity('create',`${currentUser.name} uploaded document: ${name}`);showToast(`✅ Uploaded ${files.length} file(s)`);closeModal()}catch(error){showToast('❌ Upload failed: '+error.message,'error')}finally{showLoading(false)}};
 
 const addUrl=async e=>{e.preventDefault();const title=e.target.elements.title.value;const links=Array.from(document.getElementById('urlsContainer').querySelectorAll('input')).map(i=>i.value).filter(Boolean);if(links.length===0){showToast('❌ Add at least one URL','error');return}showLoading(true,'Creating...');try{const id='url_'+Date.now();await db.ref(`urls/${id}`).set({id,title,links,addedBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} added URLs: ${title}`);showToast('✅ URLs added');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const addNote=async e=>{e.preventDefault();const formData=new FormData(e.target);const noteData=Object.fromEntries(formData);showLoading(true,'Creating...');try{const id='note_'+Date.now();await db.ref(`notes/${id}`).set({...noteData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created note: ${noteData.title}`);showToast('✅ Note created');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
+const addNote=async e=>{e.preventDefault();const formData=new FormData(e.target);const noteData={title:formData.get('title'),category:formData.get('category'),content:formData.get('content'),color:formData.get('color'),pinned:formData.get('pinned')==='on'};showLoading(true,'Creating...');try{const id='note_'+Date.now();await db.ref(`notes/${id}`).set({...noteData,id,createdBy:currentUser.name,createdAt:getDateTime()});await logActivity('create',`${currentUser.name} created note: ${noteData.title}`);showToast('✅ Note created');closeModal()}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
 const deleteItem=async(type,id)=>{if(!confirm(`Delete this ${type}?`))return;showLoading(true,'Deleting...');try{const path=type==='user'?`users/${id}`:`${type}s/${id}`;await db.ref(path).remove();await logActivity('delete',`${currentUser.name} deleted ${type}: ${id}`);showToast('✅ Deleted')}catch(error){showToast('❌ Error: '+error.message,'error')}finally{showLoading(false)}};
 
-const canDelete=item=>{if(currentUser.role==='admin')return true;return item.createdBy===currentUser.name||item.uploadedBy===currentUser.name||item.addedBy===currentUser.name};
+const canEdit=item=>{if(currentUser.role==='admin')return true;return item.createdBy===currentUser.name||item.uploadedBy===currentUser.name||item.addedBy===currentUser.name};
 
 const logActivity=async(action,description)=>{try{const id='activity_'+Date.now();await db.ref(`activities/${id}`).set({id,action,description,user:currentUser.name,timestamp:getDateTime()})}catch(error){console.error('Activity log error:',error)}};
+
+document.addEventListener('click',e=>{if(!e.target.closest('#themePicker')&&!e.target.closest('#themeToggle')){document.getElementById('themePicker').classList.add('hidden')}});
 
 window.addEventListener('load',initFirebase);
 window.addEventListener('beforeunload',e=>{if(currentUser){e.preventDefault();e.returnValue=''}});
